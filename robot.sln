@@ -248,6 +248,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "x86", "x86", "{05EE531E-016
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "batch", "batch", "{F7F5299A-CA18-41BF-8B70-FFEE570FC56B}"
 	ProjectSection(SolutionItems) = preProject
+		batch\copy-to-linux.bat = batch\copy-to-linux.bat
+		batch\copy-to-pi.bat = batch\copy-to-pi.bat
+		batch\make_makefile.bat = batch\make_makefile.bat
 		Batch\robot_post_build_copy_files.bat = Batch\robot_post_build_copy_files.bat
 	EndProjectSection
 EndProject

@@ -13,7 +13,6 @@ enum FontStyle
   FontStyleItalic
 };
 
-
 class GameFont
 {
 public:
@@ -24,4 +23,3 @@ public:
   int PointSize;
   TTF_Font* Font;    
 };
-
