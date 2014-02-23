@@ -1,0 +1,161 @@
+<?xml version="1.0" ?>
+<theme>
+	<description>Default</description>
+	<name>Default</name>	
+
+	<images>
+		<image id="background" src="background.png" frames="1" frames_per_row="1" rows="1"/>
+		<image id="brick" src="brick.png" frames="1" frames_per_row="1" rows="1"/>
+		<image id="tile" src="tile.png" frames="4"/>
+		<image id="robot" src="robot.png" frames="8"/>
+		<image id="board_rotation_arrow" src="board_rotation_arrow.png" frames="2" />
+		<image id="command_bar" src="command_bar.png" frames="8" />
+		<image id="general_buttons" src="general_buttons.png" frames="4" />
+	</images>
+	
+	<color id="background" value="292929"/> 	
+	
+	
+	<font id="general" value="bariol-regular.ttf" point_size="20"/> 	
+	<font id="debug_info" value="bariol-regular.ttf" point_size="12"/> 		
+	
+	<color id="debug_text_color" value="FFFFFF"/>
+	
+	<objects>
+		<object id="background">
+			<object_images>			
+				<object_image image="background" frame="1" tile="true" />							
+			</object_images>
+		</object>
+		
+		<object id="brick">
+			<object_images>			
+				<object_image image="brick" frame="1"/>							
+			</object_images>
+		</object>
+		
+		<object id="robot" scale_to_parent="0.60" >
+			<object_images>			
+				<object_image image="robot" frame_start="1" frame_end="8" automatically_calculate_frame="false"/>							
+			</object_images>
+		</object>
+			
+		<object id="tile">
+			<object_images>			
+				<object_image image="tile" frame="1"/>							
+			</object_images>
+		</object>
+		<object id="tile_off">
+			<object_images>			
+				<object_image image="tile" frame="2"/>								
+			</object_images>
+		</object>
+		
+		<object id="tile_on">
+			<object_images>			
+				<object_image image="tile" frame="3"/>				
+				<object_image image="tile" frame="4" alpha_start="0" alpha_end="255" alpha_step="1" alpha_per_second="200" />			
+				<!-- <object_image image="tile" frame_start="3" frame_end="3"/>	-->
+			</object_images>
+		</object>			
+		
+		<object id="board_rotation_arrow_clockwise">
+			<object_images>			
+				<object_image image="board_rotation_arrow" frame="1" mouse_out="true" mouse_over="true"/>							
+				<object_image image="board_rotation_arrow" frame="2" mouse_down="true"/>							
+			</object_images>
+		</object>
+		
+		<object id="board_rotation_arrow_anti_clockwise">
+			<object_images>			
+				<object_image image="board_rotation_arrow" frame="1" mouse_out="true" mouse_over="true" flip_horizontal="true"/>							
+				<object_image image="board_rotation_arrow" frame="2" mouse_down="true" flip_horizontal="true"/>							
+			</object_images>
+		</object>
+						
+		<object id="button_run_program">
+			<object_images>			
+				<object_image image="general_buttons" frame="1"/>											
+				<object_image image="general_buttons" frame="4" mouse_over="true" alpha_start="50" alpha_end="50"/>															
+			</object_images>
+		</object>
+		
+		<object id="button_stop_program">
+			<object_images>			
+				<object_image image="general_buttons" frame="2" />														
+				<object_image image="general_buttons" frame="4" mouse_over="true" alpha_start="50" alpha_end="50"/>															
+			</object_images>
+		</object>
+		
+		<object id="button_reset_program">
+			<object_images>			
+				<object_image image="general_buttons" frame="3" />	
+				<object_image image="general_buttons" frame="4" mouse_over="true" alpha_start="50" alpha_end="50"/>															
+			</object_images>
+		</object>
+		
+		
+		<object id="command_bar_button_move_forward">
+			<object_images>			
+				<object_image image="command_bar" frame="1"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+			</object_images>
+		</object>
+		
+		<object id="command_bar_button_turn_right_90_degrees">
+			<object_images>			
+				<object_image image="command_bar" frame="2"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+			</object_images>
+		</object>
+		
+		<object id="command_bar_button_turn_left_90_degrees">
+			<object_images>			
+				<object_image image="command_bar" frame="2" flip_horizontal="true"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+			</object_images>
+		</object>
+		
+		<object id="command_bar_button_none">
+			<object_images>			
+				<object_image image="command_bar" frame="3"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+			</object_images>
+		</object>		
+		
+		<object id="command_bar_button_jump">
+			<object_images>			
+				<object_image image="command_bar" frame="4"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+			</object_images>
+		</object>		
+		
+		<object id="command_bar_button_switch_light_switch">
+			<object_images>							
+				<object_image image="command_bar" frame="5"/>															
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+			</object_images>
+		</object>
+		
+		<object id="command_bar_button_function_1">
+			<object_images>			
+				<object_image image="command_bar" frame="6"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+			</object_images>
+		</object>
+		
+		<object id="command_bar_button_function_2">
+			<object_images>			
+				<object_image image="command_bar" frame="7"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+			</object_images>
+		</object>	
+	</objects>
+	<!--
+	<theme_image id="tile" image="tile" frame_start="1"/>
+	<theme_image id="tile_off" image="tile" frame_start="2" frame_end="2"/>
+	<theme_image id="tile_on" image="tile" frame_start="3" frame_end="6" frames_per_second="5" frame_cycle_mode="back_and_forth"/>
+	<theme_image id="tile_on_alpha_overlay" image="tile" frame_start="6" alpha_per_second="5" alpha_start="10" alpha_end="255" alpha_step="10"/>
+	-->
+	
+</theme>

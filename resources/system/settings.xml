@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<system>
+	<font_files>	  				
+	</font_files>		
+	<settings>	
+		<setting name="frames_per_second" value="60"/>
+		<setting name="render_bricks_as_tower_blocks" value="true"/>
+		<setting name="render_board_in_one_go" value="true"/>		
+	</settings>	
+</system>

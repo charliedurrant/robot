@@ -1,0 +1,1 @@
+.\tools\makeitso\makeitso.exe "%~dp0robot.sln"

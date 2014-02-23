@@ -1,0 +1,417 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "robot", "robot\robot.vcxproj", "{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "makeitso", "makeitso", "{9D15C46D-7316-42FD-90F9-1E843E368441}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeItSo", "makeitso\MakeItSo\MakeItSo.csproj", "{1E0D259F-0132-4DDF-8E57-E493801DC7A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeItSoLib", "makeitso\MakeItSoLib\MakeItSoLib.csproj", "{EF45162C-2901-49FE-A4DF-67223B44E61C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionParser_VS2008", "makeitso\SolutionParser_VS2008\SolutionParser_VS2008.csproj", "{EE467C35-87D8-461D-A102-DFDDB45613B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionParser_VS2010", "makeitso\SolutionParser_VS2010\SolutionParser_VS2010.csproj", "{9194750C-6492-44AF-B18C-4247AC16D32B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionParser_VS2012", "makeitso\SolutionParser_VS2012\SolutionParser_VS2012.csproj", "{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner", "makeitso\TestRunner\TestRunner.csproj", "{1C19E982-5382-45A1-A57B-B3C8C0D04E78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resources", "resources", "{B21991DF-47FC-41B7-A8B4-AF010852A829}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "level_packs", "level_packs", "{EAB34570-9AB7-4D64-AC22-391DF25B9F8B}"
+	ProjectSection(SolutionItems) = preProject
+		resources\level_packs\level_packs.xml = resources\level_packs\level_packs.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "basic", "basic", "{000A887B-3A7D-499F-8F29-57450DCB9666}"
+	ProjectSection(SolutionItems) = preProject
+		resources\level_packs\basic\level_pack.xml = resources\level_packs\basic\level_pack.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "system", "system", "{6E0865AD-4424-4F28-B30A-28C7B7F03535}"
+	ProjectSection(SolutionItems) = preProject
+		resources\system\settings.xml = resources\system\settings.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fonts", "fonts", "{5E57840F-78C6-4688-BA45-6A0945F1E0FC}"
+	ProjectSection(SolutionItems) = preProject
+		resources\system\fonts\bariol-regular.ttf = resources\system\fonts\bariol-regular.ttf
+		resources\system\fonts\courier prime - SIL Open Font License.txt = resources\system\fonts\courier prime - SIL Open Font License.txt
+		resources\system\fonts\courier_prime.ttf = resources\system\fonts\courier_prime.ttf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "courier_prime", "courier_prime", "{1C67AF59-1946-4246-9416-1EE16D657AD3}"
+	ProjectSection(SolutionItems) = preProject
+		resources\system\fonts\courier-prime\Courier_Prime_Bold.ttf = resources\system\fonts\courier-prime\Courier_Prime_Bold.ttf
+		resources\system\fonts\courier-prime\Courier_Prime_Bold_Italic.ttf = resources\system\fonts\courier-prime\Courier_Prime_Bold_Italic.ttf
+		resources\system\fonts\courier-prime\Courier_Prime_Italic.ttf = resources\system\fonts\courier-prime\Courier_Prime_Italic.ttf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "themes", "themes", "{2268C2BD-8F60-40F6-9D5A-69101B8D3D2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "default", "default", "{DDFF0533-77E8-46EF-B98F-5AECD0165C69}"
+	ProjectSection(SolutionItems) = preProject
+		resources\themes\default\background.png = resources\themes\default\background.png
+		resources\themes\default\bariol-regular.ttf = resources\themes\default\bariol-regular.ttf
+		resources\themes\default\board_rotation_arrow.png = resources\themes\default\board_rotation_arrow.png
+		resources\themes\default\brick.png = resources\themes\default\brick.png
+		resources\themes\default\command_bar.png = resources\themes\default\command_bar.png
+		resources\themes\default\general_buttons.png = resources\themes\default\general_buttons.png
+		resources\themes\default\robot.png = resources\themes\default\robot.png
+		resources\themes\default\theme.xml = resources\themes\default\theme.xml
+		resources\themes\default\tile.png = resources\themes\default\tile.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{F0B33818-0723-4548-9DD0-25ACEBDDF193}"
+	ProjectSection(SolutionItems) = preProject
+		resources\themes\default\source\background_grey.png = resources\themes\default\source\background_grey.png
+		resources\themes\default\source\background_orange.png = resources\themes\default\source\background_orange.png
+		resources\themes\default\source\board_rotation_arrow.cdr = resources\themes\default\source\board_rotation_arrow.cdr
+		resources\themes\default\source\brick.cdr = resources\themes\default\source\brick.cdr
+		resources\themes\default\source\brick_and_tile.ai = resources\themes\default\source\brick_and_tile.ai
+		resources\themes\default\source\brick_and_tile.cdr = resources\themes\default\source\brick_and_tile.cdr
+		resources\themes\default\source\command_bar.ai = resources\themes\default\source\command_bar.ai
+		resources\themes\default\source\command_bar.cdr = resources\themes\default\source\command_bar.cdr
+		resources\themes\default\source\corel_draw_kano_pallette.cpl = resources\themes\default\source\corel_draw_kano_pallette.cpl
+		resources\themes\default\source\general_buttons.ai = resources\themes\default\source\general_buttons.ai
+		resources\themes\default\source\general_buttons.cdr = resources\themes\default\source\general_buttons.cdr
+		resources\themes\default\source\robot.ai = resources\themes\default\source\robot.ai
+		resources\themes\default\source\robot.cdr = resources\themes\default\source\robot.cdr
+		resources\themes\default\source\spring.svg = resources\themes\default\source\spring.svg
+		resources\themes\default\source\tile.cdr = resources\themes\default\source\tile.cdr
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{D843BFD3-5F97-423B-9287-5E4AD45A9E55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdl2", "sdl2", "{42BDB31D-4860-4882-8C19-7D618DDC6CD7}"
+	ProjectSection(SolutionItems) = preProject
+		libraries\SDL2\SDL2-2.0.1-win32-x86.zip = libraries\SDL2\SDL2-2.0.1-win32-x86.zip
+		libraries\SDL2\SDL2-devel-2.0.1-VC.zip = libraries\SDL2\SDL2-devel-2.0.1-VC.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library", "library", "{7835C484-5185-4F19-A381-E33080162477}"
+	ProjectSection(SolutionItems) = preProject
+		libraries\SDL2\Library\BUGS.txt = libraries\SDL2\Library\BUGS.txt
+		libraries\SDL2\Library\COPYING.txt = libraries\SDL2\Library\COPYING.txt
+		libraries\SDL2\Library\README-SDL.txt = libraries\SDL2\Library\README-SDL.txt
+		libraries\SDL2\Library\README.txt = libraries\SDL2\Library\README.txt
+		libraries\SDL2\Library\WhatsNew.txt = libraries\SDL2\Library\WhatsNew.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "include", "include", "{3196D41C-31EE-4F39-9E0C-97F5CA01AE5C}"
+	ProjectSection(SolutionItems) = preProject
+		libraries\SDL2\Library\include\begin_code.h = libraries\SDL2\Library\include\begin_code.h
+		libraries\SDL2\Library\include\close_code.h = libraries\SDL2\Library\include\close_code.h
+		libraries\SDL2\Library\include\SDL.h = libraries\SDL2\Library\include\SDL.h
+		libraries\SDL2\Library\include\SDL_assert.h = libraries\SDL2\Library\include\SDL_assert.h
+		libraries\SDL2\Library\include\SDL_atomic.h = libraries\SDL2\Library\include\SDL_atomic.h
+		libraries\SDL2\Library\include\SDL_audio.h = libraries\SDL2\Library\include\SDL_audio.h
+		libraries\SDL2\Library\include\SDL_bits.h = libraries\SDL2\Library\include\SDL_bits.h
+		libraries\SDL2\Library\include\SDL_blendmode.h = libraries\SDL2\Library\include\SDL_blendmode.h
+		libraries\SDL2\Library\include\SDL_clipboard.h = libraries\SDL2\Library\include\SDL_clipboard.h
+		libraries\SDL2\Library\include\SDL_config.h = libraries\SDL2\Library\include\SDL_config.h
+		libraries\SDL2\Library\include\SDL_cpuinfo.h = libraries\SDL2\Library\include\SDL_cpuinfo.h
+		libraries\SDL2\Library\include\SDL_endian.h = libraries\SDL2\Library\include\SDL_endian.h
+		libraries\SDL2\Library\include\SDL_error.h = libraries\SDL2\Library\include\SDL_error.h
+		libraries\SDL2\Library\include\SDL_events.h = libraries\SDL2\Library\include\SDL_events.h
+		libraries\SDL2\Library\include\SDL_filesystem.h = libraries\SDL2\Library\include\SDL_filesystem.h
+		libraries\SDL2\Library\include\SDL_gamecontroller.h = libraries\SDL2\Library\include\SDL_gamecontroller.h
+		libraries\SDL2\Library\include\SDL_gesture.h = libraries\SDL2\Library\include\SDL_gesture.h
+		libraries\SDL2\Library\include\SDL_haptic.h = libraries\SDL2\Library\include\SDL_haptic.h
+		libraries\SDL2\Library\include\SDL_hints.h = libraries\SDL2\Library\include\SDL_hints.h
+		libraries\SDL2\Library\include\SDL_joystick.h = libraries\SDL2\Library\include\SDL_joystick.h
+		libraries\SDL2\Library\include\SDL_keyboard.h = libraries\SDL2\Library\include\SDL_keyboard.h
+		libraries\SDL2\Library\include\SDL_keycode.h = libraries\SDL2\Library\include\SDL_keycode.h
+		libraries\SDL2\Library\include\SDL_loadso.h = libraries\SDL2\Library\include\SDL_loadso.h
+		libraries\SDL2\Library\include\SDL_log.h = libraries\SDL2\Library\include\SDL_log.h
+		libraries\SDL2\Library\include\SDL_main.h = libraries\SDL2\Library\include\SDL_main.h
+		libraries\SDL2\Library\include\SDL_messagebox.h = libraries\SDL2\Library\include\SDL_messagebox.h
+		libraries\SDL2\Library\include\SDL_mouse.h = libraries\SDL2\Library\include\SDL_mouse.h
+		libraries\SDL2\Library\include\SDL_mutex.h = libraries\SDL2\Library\include\SDL_mutex.h
+		libraries\SDL2\Library\include\SDL_name.h = libraries\SDL2\Library\include\SDL_name.h
+		libraries\SDL2\Library\include\SDL_opengl.h = libraries\SDL2\Library\include\SDL_opengl.h
+		libraries\SDL2\Library\include\SDL_opengles.h = libraries\SDL2\Library\include\SDL_opengles.h
+		libraries\SDL2\Library\include\SDL_opengles2.h = libraries\SDL2\Library\include\SDL_opengles2.h
+		libraries\SDL2\Library\include\SDL_pixels.h = libraries\SDL2\Library\include\SDL_pixels.h
+		libraries\SDL2\Library\include\SDL_platform.h = libraries\SDL2\Library\include\SDL_platform.h
+		libraries\SDL2\Library\include\SDL_power.h = libraries\SDL2\Library\include\SDL_power.h
+		libraries\SDL2\Library\include\SDL_quit.h = libraries\SDL2\Library\include\SDL_quit.h
+		libraries\SDL2\Library\include\SDL_rect.h = libraries\SDL2\Library\include\SDL_rect.h
+		libraries\SDL2\Library\include\SDL_render.h = libraries\SDL2\Library\include\SDL_render.h
+		libraries\SDL2\Library\include\SDL_revision.h = libraries\SDL2\Library\include\SDL_revision.h
+		libraries\SDL2\Library\include\SDL_rwops.h = libraries\SDL2\Library\include\SDL_rwops.h
+		libraries\SDL2\Library\include\SDL_scancode.h = libraries\SDL2\Library\include\SDL_scancode.h
+		libraries\SDL2\Library\include\SDL_shape.h = libraries\SDL2\Library\include\SDL_shape.h
+		libraries\SDL2\Library\include\SDL_stdinc.h = libraries\SDL2\Library\include\SDL_stdinc.h
+		libraries\SDL2\Library\include\SDL_surface.h = libraries\SDL2\Library\include\SDL_surface.h
+		libraries\SDL2\Library\include\SDL_system.h = libraries\SDL2\Library\include\SDL_system.h
+		libraries\SDL2\Library\include\SDL_syswm.h = libraries\SDL2\Library\include\SDL_syswm.h
+		libraries\SDL2\Library\include\SDL_test.h = libraries\SDL2\Library\include\SDL_test.h
+		libraries\SDL2\Library\include\SDL_test_assert.h = libraries\SDL2\Library\include\SDL_test_assert.h
+		libraries\SDL2\Library\include\SDL_test_common.h = libraries\SDL2\Library\include\SDL_test_common.h
+		libraries\SDL2\Library\include\SDL_test_compare.h = libraries\SDL2\Library\include\SDL_test_compare.h
+		libraries\SDL2\Library\include\SDL_test_crc32.h = libraries\SDL2\Library\include\SDL_test_crc32.h
+		libraries\SDL2\Library\include\SDL_test_font.h = libraries\SDL2\Library\include\SDL_test_font.h
+		libraries\SDL2\Library\include\SDL_test_fuzzer.h = libraries\SDL2\Library\include\SDL_test_fuzzer.h
+		libraries\SDL2\Library\include\SDL_test_harness.h = libraries\SDL2\Library\include\SDL_test_harness.h
+		libraries\SDL2\Library\include\SDL_test_images.h = libraries\SDL2\Library\include\SDL_test_images.h
+		libraries\SDL2\Library\include\SDL_test_log.h = libraries\SDL2\Library\include\SDL_test_log.h
+		libraries\SDL2\Library\include\SDL_test_md5.h = libraries\SDL2\Library\include\SDL_test_md5.h
+		libraries\SDL2\Library\include\SDL_test_random.h = libraries\SDL2\Library\include\SDL_test_random.h
+		libraries\SDL2\Library\include\SDL_thread.h = libraries\SDL2\Library\include\SDL_thread.h
+		libraries\SDL2\Library\include\SDL_timer.h = libraries\SDL2\Library\include\SDL_timer.h
+		libraries\SDL2\Library\include\SDL_touch.h = libraries\SDL2\Library\include\SDL_touch.h
+		libraries\SDL2\Library\include\SDL_types.h = libraries\SDL2\Library\include\SDL_types.h
+		libraries\SDL2\Library\include\SDL_version.h = libraries\SDL2\Library\include\SDL_version.h
+		libraries\SDL2\Library\include\SDL_video.h = libraries\SDL2\Library\include\SDL_video.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{0FD0CD3C-2CB2-4498-833D-214AD3DA0D34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "x86", "x86", "{547C026D-97A8-4847-93E8-23E7254FBC7F}"
+	ProjectSection(SolutionItems) = preProject
+		libraries\SDL2\Library\lib\x86\SDL2.dll = libraries\SDL2\Library\lib\x86\SDL2.dll
+		libraries\SDL2\Library\lib\x86\SDL2.lib = libraries\SDL2\Library\lib\x86\SDL2.lib
+		libraries\SDL2\Library\lib\x86\SDL2main.lib = libraries\SDL2\Library\lib\x86\SDL2main.lib
+		libraries\SDL2\Library\lib\x86\SDL2test.lib = libraries\SDL2\Library\lib\x86\SDL2test.lib
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdl2_ttf", "sdl2_ttf", "{9A28BD7E-D4C6-4A4F-96C4-27EE688CFDDD}"
+	ProjectSection(SolutionItems) = preProject
+		libraries\SDL2_TTF\SDL2_ttf-2.0.12-win32-x86.zip = libraries\SDL2_TTF\SDL2_ttf-2.0.12-win32-x86.zip
+		libraries\SDL2_TTF\SDL2_ttf-devel-2.0.12-VC.zip = libraries\SDL2_TTF\SDL2_ttf-devel-2.0.12-VC.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library", "library", "{2380E547-5A0F-45D0-BD8E-1741FC6C33E6}"
+	ProjectSection(SolutionItems) = preProject
+		Libraries\SDL2_TTF\Library\CHANGES.txt = Libraries\SDL2_TTF\Library\CHANGES.txt
+		Libraries\SDL2_TTF\Library\COPYING.txt = Libraries\SDL2_TTF\Library\COPYING.txt
+		Libraries\SDL2_TTF\Library\README.txt = Libraries\SDL2_TTF\Library\README.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdl2_image", "sdl2_image", "{A2F2A034-8214-4D3B-B412-D9EC4DDAD3BB}"
+	ProjectSection(SolutionItems) = preProject
+		Libraries\SDL_Image\SDL2_image-2.0.0-win32-x86.zip = Libraries\SDL_Image\SDL2_image-2.0.0-win32-x86.zip
+		Libraries\SDL_Image\SDL2_image-2.0.0.zip = Libraries\SDL_Image\SDL2_image-2.0.0.zip
+		Libraries\SDL_Image\SDL2_image-devel-2.0.0-VC.zip = Libraries\SDL_Image\SDL2_image-devel-2.0.0-VC.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library", "library", "{68318040-C285-407F-93CF-2F4F9E5892F6}"
+	ProjectSection(SolutionItems) = preProject
+		Libraries\SDL_Image\Library\CHANGES.txt = Libraries\SDL_Image\Library\CHANGES.txt
+		Libraries\SDL_Image\Library\COPYING.txt = Libraries\SDL_Image\Library\COPYING.txt
+		Libraries\SDL_Image\Library\README.txt = Libraries\SDL_Image\Library\README.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "inclujde", "inclujde", "{6161F46B-9CBC-4309-A47B-ACA77EBDAEB9}"
+	ProjectSection(SolutionItems) = preProject
+		Libraries\SDL2_TTF\Library\include\SDL_ttf.h = Libraries\SDL2_TTF\Library\include\SDL_ttf.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{3A1ACBA7-3FF5-421E-B76C-FB08352507EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "x86", "x86", "{0D424D45-0A35-4C63-9CE4-27CE406A587C}"
+	ProjectSection(SolutionItems) = preProject
+		Libraries\SDL2_TTF\Library\lib\x86\libfreetype-6.dll = Libraries\SDL2_TTF\Library\lib\x86\libfreetype-6.dll
+		Libraries\SDL2_TTF\Library\lib\x86\LICENSE.freetype.txt = Libraries\SDL2_TTF\Library\lib\x86\LICENSE.freetype.txt
+		Libraries\SDL2_TTF\Library\lib\x86\LICENSE.zlib.txt = Libraries\SDL2_TTF\Library\lib\x86\LICENSE.zlib.txt
+		Libraries\SDL2_TTF\Library\lib\x86\SDL2_ttf.dll = Libraries\SDL2_TTF\Library\lib\x86\SDL2_ttf.dll
+		Libraries\SDL2_TTF\Library\lib\x86\SDL2_ttf.lib = Libraries\SDL2_TTF\Library\lib\x86\SDL2_ttf.lib
+		Libraries\SDL2_TTF\Library\lib\x86\zlib1.dll = Libraries\SDL2_TTF\Library\lib\x86\zlib1.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "include", "include", "{5D316541-8BB5-4D1F-990E-D9F0FC29F6F5}"
+	ProjectSection(SolutionItems) = preProject
+		Libraries\SDL_Image\Library\include\SDL_image.h = Libraries\SDL_Image\Library\include\SDL_image.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{12132CA7-8BEA-4C61-92FC-C9C5CFFB8348}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "x86", "x86", "{05EE531E-0165-4EDB-9984-567380141438}"
+	ProjectSection(SolutionItems) = preProject
+		Libraries\SDL_Image\Library\lib\x86\libjpeg-9.dll = Libraries\SDL_Image\Library\lib\x86\libjpeg-9.dll
+		Libraries\SDL_Image\Library\lib\x86\libpng16-16.dll = Libraries\SDL_Image\Library\lib\x86\libpng16-16.dll
+		Libraries\SDL_Image\Library\lib\x86\libtiff-5.dll = Libraries\SDL_Image\Library\lib\x86\libtiff-5.dll
+		Libraries\SDL_Image\Library\lib\x86\libwebp-4.dll = Libraries\SDL_Image\Library\lib\x86\libwebp-4.dll
+		Libraries\SDL_Image\Library\lib\x86\LICENSE.jpeg.txt = Libraries\SDL_Image\Library\lib\x86\LICENSE.jpeg.txt
+		Libraries\SDL_Image\Library\lib\x86\LICENSE.png.txt = Libraries\SDL_Image\Library\lib\x86\LICENSE.png.txt
+		Libraries\SDL_Image\Library\lib\x86\LICENSE.tiff.txt = Libraries\SDL_Image\Library\lib\x86\LICENSE.tiff.txt
+		Libraries\SDL_Image\Library\lib\x86\LICENSE.webp.txt = Libraries\SDL_Image\Library\lib\x86\LICENSE.webp.txt
+		Libraries\SDL_Image\Library\lib\x86\LICENSE.zlib.txt = Libraries\SDL_Image\Library\lib\x86\LICENSE.zlib.txt
+		Libraries\SDL_Image\Library\lib\x86\SDL2_image.dll = Libraries\SDL_Image\Library\lib\x86\SDL2_image.dll
+		Libraries\SDL_Image\Library\lib\x86\SDL2_image.lib = Libraries\SDL_Image\Library\lib\x86\SDL2_image.lib
+		Libraries\SDL_Image\Library\lib\x86\zlib1.dll = Libraries\SDL_Image\Library\lib\x86\zlib1.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "batch", "batch", "{F7F5299A-CA18-41BF-8B70-FFEE570FC56B}"
+	ProjectSection(SolutionItems) = preProject
+		Batch\robot_post_build_copy_files.bat = Batch\robot_post_build_copy_files.bat
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{02685896-3768-4DE0-A1FC-C72D09930C48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "makeitso", "makeitso", "{69EBC6ED-DC7D-46FE-A67A-2D62808D8003}"
+	ProjectSection(SolutionItems) = preProject
+		tools\makeitso\MakeItSo.exe = tools\makeitso\MakeItSo.exe
+		tools\makeitso\MakeItSoLib.dll = tools\makeitso\MakeItSoLib.dll
+		tools\makeitso\SolutionParser_VS2010.dll = tools\makeitso\SolutionParser_VS2010.dll
+		tools\makeitso\SolutionParser_VS2012.dll = tools\makeitso\SolutionParser_VS2012.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "linux", "linux", "{7704E713-9F6B-41CE-A3E5-1318314EB5F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build_dependencies", "build_dependencies", "{2C59DB2B-3549-420A-9302-16EE44C947E7}"
+	ProjectSection(SolutionItems) = preProject
+		linux\build_dependencies\39_tiling.zip = linux\build_dependencies\39_tiling.zip
+		linux\build_dependencies\compile.sh = linux\build_dependencies\compile.sh
+		linux\build_dependencies\install-sdl2-image.sh = linux\build_dependencies\install-sdl2-image.sh
+		linux\build_dependencies\install-sdl2.sh.old = linux\build_dependencies\install-sdl2.sh.old
+		linux\build_dependencies\install-sdl2.sh.old.sh = linux\build_dependencies\install-sdl2.sh.old.sh
+		linux\build_dependencies\myinstall.sh = linux\build_dependencies\myinstall.sh
+		linux\build_dependencies\robot-install.sh = linux\build_dependencies\robot-install.sh
+		linux\build_dependencies\smb.conf.txt = linux\build_dependencies\smb.conf.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{752560C5-595E-4443-9DAB-D2BA02A5D9DD}"
+	ProjectSection(SolutionItems) = preProject
+		notes.txt = notes.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+		Release|x86 = Release|x86
+		Description = Robot
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Debug|Win32.Build.0 = Debug|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Debug|x86.ActiveCfg = Debug|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Debug|x86.Build.0 = Debug|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Release|Any CPU.ActiveCfg = Release|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Release|Win32.ActiveCfg = Release|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Release|Win32.Build.0 = Release|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Release|x86.ActiveCfg = Release|Win32
+		{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}.Release|x86.Build.0 = Release|Win32
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Debug|Win32.ActiveCfg = Debug|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Debug|Win32.Build.0 = Debug|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Debug|x86.ActiveCfg = Debug|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Debug|x86.Build.0 = Debug|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Release|Any CPU.ActiveCfg = Release|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Release|Win32.ActiveCfg = Release|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Release|Win32.Build.0 = Release|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Release|x86.ActiveCfg = Release|x86
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6}.Release|x86.Build.0 = Release|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Debug|Win32.ActiveCfg = Debug|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Debug|Win32.Build.0 = Debug|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Debug|x86.ActiveCfg = Debug|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Debug|x86.Build.0 = Debug|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Release|Any CPU.ActiveCfg = Release|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Release|Win32.ActiveCfg = Release|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Release|Win32.Build.0 = Release|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Release|x86.ActiveCfg = Release|x86
+		{EF45162C-2901-49FE-A4DF-67223B44E61C}.Release|x86.Build.0 = Release|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Debug|Win32.ActiveCfg = Debug|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Debug|Win32.Build.0 = Debug|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Debug|x86.ActiveCfg = Debug|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Debug|x86.Build.0 = Debug|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Release|Any CPU.ActiveCfg = Release|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Release|Win32.ActiveCfg = Release|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Release|Win32.Build.0 = Release|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Release|x86.ActiveCfg = Release|x86
+		{EE467C35-87D8-461D-A102-DFDDB45613B3}.Release|x86.Build.0 = Release|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Debug|Win32.ActiveCfg = Debug|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Debug|Win32.Build.0 = Debug|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Debug|x86.ActiveCfg = Debug|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Debug|x86.Build.0 = Debug|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Release|Any CPU.ActiveCfg = Release|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Release|Win32.ActiveCfg = Release|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Release|Win32.Build.0 = Release|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Release|x86.ActiveCfg = Release|x86
+		{9194750C-6492-44AF-B18C-4247AC16D32B}.Release|x86.Build.0 = Release|x86
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}.Release|Win32.ActiveCfg = Release|Any CPU
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1}.Release|x86.ActiveCfg = Release|Any CPU
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Debug|Win32.ActiveCfg = Debug|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Debug|Win32.Build.0 = Debug|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Debug|x86.ActiveCfg = Debug|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Debug|x86.Build.0 = Debug|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Release|Any CPU.ActiveCfg = Release|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Release|Win32.ActiveCfg = Release|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Release|Win32.Build.0 = Release|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Release|x86.ActiveCfg = Release|x86
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1E0D259F-0132-4DDF-8E57-E493801DC7A6} = {9D15C46D-7316-42FD-90F9-1E843E368441}
+		{EF45162C-2901-49FE-A4DF-67223B44E61C} = {9D15C46D-7316-42FD-90F9-1E843E368441}
+		{EE467C35-87D8-461D-A102-DFDDB45613B3} = {9D15C46D-7316-42FD-90F9-1E843E368441}
+		{9194750C-6492-44AF-B18C-4247AC16D32B} = {9D15C46D-7316-42FD-90F9-1E843E368441}
+		{9A2A7A58-56D3-4ABF-8250-08A89B71A8E1} = {9D15C46D-7316-42FD-90F9-1E843E368441}
+		{1C19E982-5382-45A1-A57B-B3C8C0D04E78} = {9D15C46D-7316-42FD-90F9-1E843E368441}
+		{EAB34570-9AB7-4D64-AC22-391DF25B9F8B} = {B21991DF-47FC-41B7-A8B4-AF010852A829}
+		{6E0865AD-4424-4F28-B30A-28C7B7F03535} = {B21991DF-47FC-41B7-A8B4-AF010852A829}
+		{2268C2BD-8F60-40F6-9D5A-69101B8D3D2B} = {B21991DF-47FC-41B7-A8B4-AF010852A829}
+		{000A887B-3A7D-499F-8F29-57450DCB9666} = {EAB34570-9AB7-4D64-AC22-391DF25B9F8B}
+		{5E57840F-78C6-4688-BA45-6A0945F1E0FC} = {6E0865AD-4424-4F28-B30A-28C7B7F03535}
+		{1C67AF59-1946-4246-9416-1EE16D657AD3} = {5E57840F-78C6-4688-BA45-6A0945F1E0FC}
+		{DDFF0533-77E8-46EF-B98F-5AECD0165C69} = {2268C2BD-8F60-40F6-9D5A-69101B8D3D2B}
+		{F0B33818-0723-4548-9DD0-25ACEBDDF193} = {DDFF0533-77E8-46EF-B98F-5AECD0165C69}
+		{42BDB31D-4860-4882-8C19-7D618DDC6CD7} = {D843BFD3-5F97-423B-9287-5E4AD45A9E55}
+		{9A28BD7E-D4C6-4A4F-96C4-27EE688CFDDD} = {D843BFD3-5F97-423B-9287-5E4AD45A9E55}
+		{A2F2A034-8214-4D3B-B412-D9EC4DDAD3BB} = {D843BFD3-5F97-423B-9287-5E4AD45A9E55}
+		{7835C484-5185-4F19-A381-E33080162477} = {42BDB31D-4860-4882-8C19-7D618DDC6CD7}
+		{3196D41C-31EE-4F39-9E0C-97F5CA01AE5C} = {7835C484-5185-4F19-A381-E33080162477}
+		{0FD0CD3C-2CB2-4498-833D-214AD3DA0D34} = {7835C484-5185-4F19-A381-E33080162477}
+		{547C026D-97A8-4847-93E8-23E7254FBC7F} = {0FD0CD3C-2CB2-4498-833D-214AD3DA0D34}
+		{2380E547-5A0F-45D0-BD8E-1741FC6C33E6} = {9A28BD7E-D4C6-4A4F-96C4-27EE688CFDDD}
+		{6161F46B-9CBC-4309-A47B-ACA77EBDAEB9} = {2380E547-5A0F-45D0-BD8E-1741FC6C33E6}
+		{3A1ACBA7-3FF5-421E-B76C-FB08352507EC} = {2380E547-5A0F-45D0-BD8E-1741FC6C33E6}
+		{68318040-C285-407F-93CF-2F4F9E5892F6} = {A2F2A034-8214-4D3B-B412-D9EC4DDAD3BB}
+		{5D316541-8BB5-4D1F-990E-D9F0FC29F6F5} = {68318040-C285-407F-93CF-2F4F9E5892F6}
+		{12132CA7-8BEA-4C61-92FC-C9C5CFFB8348} = {68318040-C285-407F-93CF-2F4F9E5892F6}
+		{0D424D45-0A35-4C63-9CE4-27CE406A587C} = {3A1ACBA7-3FF5-421E-B76C-FB08352507EC}
+		{05EE531E-0165-4EDB-9984-567380141438} = {12132CA7-8BEA-4C61-92FC-C9C5CFFB8348}
+		{69EBC6ED-DC7D-46FE-A67A-2D62808D8003} = {02685896-3768-4DE0-A1FC-C72D09930C48}
+		{2C59DB2B-3549-420A-9302-16EE44C947E7} = {7704E713-9F6B-41CE-A3E5-1318314EB5F6}
+	EndGlobalSection
+EndGlobal

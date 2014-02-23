@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="header files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="source files\framework">
+      <UniqueIdentifier>{1c6b535c-cff0-4e93-8807-12077ce283d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source files\framework\3rdParty">
+      <UniqueIdentifier>{677543b2-f52a-43d4-8816-c7aa6b716a6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source files\framework\3rdParty\format">
+      <UniqueIdentifier>{be5a25a9-c3a6-4e85-a6f5-f9370ecb2797}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source files\framework\3rdParty\tinyxml">
+      <UniqueIdentifier>{10c33eaf-431f-4862-b5c2-03d45b901f2d}</UniqueIdentifier>
+      <Extensions>tiny*.c*</Extensions>
+    </Filter>
+    <Filter Include="source files\levels">
+      <UniqueIdentifier>{6c568e47-e0ab-4100-8ae5-e9034fb1425b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source files\objects">
+      <UniqueIdentifier>{c02e1094-b45b-4006-96eb-3eaf99c5cf69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source files\states">
+      <UniqueIdentifier>{d5d24f13-05d6-403b-9ea7-f4e159b62c0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\framework">
+      <UniqueIdentifier>{94036c8c-b2d8-4718-8dc3-67627b1e100e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\levels">
+      <UniqueIdentifier>{830cb203-7d8a-418a-901c-366fca2eae0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\objects">
+      <UniqueIdentifier>{846b8429-0fed-4fff-8807-fcbe5259d3a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\states">
+      <UniqueIdentifier>{a225e9f9-6c6e-47c1-aee4-ba9089dbae93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\framework\3rd_party">
+      <UniqueIdentifier>{817cfdcb-c3d8-4792-b19f-05446dc0efcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\framework\3rd_party\tinyxml">
+      <UniqueIdentifier>{ac15565c-68ec-4ec0-a054-2438bb023d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files\framework\3rd_party\format">
+      <UniqueIdentifier>{010e2e7d-838c-4895-b1c1-78f56a290a73}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tinystr.cpp">
+      <Filter>source files\framework\3rdParty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml.cpp">
+      <Filter>source files\framework\3rdParty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlerror.cpp">
+      <Filter>source files\framework\3rdParty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlparser.cpp">
+      <Filter>source files\framework\3rdParty\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="format.cc">
+      <Filter>source files\framework\3rdParty\format</Filter>
+    </ClCompile>
+    <ClCompile Include="base_game_theme.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="color.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="exception.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="font_manager.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="font_manager_font.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="functions.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="game_font.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="game_object.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="game_objects.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="image.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="image_manager.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="input_handler.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse_data.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="settings_base.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="split_path.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="state.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="state_manager.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="theme_object.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="theme_object_image.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="types.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="vector_2d.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="level.cpp">
+      <Filter>source files\levels</Filter>
+    </ClCompile>
+    <ClCompile Include="level_pack.cpp">
+      <Filter>source files\levels</Filter>
+    </ClCompile>
+    <ClCompile Include="level_packs.cpp">
+      <Filter>source files\levels</Filter>
+    </ClCompile>
+    <ClCompile Include="level_square.cpp">
+      <Filter>source files\levels</Filter>
+    </ClCompile>
+    <ClCompile Include="board.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="board_rotation_arrow.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="board_square.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="button_bar.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="command_bar.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="command_bar_button.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="debug_info.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="label.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="menu_item.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="robot.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="standard_background.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="error_state.cpp">
+      <Filter>source files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="menu_state.cpp">
+      <Filter>source files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="play_state.cpp">
+      <Filter>source files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="my_game.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="robot_program.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="settings.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="theme.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="format.h">
+      <Filter>header files\framework\3rd_party\format</Filter>
+    </ClInclude>
+    <ClInclude Include="tinystr.h">
+      <Filter>header files\framework\3rd_party\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml.h">
+      <Filter>header files\framework\3rd_party\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="base_game_theme.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="const.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="exception.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="font_manager.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="font_manager_font.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="functions.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="game_font.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="game_objects.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="image_manager.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="input_handler.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="settings_base.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="split_path.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="state.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="state_manager.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="theme_object.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="theme_object_image.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="vector_2d.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="level.h">
+      <Filter>header files\levels</Filter>
+    </ClInclude>
+    <ClInclude Include="level_pack.h">
+      <Filter>header files\levels</Filter>
+    </ClInclude>
+    <ClInclude Include="level_packs.h">
+      <Filter>header files\levels</Filter>
+    </ClInclude>
+    <ClInclude Include="level_square.h">
+      <Filter>header files\levels</Filter>
+    </ClInclude>
+    <ClInclude Include="board.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="board_rotation_arrow.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="board_square.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="button_bar.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="command_bar.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="command_bar_button.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="debug_info.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="menu_item.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="robot.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="standard_background.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="error_state.h">
+      <Filter>header files\states</Filter>
+    </ClInclude>
+    <ClInclude Include="menu_state.h">
+      <Filter>header files\states</Filter>
+    </ClInclude>
+    <ClInclude Include="play_state.h">
+      <Filter>header files\states</Filter>
+    </ClInclude>
+    <ClInclude Include="headers.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="my_game.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_program.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="settings.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="theme.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="label.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse_data.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.txt" />
+    <None Include="post_build_copy_files.bat">
+      <Filter>source files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

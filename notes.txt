@@ -1,0 +1,22 @@
+Add solution to GitHub
+
+1.Open the solution in Visual Studio 2013
+2.Select File | Add to Source Control
+
+That creates a local GIT repository
+1.Surf to GitHub
+2.Create a new repository DO NOT SELECT Initialize this repository with a README 
+
+That creates an empty repository with no Master branch
+1.Once created open the repository and copy the URL (it's on the right of the screen in the current version)
+2.Go back to Visual Studio
+3.Open Team Explorer
+4.Select Home | Unsynced Commits
+5.Enter the GitHub URL into the yellow box
+6.Click Publish
+7.Select Home | Changes
+8.Add a Commit comment
+9.Select Commit and Push from the drop down
+
+Your solution is now in GitHub
+

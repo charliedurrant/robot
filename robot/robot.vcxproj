@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="10.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}</ProjectGuid>
+    <RootNamespace>Robot</RootNamespace>
+    <ProjectName>robot</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>../Libraries\SDL2\Library\include\;../Libraries\SDL_image\Library\include\;../Libraries\SDL2_ttf\Library\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>../Libraries\SDL2\Library\lib\x86;../Libraries\SDL_Image\Library\lib\x86;../Libraries\SDL2_TTF\Library\lib\x86;$(LibraryPath)</LibraryPath>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>../libraries\sdl2\library\include\;../libraries\sdl2_image\library\include;../libraries\sdl2_ttf\library\include;$(IncludePath)</IncludePath>
+    <LibraryPath>../libraries\sdl2\library\lib\x86;../libraries\sdl2_image\Library\lib\x86;../libraries\sdl2_ttf\library\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <Profile>false</Profile>
+      <ShowProgress>LinkVerbose</ShowProgress>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+    </Link>
+    <PostBuildEvent>
+      <Command>call $(ProjectDir)post_build_copy_files.bat  "$(ProjectDir)" "$(OutDir)"
+</Command>
+      <Message>Copy files to output</Message>
+    </PostBuildEvent>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>call $(ProjectDir)..\Batch\robot_post_build_copy_files.bat  "$(ProjectDir)" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="base_game_theme.cpp" />
+    <ClCompile Include="board_square.cpp" />
+    <ClCompile Include="board.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="button.cpp" />
+    <ClCompile Include="button_bar.cpp" />
+    <ClCompile Include="color.cpp" />
+    <ClCompile Include="command_bar.cpp" />
+    <ClCompile Include="command_bar_button.cpp" />
+    <ClCompile Include="error_state.cpp" />
+    <ClCompile Include="debug_info.cpp" />
+    <ClCompile Include="font_manager.cpp" />
+    <ClCompile Include="font_manager_font.cpp" />
+    <ClCompile Include="format.cc" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="exception.cpp" />
+    <ClCompile Include="functions.cpp" />
+    <ClCompile Include="game_font.cpp" />
+    <ClCompile Include="game_objects.cpp" />
+    <ClCompile Include="input_handler.cpp" />
+    <ClCompile Include="label.cpp" />
+    <ClCompile Include="level.cpp" />
+    <ClCompile Include="level_pack.cpp" />
+    <ClCompile Include="level_packs.cpp" />
+    <ClCompile Include="level_square.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu_item.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="menu_state.cpp" />
+    <ClCompile Include="mouse_data.cpp" />
+    <ClCompile Include="my_game.cpp" />
+    <ClCompile Include="game_object.cpp" />
+    <ClCompile Include="image_manager.cpp" />
+    <ClCompile Include="image.cpp" />
+    <ClCompile Include="robot_program.cpp" />
+    <ClCompile Include="settings.cpp" />
+    <ClCompile Include="settings_base.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="theme.cpp" />
+    <ClCompile Include="theme_object_image.cpp" />
+    <ClCompile Include="play_state.cpp" />
+    <ClCompile Include="robot.cpp" />
+    <ClCompile Include="board_rotation_arrow.cpp" />
+    <ClCompile Include="split_path.cpp" />
+    <ClCompile Include="standard_background.cpp" />
+    <ClCompile Include="state.cpp" />
+    <ClCompile Include="state_manager.cpp" />
+    <ClCompile Include="theme_object.cpp" />
+    <ClCompile Include="tinystr.cpp" />
+    <ClCompile Include="tinyxml.cpp" />
+    <ClCompile Include="tinyxmlerror.cpp" />
+    <ClCompile Include="tinyxmlparser.cpp" />
+    <ClCompile Include="types.cpp" />
+    <ClCompile Include="vector_2d.cpp" />
+    <ClCompile Include="window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base_game_theme.h" />
+    <ClInclude Include="board_square.h" />
+    <ClInclude Include="board.h" />
+    <ClInclude Include="button.h" />
+    <ClInclude Include="button_bar.h" />
+    <ClInclude Include="color.h" />
+    <ClInclude Include="command_bar.h" />
+    <ClInclude Include="command_bar_button.h" />
+    <ClInclude Include="error_state.h" />
+    <ClInclude Include="debug_info.h" />
+    <ClInclude Include="font_manager.h" />
+    <ClInclude Include="font_manager_font.h" />
+    <ClInclude Include="format.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="exception.h" />
+    <ClInclude Include="functions.h" />
+    <ClInclude Include="game_font.h" />
+    <ClInclude Include="game_objects.h" />
+    <ClInclude Include="input_handler.h" />
+    <ClInclude Include="label.h" />
+    <ClInclude Include="level.h" />
+    <ClInclude Include="level_pack.h" />
+    <ClInclude Include="level_packs.h" />
+    <ClInclude Include="level_square.h" />
+    <ClInclude Include="menu_item.h" />
+    <ClInclude Include="menu_state.h" />
+    <ClInclude Include="mouse_data.h" />
+    <ClInclude Include="my_game.h" />
+    <ClInclude Include="game_object.h" />
+    <ClInclude Include="headers.h" />
+    <ClInclude Include="image_manager.h" />
+    <ClInclude Include="image.h" />
+    <ClInclude Include="const.h" />
+    <ClInclude Include="robot_program.h" />
+    <ClInclude Include="settings.h" />
+    <ClInclude Include="settings_base.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="theme.h" />
+    <ClInclude Include="theme_object_image.h" />
+    <ClInclude Include="play_state.h" />
+    <ClInclude Include="robot.h" />
+    <ClInclude Include="board_rotation_arrow.h" />
+    <ClInclude Include="split_path.h" />
+    <ClInclude Include="standard_background.h" />
+    <ClInclude Include="state.h" />
+    <ClInclude Include="state_manager.h" />
+    <ClInclude Include="theme_object.h" />
+    <ClInclude Include="tinystr.h" />
+    <ClInclude Include="tinyxml.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="vector_2d.h" />
+    <ClInclude Include="window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="post_build_copy_files.bat" />
+    <None Include="readme.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

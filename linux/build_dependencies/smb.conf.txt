@@ -1,0 +1,23 @@
+[global]
+socket options = TCP_NODELAY
+workgroup = workgroup
+security = user
+wins support = yes
+netbios name = pi
+encrypt passwords = yes
+read only = no
+server string = pi
+hosts allow = ALL
+
+[homes]
+browseable = yes
+writeable = yes
+
+[c$]
+path = /
+comment = c drive
+valid users = root pi
+admin users = root pi
+writeable = yes
+guest ok = yes
+
