@@ -31,6 +31,10 @@ class Game
     bool DebugInfo;
     GameFont* SystemFont; //need a system config section
     Color* SystemFontColor; //TODO: combine with font??!?
+    int TicksCurrentUpdate;
+    int TicksLastUpdate;
+    int TicksDeltaUpdate;
+    float SecondsDeltaUpdate;
   protected:
     bool _quit;  
     bool _sdlInited;

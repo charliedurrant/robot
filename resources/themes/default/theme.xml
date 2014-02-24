@@ -54,7 +54,7 @@
 		<object id="tile_on">
 			<object_images>			
 				<object_image image="tile" frame="3"/>				
-				<object_image image="tile" frame="4" alpha_start="0" alpha_end="255" alpha_step="1" alpha_per_second="200" />			
+				<object_image image="tile" frame="4" alpha_start="0" alpha_end="255" alpha_step="1" alpha_per_second="500" />			
 				<!-- <object_image image="tile" frame_start="3" frame_end="3"/>	-->
 			</object_images>
 		</object>			

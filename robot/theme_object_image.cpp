@@ -117,24 +117,63 @@ int ThemeObjectImage::FrameCalculateByPercentage(float percentage)
 
 void ThemeObjectImage::FrameCalculate(FRAME_DATA* frameData)
 {
-   //I have got to cycle X frames per second
+  //I have got to cycle X frames per second
 
-   //this say I do a certain frame at a certain offset in a second, depending on when we 
-   //call this function we get a different frame and thus 
+  //this say I do a certain frame at a certain offset in a second, depending on when we 
+  //call this function we get a different frame and thus 
 
-   int ticks;
-   int delta;
-   int newFrame = 0;
+  int delta;
+  int newFrame = 0;
+  float secondsElapsed;
+  int frameIncrement;
 
-   ticks = SDL_GetTicks();
-   delta = ticks - frameData->LastTicks;
-   float secondsElapsed  = (float)(delta / 1000.0);
-   int frameIncrement = (int)(secondsElapsed * (float)frameData->PerSecond);
+  if ( frameData->HasFramesToClycle() )
+  {
+    //Game::GameInstance->SecondsDeltaUpdate
+    delta = Game::GameInstance->TicksCurrentUpdate - frameData->LastTicks;
+    secondsElapsed = (float)delta / 1000.0f;
+    frameIncrement =  (int)(secondsElapsed * (float)frameData->PerSecond);;
 
-   if ( frameIncrement > 0 )
-   {
-     newFrame = frameData->Current + frameIncrement;
-     frameData->LastTicks = ticks;
+    if ( frameIncrement > 0 )
+    {
+      switch( frameData->CyclMode )
+      {
+        case CycleModeLeftToRight:
+          break;
+        case CycleModeRightToLeft:
+          newFrame = (frameData->Current - frameIncrement) ; 
+          if ( newFrame <= 0)
+          { 
+            frameData->CycleIncrement = 1; 
+            newFrame = frameData->End;
+          }
+          break;
+        case CycleModeBackAndForth:        
+          if ( frameData->CycleIncrement == 1 )
+          {          
+            newFrame = (frameData->Current  + frameIncrement); 
+            //newFrame = (this->FramesTotal - newFrame) + 1; 
+            if ( newFrame >= frameData->End)
+            { 
+              frameData->CycleIncrement = -1; 
+              newFrame = frameData->End;
+            }
+          }
+          else if ( frameData->CycleIncrement == -1 )
+          {
+            newFrame = (frameData->Current  - frameIncrement); 
+            if ( newFrame <= 0)
+            { 
+              frameData->CycleIncrement = 1; 
+              newFrame = frameData->Start;
+            }
+          }
+          break;
+
+      }
+      frameData->Current = newFrame;
+      frameData->LastTicks = Game::GameInstance->TicksCurrentUpdate; //if we have moved a frame, store the current ticks
+    }
    }
    /*
    int framesToStep = (int)(f * (float)frameData->Total);
@@ -180,5 +219,5 @@ void ThemeObjectImage::FrameCalculate(FRAME_DATA* frameData)
 
    }
    */
-   frameData->Current = newFrame;
+   //frameData->Current = newFrame;
 }

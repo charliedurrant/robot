@@ -40,8 +40,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>../Libraries\SDL2\Library\include\;../Libraries\SDL_image\Library\include\;../Libraries\SDL2_ttf\Library\include\;$(IncludePath)</IncludePath>
-    <LibraryPath>../Libraries\SDL2\Library\lib\x86;../Libraries\SDL_Image\Library\lib\x86;../Libraries\SDL2_TTF\Library\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>../libraries\sdl2\library\include\;../libraries\sdl2_image\Library\include\;../libraries\sdl2_ttf\library\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>../libraries\sdl2\library\lib\x86;../libraries\sdl2_Image\library\lib\x86;../libraries\sdl2_ttf\Library\lib\x86;$(LibraryPath)</LibraryPath>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -67,13 +67,22 @@
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
     </Link>
     <PostBuildEvent>
-      <Command>call $(ProjectDir)post_build_copy_files.bat  "$(ProjectDir)" "$(OutDir)"
-</Command>
-      <Message>Copy files to output</Message>
+      <Command>call $(ProjectDir)build_copy_files.bat  "$(SolutionDir)" "$(OutDir)"</Command>
+      <Message>
+      </Message>
     </PostBuildEvent>
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>Copy program resources etc to binary folder</Message>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -107,7 +116,7 @@
     <ClCompile Include="command_bar.cpp" />
     <ClCompile Include="command_bar_button.cpp" />
     <ClCompile Include="error_state.cpp" />
-    <ClCompile Include="debug_info.cpp" />
+    <ClCompile Include="head_up_display.cpp" />
     <ClCompile Include="font_manager.cpp" />
     <ClCompile Include="font_manager_font.cpp" />
     <ClCompile Include="format.cc" />
@@ -164,7 +173,7 @@
     <ClInclude Include="command_bar.h" />
     <ClInclude Include="command_bar_button.h" />
     <ClInclude Include="error_state.h" />
-    <ClInclude Include="debug_info.h" />
+    <ClInclude Include="head_up_display.h" />
     <ClInclude Include="font_manager.h" />
     <ClInclude Include="font_manager_font.h" />
     <ClInclude Include="format.h" />
@@ -210,7 +219,7 @@
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="post_build_copy_files.bat" />
+    <None Include="build_copy_files.bat" />
     <None Include="readme.txt">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </None>

@@ -186,7 +186,8 @@ void PlayState::OnEnter()
     rectGameObject.Y = rectGameObject.X = margin;
     rectGameObject.Width = MyGame::Instance->WindowMain->ScaleToLogicalDesignWidth( 400 );
     rectGameObject.Height = MyGame::Instance->WindowMain->ScaleToLogicalDesignHeight( 300 );
-    go = new DebugInfo();
+    go = new HeadUpDisplay();
+    go->Visible = false;
     go->PositionAndSize(rectGameObject);
     this->Objects->Add(go);   
     

@@ -11,9 +11,9 @@ if NOT exist "%destination%" goto no_files
 echo -----  COPY FILES RESOURCES to "%destination%" ------
 echo on
 
-robocopy "%source%Resources" "%destination%\" /xo /e
+robocopy "%source%resources" "%destination%\" /xo /e
 echo ----- COPY LIRARY DLLS to flat directory -----
-for /r %source% %%F in (.) do ROBOCOPY "%%F" %destination% *.dll /COPYALL /R:0 /xo 
+for /r %source%libraries %%F in (.) do ROBOCOPY "%%F" %destination% *.dll /COPYALL /R:0 /xo 
 
 
 

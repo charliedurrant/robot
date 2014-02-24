@@ -231,9 +231,6 @@ void GameObject::Resize(int width, int height )
 
 void GameObject::Render()
 {
-  if ( ! this->Visible )
-  { return; }
-
   if ( _children  )
   {
     _children->Render();

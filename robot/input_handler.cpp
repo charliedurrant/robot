@@ -119,3 +119,17 @@ bool InputHandler::KeyDown(SDL_Scancode key)
   }
   return false;
 }
+
+bool InputHandler::KeyDownAltControl(SDL_Scancode key)
+{
+  if ( 
+    this->KeyDown(SDL_SCANCODE_LALT) &&
+    this->KeyDown(SDL_SCANCODE_LCTRL) &&
+    this->LastKeyDown == key
+  )
+  {
+    return true;
+  }
+  return false;
+
+}

@@ -20,6 +20,8 @@ void Game::Construct()
   this->Input = nullptr;  
   this->States = nullptr;
   this->Fonts = nullptr;
+  this->TicksDeltaUpdate = this->TicksCurrentUpdate = this->TicksLastUpdate = 0;
+  this->SecondsDeltaUpdate = 0.0f;
 
   #if _DEBUG 
     this->DebugInfo = true;
@@ -142,7 +144,9 @@ void Game::Run()
 
     while ( ! this->_quit )
     {
+      
       this->Update();
+
       this->Render();
       this->FrameRateDelay();      
     }
@@ -177,6 +181,11 @@ void Game::Update()
 {
   this->CalculateCurrentFramesPerSecond();
   this->Input->Update();
+  if (this->Input->KeyDownAltControl(SDL_SCANCODE_D))
+  {
+    this->DebugInfo = !this->DebugInfo;
+  }
+  
   this->States->Update();
 }
 
@@ -208,16 +217,11 @@ bool Game::Quitted()
 
 void Game::CalculateCurrentFramesPerSecond()
  {
-    static float lastMilliseconds = 0.0f;
-    
-    float currentMilliseconds;
-    float millisecondsForFrame;
+    this->TicksLastUpdate = this->TicksCurrentUpdate;
+    this->TicksCurrentUpdate = SDL_GetTicks();
+    this->TicksDeltaUpdate = this->TicksCurrentUpdate - this->TicksLastUpdate;
+    this->SecondsDeltaUpdate = (float)this->TicksDeltaUpdate / 1000.0f;
 
-    currentMilliseconds = (float)SDL_GetTicks();
-    millisecondsForFrame =  currentMilliseconds - lastMilliseconds;
-    if ( millisecondsForFrame != 0 )
-    {
-      this->CurrentFramesPerSecond = 1000.0f / millisecondsForFrame;
-    }
-    lastMilliseconds = currentMilliseconds;
+    if ( this->TicksDeltaUpdate != 0 )
+    { this->CurrentFramesPerSecond = 1000.0f / (float)this->TicksDeltaUpdate; }    
  }

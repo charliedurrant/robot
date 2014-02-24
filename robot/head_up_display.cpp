@@ -3,11 +3,13 @@
 #include "headers.h"
 using namespace std;
 
-DebugInfo::DebugInfo(void) : GameObject(), _lastSecond(-1)
+HeadUpDisplay::HeadUpDisplay(void) : GameObject(), _lastSecond(-1)
 {
   string textureSize;
   SDL_RendererInfo rendererInfo;    
+  
   this->_text = string("");
+
 
   SDL_GetRendererInfo(MyGame::Instance->WindowMain->Renderer,&rendererInfo);  
 
@@ -39,34 +41,29 @@ DebugInfo::DebugInfo(void) : GameObject(), _lastSecond(-1)
   //draws the text
 }
 
-string DebugInfo::FlagToBool(Uint32 flags, Uint32 flag)
+string HeadUpDisplay::FlagToBool(Uint32 flags, Uint32 flag)
 {
   string s;
   return Functions::BoolToString( (flags & flag) == flag );  
 }
 
-DebugInfo::~DebugInfo(void)
+HeadUpDisplay::~HeadUpDisplay(void)
 {
   ;
 }
 
-void DebugInfo::Update()
+void HeadUpDisplay::Update()
 {
   static bool b = false;
   int seconds;
   int framesPerSecond;
   
-  if (
-        MyGame::Instance->Input->KeyDown(SDL_SCANCODE_LALT) && 
-        MyGame::Instance->Input->KeyDown(SDL_SCANCODE_LCTRL) && 
-      ( MyGame::Instance->Input->LastKeyDown == SDL_SCANCODE_D )
-      )
+  if ( MyGame::Instance->Input->KeyDownAltControl(SDL_SCANCODE_H) )
   {
-    MyGame::Instance->DebugInfo = ! MyGame::Instance->DebugInfo;      
+    this->Visible = ! this->Visible;    
   }
-    
-  
-  if ( MyGame::Instance->DebugInfo )
+      
+  if ( this->Visible )
   {
     seconds = SDL_GetTicks() / 1000;
     if ( seconds != _lastSecond  )
@@ -78,9 +75,15 @@ void DebugInfo::Update()
   }
 }
 
-void DebugInfo::RenderDebugInfo()
+void HeadUpDisplay::Render()
 {
   string s;
-  s = this->_rendererInfo + string("\n") +  this->_text;
-  MyGame::Instance->WindowMain->RenderText(s ,MyGame::Instance->Theme->FontGeneral,MyGame::Instance->SystemFontColor,&(this->Rentangle()));
+  s = this->_rendererInfo + string("\n") + this->_text;
+  MyGame::Instance->WindowMain->RenderText(s, MyGame::Instance->Theme->FontGeneral, MyGame::Instance->SystemFontColor, &(this->Rentangle()));
+}
+
+void HeadUpDisplay::RenderDebugInfo()
+{
+  return;
+  
 }

@@ -16,8 +16,7 @@ MyGame::~MyGame(void)
   {
     delete this->Theme;
     this->Theme = nullptr;
-  } 												 
-  
+  } 												   
 }
 
 void MyGame::Init()

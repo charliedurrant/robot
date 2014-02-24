@@ -38,8 +38,7 @@ enum Rotation
 #include "standard_background.h"
 #include "robot.h"
 
-
-#include "debug_info.h"
+#include "head_up_display.h"
 
 #include "board.h"
 #include "label.h"

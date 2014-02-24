@@ -52,6 +52,9 @@
     <Filter Include="header files\framework\3rd_party\format">
       <UniqueIdentifier>{010e2e7d-838c-4895-b1c1-78f56a290a73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="batch">
+      <UniqueIdentifier>{87983c12-2873-4535-97d9-e28667739e22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tinystr.cpp">
@@ -174,9 +177,6 @@
     <ClCompile Include="command_bar_button.cpp">
       <Filter>source files\objects</Filter>
     </ClCompile>
-    <ClCompile Include="debug_info.cpp">
-      <Filter>source files\objects</Filter>
-    </ClCompile>
     <ClCompile Include="label.cpp">
       <Filter>source files\objects</Filter>
     </ClCompile>
@@ -212,6 +212,9 @@
     </ClCompile>
     <ClCompile Include="theme.cpp">
       <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="head_up_display.cpp">
+      <Filter>source files\objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -329,9 +332,6 @@
     <ClInclude Include="command_bar_button.h">
       <Filter>header files\objects</Filter>
     </ClInclude>
-    <ClInclude Include="debug_info.h">
-      <Filter>header files\objects</Filter>
-    </ClInclude>
     <ClInclude Include="menu_item.h">
       <Filter>header files\objects</Filter>
     </ClInclude>
@@ -374,11 +374,14 @@
     <ClInclude Include="mouse_data.h">
       <Filter>header files\framework</Filter>
     </ClInclude>
+    <ClInclude Include="head_up_display.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.txt" />
-    <None Include="post_build_copy_files.bat">
-      <Filter>source files</Filter>
+    <None Include="build_copy_files.bat">
+      <Filter>batch</Filter>
     </None>
   </ItemGroup>
 </Project>

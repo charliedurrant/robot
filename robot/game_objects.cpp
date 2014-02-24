@@ -79,7 +79,10 @@ void GameObjects::Render()
     go = _objects[i];
     if ( go != nullptr )
     {
-      go->Render();
+      if (go->Visible)
+      {
+        go->Render();
+      }      
     }    
   } 
 }

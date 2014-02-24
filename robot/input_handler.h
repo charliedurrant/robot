@@ -11,6 +11,7 @@ public:
   MouseData* Mouse;
   void Update();
   bool KeyDown(SDL_Scancode key);  
+  bool KeyDownAltControl(SDL_Scancode key);
   SDL_Scancode LastKeyUp;
   SDL_Scancode LastKeyDown;  
 private:

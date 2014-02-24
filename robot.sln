@@ -251,7 +251,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "batch", "batch", "{F7F5299A
 		batch\copy-to-linux.bat = batch\copy-to-linux.bat
 		batch\copy-to-pi.bat = batch\copy-to-pi.bat
 		batch\make_makefile.bat = batch\make_makefile.bat
-		Batch\robot_post_build_copy_files.bat = Batch\robot_post_build_copy_files.bat
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{02685896-3768-4DE0-A1FC-C72D09930C48}"
