@@ -10,8 +10,6 @@ public:
   PlayState(void);
   virtual ~PlayState(void);
   void OnEnter() override;
-  void Update() override;
-  void Render() override;
   CommandBarButton* FunctionButtonAt(POINT pt);
   string ProgramTextGet();
   

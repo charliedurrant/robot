@@ -7,6 +7,7 @@ using namespace std;
 
 StateManager::StateManager(void) : _lastState(nullptr)
 {
+
 }
 
 StateManager::~StateManager(void)
@@ -26,8 +27,16 @@ StateManager::~StateManager(void)
 
 void StateManager::Push( State* state )
 {
+  State* stateCurrent;
+
+  stateCurrent = this->Current();
+  if (stateCurrent != nullptr)
+  {
+    stateCurrent->Pause();
+  }  
   _states.push_back(state);
-  state->OnEnter();  
+  this->Enter(state);
+  
 }
 
 void StateManager::Pop()
@@ -38,13 +47,15 @@ void StateManager::Pop()
 
   state = this->Current();
   
-  
   if ( state != nullptr )
   {
     state->OnExit();
     _states.pop_back();
     _lastState = state;
 
+    state = this->Current();
+    if (state != nullptr)
+    { state->Play(); }
   }
   
 }
@@ -82,14 +93,23 @@ void StateManager::Change( State* state )
       _lastState = currentState;
 
       _states.push_back(state);
-      state->OnEnter();
+      this->Enter(state);
+      
     }    
   }
   else
   {
     _states.push_back(state);
-    state->OnEnter();
+    this->Enter(state);
+    
   }    
+}
+
+
+void StateManager::Enter(State* state)
+{
+  state->OnEnter();
+  state->Update();
 }
 
 void StateManager::Update()

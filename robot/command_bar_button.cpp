@@ -92,29 +92,25 @@ void CommandBarButton::Update()
     {
       if ( MyGame::Instance->Input->Mouse->LeftButton == MouseButtonDown && MyGame::Instance->Input->Mouse->GetCapture() == nullptr )
       {
-          //TODO: IMPLEMENT COPY CONSTRUCTOR WITH THIS
-          if ( this->Bar->DragButton == nullptr )
-          {
-            this->Bar->DragButton = new CommandBarButton(this->CommandGet());
-            this->Bar->DragButton->Bar = this->Bar;
-            MyGame::Instance->States->Current()->Objects->Add(this->Bar->DragButton);     
-          }
-          else
-          {
-            this->Bar->DragButton->CommandSet(this->CommandGet());
-            this->Bar->DragButton->Visible = true;
-          }
-          this->Bar->DragButtonSource = this;
-          if ( this->Bar->CanReceiveCommands )
-          {
-            this->CommandSet(ProgramCommandNone);
-          }
-          this->Bar->DragButton->Position = this->Position;
-          this->Bar->DragButton->MouseOffsetCalculate();
+        if ( this->Bar->DragButton == nullptr )
+        {
+          this->Bar->DragButton = new CommandBarButton(this->CommandGet());
+          this->Bar->DragButton->Bar = this->Bar;
+          MyGame::Instance->States->Current()->Objects->Add(this->Bar->DragButton);     
+        }
+        else
+        {
+          this->Bar->DragButton->CommandSet(this->CommandGet());
+          this->Bar->DragButton->Visible = true;
+        }
+        this->Bar->DragButtonSource = this;
+        if ( this->Bar->CanReceiveCommands )
+        { this->CommandSet(ProgramCommandNone); }
+        this->Bar->DragButton->Position = this->Position;
+        this->Bar->DragButton->MouseOffsetCalculate();
           
-          MyGame::Instance->Input->Mouse->SetCapture(this->Bar->DragButton);
-          this->Bar->DragButton->PositionAndSize(&this->Position,this->Size.Width,this->Size.Height);          
-
+        MyGame::Instance->Input->Mouse->SetCapture(this->Bar->DragButton);
+        this->Bar->DragButton->PositionAndSize(&this->Position,this->Size.Width,this->Size.Height);          
       }
     }    
   }

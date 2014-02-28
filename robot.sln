@@ -279,6 +279,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build_dependencies", "build
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{752560C5-595E-4443-9DAB-D2BA02A5D9DD}"
 	ProjectSection(SolutionItems) = preProject
+		makeitso.config = makeitso.config
 		notes.txt = notes.txt
 	EndProjectSection
 EndProject

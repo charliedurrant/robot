@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "headers.h"
 
-ButtonBar::ButtonBar(int columns, int buttonMargin, int buttonWidth, int buttonHeight) : GameObject() 
+ButtonBar::ButtonBar(int columns, int buttonMargin, int buttonWidth, int buttonHeight) : GameObject(), _onButtonClickCallBack(nullptr)
 {
   this->_columns = columns;
   this->_buttonMargin = buttonMargin;
@@ -15,9 +15,15 @@ ButtonBar::~ButtonBar(void)
   ; 
 }
 
+
 void ButtonBar::AddButton(Buttn* button)
 {
   this->Children()->Add(button);
+}
+
+void ButtonBar::OnButtonClick(std::function<void(void*, Buttn* button)> onButtonClickCallBack)
+{
+  this->_onButtonClickCallBack = onButtonClickCallBack;
 }
 
 int ButtonBar::ColumnCount()
@@ -35,6 +41,22 @@ int ButtonBar::ColumnCount()
   return columns;
 }
 
+void ButtonBar::Click(void* sender)
+{
+  Buttn* button;
+  
+  if (this->_onButtonClickCallBack != nullptr)
+  {
+    button = this->ButtonAt(Game::GameInstance->Input->Mouse->Position->Point());
+    if (button != nullptr)
+    {
+      this->_onButtonClickCallBack(this, button);
+    }    
+  }
+}
+
+
+
 int ButtonBar::RowCount()
 {
   return (int)Functions::Round((float)this->Children()->Size() / (float)this->ColumnCount());  
@@ -48,6 +70,13 @@ SIZE ButtonBar::ButtonSize()
   sz.Width  = (this->Size.Width - (this->ColumnCount() - 1) * (this->_buttonMargin)) / (this->ColumnCount());
   sz.Height= (this->Size.Height - (this->RowCount() - 1) * (this->_buttonMargin)) / (this->RowCount());;
   return sz;  
+}
+
+void ButtonBar::PositionAndAutoSize(POINT pt)
+{
+  SIZE sz;
+  sz = this->SizeCalculate();
+  GameObject::PositionAndSize(pt.X, pt.Y, sz.Width, sz.Height);  
 }
 
 SIZE ButtonBar::SizeCalculate()
@@ -65,6 +94,8 @@ SIZE ButtonBar::SizeCalculate()
   }   
   return sz;         
 }
+
+
 
 Buttn* ButtonBar::ButtonAt(POINT pt)
 {

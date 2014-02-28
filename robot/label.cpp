@@ -3,7 +3,10 @@
 #include "headers.h"
 using namespace std;
 
-Labl::Labl(string text) : GameObject(), _foreColor(nullptr)
+
+
+
+Labl::Labl(string text) : GameObject(), _foreColor(nullptr), TextAlignment(TextAlignTopLeft)
 {
   this->Text = text;
 }

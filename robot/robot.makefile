@@ -32,693 +32,681 @@ build_all_configurations: Debug_Win32 Release_Win32
 
 # Builds the Debug_Win32 configuration...
 .PHONY: Debug_Win32
-Debug_Win32: create_folders D:/Projects/robot/code/robot/robot/gccDebug/StdAfx.h.gch D:/Projects/robot/code/robot/robot/gccDebug/EventHndler.o D:/Projects/robot/code/robot/robot/gccDebug/Main.o D:/Projects/robot/code/robot/robot/gccDebug/MyGame.o D:/Projects/robot/code/robot/robot/gccDebug/RobotProgram.o D:/Projects/robot/code/robot/robot/gccDebug/Settings.o D:/Projects/robot/code/robot/robot/gccDebug/Theme.o D:/Projects/robot/code/robot/robot/gccDebug/ErrorState.o D:/Projects/robot/code/robot/robot/gccDebug/MenuState.o D:/Projects/robot/code/robot/robot/gccDebug/PlayState.o D:/Projects/robot/code/robot/robot/gccDebug/BaseGameTheme.o D:/Projects/robot/code/robot/robot/gccDebug/Color.o D:/Projects/robot/code/robot/robot/gccDebug/FontManager.o D:/Projects/robot/code/robot/robot/gccDebug/FontManagerFont.o D:/Projects/robot/code/robot/robot/gccDebug/Game.o D:/Projects/robot/code/robot/robot/gccDebug/Exception.o D:/Projects/robot/code/robot/robot/gccDebug/Functions.o D:/Projects/robot/code/robot/robot/gccDebug/GameFont.o D:/Projects/robot/code/robot/robot/gccDebug/GameObjects.o D:/Projects/robot/code/robot/robot/gccDebug/InputHandler.o D:/Projects/robot/code/robot/robot/gccDebug/MouseData.o D:/Projects/robot/code/robot/robot/gccDebug/GameObject.o D:/Projects/robot/code/robot/robot/gccDebug/ImageManager.o D:/Projects/robot/code/robot/robot/gccDebug/Image.o D:/Projects/robot/code/robot/robot/gccDebug/SettingsBase.o D:/Projects/robot/code/robot/robot/gccDebug/StdAfx.o D:/Projects/robot/code/robot/robot/gccDebug/ThemeObjectImage.o D:/Projects/robot/code/robot/robot/gccDebug/SplitPath.o D:/Projects/robot/code/robot/robot/gccDebug/State.o D:/Projects/robot/code/robot/robot/gccDebug/StateManager.o D:/Projects/robot/code/robot/robot/gccDebug/ThemeObject.o D:/Projects/robot/code/robot/robot/gccDebug/Types.o D:/Projects/robot/code/robot/robot/gccDebug/Vector2D.o D:/Projects/robot/code/robot/robot/gccDebug/Window.o D:/Projects/robot/code/robot/robot/gccDebug/format.o D:/Projects/robot/code/robot/robot/gccDebug/tinystr.o D:/Projects/robot/code/robot/robot/gccDebug/tinyxml.o D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlerror.o D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlparser.o D:/Projects/robot/code/robot/robot/gccDebug/BoardSquare.o D:/Projects/robot/code/robot/robot/gccDebug/Board.o D:/Projects/robot/code/robot/robot/gccDebug/Buttn.o D:/Projects/robot/code/robot/robot/gccDebug/ButtonBar.o D:/Projects/robot/code/robot/robot/gccDebug/CommandBar.o D:/Projects/robot/code/robot/robot/gccDebug/CommandBarButton.o D:/Projects/robot/code/robot/robot/gccDebug/DebugInfo.o D:/Projects/robot/code/robot/robot/gccDebug/Labl.o D:/Projects/robot/code/robot/robot/gccDebug/MenuItem.o D:/Projects/robot/code/robot/robot/gccDebug/Robot.o D:/Projects/robot/code/robot/robot/gccDebug/BoardRotationArrow.o D:/Projects/robot/code/robot/robot/gccDebug/StandardBackground.o D:/Projects/robot/code/robot/robot/gccDebug/Level.o D:/Projects/robot/code/robot/robot/gccDebug/LevelPack.o D:/Projects/robot/code/robot/robot/gccDebug/LevelPacks.o D:/Projects/robot/code/robot/robot/gccDebug/LevelSquare.o 
-	g++ D:/Projects/robot/code/robot/robot/gccDebug/EventHndler.o D:/Projects/robot/code/robot/robot/gccDebug/Main.o D:/Projects/robot/code/robot/robot/gccDebug/MyGame.o D:/Projects/robot/code/robot/robot/gccDebug/RobotProgram.o D:/Projects/robot/code/robot/robot/gccDebug/Settings.o D:/Projects/robot/code/robot/robot/gccDebug/Theme.o D:/Projects/robot/code/robot/robot/gccDebug/ErrorState.o D:/Projects/robot/code/robot/robot/gccDebug/MenuState.o D:/Projects/robot/code/robot/robot/gccDebug/PlayState.o D:/Projects/robot/code/robot/robot/gccDebug/BaseGameTheme.o D:/Projects/robot/code/robot/robot/gccDebug/Color.o D:/Projects/robot/code/robot/robot/gccDebug/FontManager.o D:/Projects/robot/code/robot/robot/gccDebug/FontManagerFont.o D:/Projects/robot/code/robot/robot/gccDebug/Game.o D:/Projects/robot/code/robot/robot/gccDebug/Exception.o D:/Projects/robot/code/robot/robot/gccDebug/Functions.o D:/Projects/robot/code/robot/robot/gccDebug/GameFont.o D:/Projects/robot/code/robot/robot/gccDebug/GameObjects.o D:/Projects/robot/code/robot/robot/gccDebug/InputHandler.o D:/Projects/robot/code/robot/robot/gccDebug/MouseData.o D:/Projects/robot/code/robot/robot/gccDebug/GameObject.o D:/Projects/robot/code/robot/robot/gccDebug/ImageManager.o D:/Projects/robot/code/robot/robot/gccDebug/Image.o D:/Projects/robot/code/robot/robot/gccDebug/SettingsBase.o D:/Projects/robot/code/robot/robot/gccDebug/StdAfx.o D:/Projects/robot/code/robot/robot/gccDebug/ThemeObjectImage.o D:/Projects/robot/code/robot/robot/gccDebug/SplitPath.o D:/Projects/robot/code/robot/robot/gccDebug/State.o D:/Projects/robot/code/robot/robot/gccDebug/StateManager.o D:/Projects/robot/code/robot/robot/gccDebug/ThemeObject.o D:/Projects/robot/code/robot/robot/gccDebug/Types.o D:/Projects/robot/code/robot/robot/gccDebug/Vector2D.o D:/Projects/robot/code/robot/robot/gccDebug/Window.o D:/Projects/robot/code/robot/robot/gccDebug/format.o D:/Projects/robot/code/robot/robot/gccDebug/tinystr.o D:/Projects/robot/code/robot/robot/gccDebug/tinyxml.o D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlerror.o D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlparser.o D:/Projects/robot/code/robot/robot/gccDebug/BoardSquare.o D:/Projects/robot/code/robot/robot/gccDebug/Board.o D:/Projects/robot/code/robot/robot/gccDebug/Buttn.o D:/Projects/robot/code/robot/robot/gccDebug/ButtonBar.o D:/Projects/robot/code/robot/robot/gccDebug/CommandBar.o D:/Projects/robot/code/robot/robot/gccDebug/CommandBarButton.o D:/Projects/robot/code/robot/robot/gccDebug/DebugInfo.o D:/Projects/robot/code/robot/robot/gccDebug/Labl.o D:/Projects/robot/code/robot/robot/gccDebug/MenuItem.o D:/Projects/robot/code/robot/robot/gccDebug/Robot.o D:/Projects/robot/code/robot/robot/gccDebug/BoardRotationArrow.o D:/Projects/robot/code/robot/robot/gccDebug/StandardBackground.o D:/Projects/robot/code/robot/robot/gccDebug/Level.o D:/Projects/robot/code/robot/robot/gccDebug/LevelPack.o D:/Projects/robot/code/robot/robot/gccDebug/LevelPacks.o D:/Projects/robot/code/robot/robot/gccDebug/LevelSquare.o  $(Debug_Win32_Library_Path) $(Debug_Win32_Libraries) -Wl,-rpath,./ -o D:/Projects/robot/code/robot/gccDebug/robot.exe
+Debug_Win32: create_folders d:/Projects/robot/source/robot/gccDebug/stdafx.h.gch d:/Projects/robot/source/robot/gccDebug/main.o d:/Projects/robot/source/robot/gccDebug/my_game.o d:/Projects/robot/source/robot/gccDebug/robot_program.o d:/Projects/robot/source/robot/gccDebug/settings.o d:/Projects/robot/source/robot/gccDebug/theme.o d:/Projects/robot/source/robot/gccDebug/base_game_theme.o d:/Projects/robot/source/robot/gccDebug/color.o d:/Projects/robot/source/robot/gccDebug/font_manager.o d:/Projects/robot/source/robot/gccDebug/font_manager_font.o d:/Projects/robot/source/robot/gccDebug/game.o d:/Projects/robot/source/robot/gccDebug/exception.o d:/Projects/robot/source/robot/gccDebug/functions.o d:/Projects/robot/source/robot/gccDebug/game_font.o d:/Projects/robot/source/robot/gccDebug/game_objects.o d:/Projects/robot/source/robot/gccDebug/input_handler.o d:/Projects/robot/source/robot/gccDebug/mouse_data.o d:/Projects/robot/source/robot/gccDebug/game_object.o d:/Projects/robot/source/robot/gccDebug/image_manager.o d:/Projects/robot/source/robot/gccDebug/image.o d:/Projects/robot/source/robot/gccDebug/settings_base.o d:/Projects/robot/source/robot/gccDebug/stdafx.o d:/Projects/robot/source/robot/gccDebug/theme_object_image.o d:/Projects/robot/source/robot/gccDebug/split_path.o d:/Projects/robot/source/robot/gccDebug/state.o d:/Projects/robot/source/robot/gccDebug/state_manager.o d:/Projects/robot/source/robot/gccDebug/theme_object.o d:/Projects/robot/source/robot/gccDebug/types.o d:/Projects/robot/source/robot/gccDebug/vector_2d.o d:/Projects/robot/source/robot/gccDebug/window.o d:/Projects/robot/source/robot/gccDebug/format.o d:/Projects/robot/source/robot/gccDebug/tinystr.o d:/Projects/robot/source/robot/gccDebug/tinyxml.o d:/Projects/robot/source/robot/gccDebug/tinyxmlerror.o d:/Projects/robot/source/robot/gccDebug/tinyxmlparser.o d:/Projects/robot/source/robot/gccDebug/level.o d:/Projects/robot/source/robot/gccDebug/level_pack.o d:/Projects/robot/source/robot/gccDebug/level_packs.o d:/Projects/robot/source/robot/gccDebug/level_square.o d:/Projects/robot/source/robot/gccDebug/board_square.o d:/Projects/robot/source/robot/gccDebug/board.o d:/Projects/robot/source/robot/gccDebug/button.o d:/Projects/robot/source/robot/gccDebug/button_bar.o d:/Projects/robot/source/robot/gccDebug/command_bar.o d:/Projects/robot/source/robot/gccDebug/command_bar_button.o d:/Projects/robot/source/robot/gccDebug/head_up_display.o d:/Projects/robot/source/robot/gccDebug/label.o d:/Projects/robot/source/robot/gccDebug/menu_item.o d:/Projects/robot/source/robot/gccDebug/robot.o d:/Projects/robot/source/robot/gccDebug/board_rotation_arrow.o d:/Projects/robot/source/robot/gccDebug/standard_background.o d:/Projects/robot/source/robot/gccDebug/error_state.o d:/Projects/robot/source/robot/gccDebug/menu_state.o d:/Projects/robot/source/robot/gccDebug/play_state.o 
+	g++ d:/Projects/robot/source/robot/gccDebug/main.o d:/Projects/robot/source/robot/gccDebug/my_game.o d:/Projects/robot/source/robot/gccDebug/robot_program.o d:/Projects/robot/source/robot/gccDebug/settings.o d:/Projects/robot/source/robot/gccDebug/theme.o d:/Projects/robot/source/robot/gccDebug/base_game_theme.o d:/Projects/robot/source/robot/gccDebug/color.o d:/Projects/robot/source/robot/gccDebug/font_manager.o d:/Projects/robot/source/robot/gccDebug/font_manager_font.o d:/Projects/robot/source/robot/gccDebug/game.o d:/Projects/robot/source/robot/gccDebug/exception.o d:/Projects/robot/source/robot/gccDebug/functions.o d:/Projects/robot/source/robot/gccDebug/game_font.o d:/Projects/robot/source/robot/gccDebug/game_objects.o d:/Projects/robot/source/robot/gccDebug/input_handler.o d:/Projects/robot/source/robot/gccDebug/mouse_data.o d:/Projects/robot/source/robot/gccDebug/game_object.o d:/Projects/robot/source/robot/gccDebug/image_manager.o d:/Projects/robot/source/robot/gccDebug/image.o d:/Projects/robot/source/robot/gccDebug/settings_base.o d:/Projects/robot/source/robot/gccDebug/stdafx.o d:/Projects/robot/source/robot/gccDebug/theme_object_image.o d:/Projects/robot/source/robot/gccDebug/split_path.o d:/Projects/robot/source/robot/gccDebug/state.o d:/Projects/robot/source/robot/gccDebug/state_manager.o d:/Projects/robot/source/robot/gccDebug/theme_object.o d:/Projects/robot/source/robot/gccDebug/types.o d:/Projects/robot/source/robot/gccDebug/vector_2d.o d:/Projects/robot/source/robot/gccDebug/window.o d:/Projects/robot/source/robot/gccDebug/format.o d:/Projects/robot/source/robot/gccDebug/tinystr.o d:/Projects/robot/source/robot/gccDebug/tinyxml.o d:/Projects/robot/source/robot/gccDebug/tinyxmlerror.o d:/Projects/robot/source/robot/gccDebug/tinyxmlparser.o d:/Projects/robot/source/robot/gccDebug/level.o d:/Projects/robot/source/robot/gccDebug/level_pack.o d:/Projects/robot/source/robot/gccDebug/level_packs.o d:/Projects/robot/source/robot/gccDebug/level_square.o d:/Projects/robot/source/robot/gccDebug/board_square.o d:/Projects/robot/source/robot/gccDebug/board.o d:/Projects/robot/source/robot/gccDebug/button.o d:/Projects/robot/source/robot/gccDebug/button_bar.o d:/Projects/robot/source/robot/gccDebug/command_bar.o d:/Projects/robot/source/robot/gccDebug/command_bar_button.o d:/Projects/robot/source/robot/gccDebug/head_up_display.o d:/Projects/robot/source/robot/gccDebug/label.o d:/Projects/robot/source/robot/gccDebug/menu_item.o d:/Projects/robot/source/robot/gccDebug/robot.o d:/Projects/robot/source/robot/gccDebug/board_rotation_arrow.o d:/Projects/robot/source/robot/gccDebug/standard_background.o d:/Projects/robot/source/robot/gccDebug/error_state.o d:/Projects/robot/source/robot/gccDebug/menu_state.o d:/Projects/robot/source/robot/gccDebug/play_state.o  $(Debug_Win32_Library_Path) $(Debug_Win32_Libraries) -Wl,-rpath,./ -o d:/Projects/robot/source/gccDebug/robot.exe
 
-# Compiles file StdAfx.h as the precompiled header StdAfx.h.gch for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/StdAfx.d
-D:/Projects/robot/code/robot/robot/gccDebug/StdAfx.h.gch: StdAfx.h
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c StdAfx.h $(Debug_Win32_Include_Path) -o StdAfx.h.gch
+# Compiles file stdafx.h as the precompiled header stdafx.h.gch for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/stdafx.d
+d:/Projects/robot/source/robot/gccDebug/stdafx.h.gch: stdafx.h
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c stdafx.h $(Debug_Win32_Include_Path) -o stdafx.h.gch
 
-# Compiles file EventHndler.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/EventHndler.d
-D:/Projects/robot/code/robot/robot/gccDebug/EventHndler.o: EventHndler.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c EventHndler.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/EventHndler.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM EventHndler.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/EventHndler.d
+# Compiles file main.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/main.d
+d:/Projects/robot/source/robot/gccDebug/main.o: main.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c main.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/main.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM main.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/main.d
 
-# Compiles file Main.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Main.d
-D:/Projects/robot/code/robot/robot/gccDebug/Main.o: Main.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Main.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Main.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Main.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Main.d
+# Compiles file my_game.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/my_game.d
+d:/Projects/robot/source/robot/gccDebug/my_game.o: my_game.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c my_game.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/my_game.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM my_game.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/my_game.d
 
-# Compiles file MyGame.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/MyGame.d
-D:/Projects/robot/code/robot/robot/gccDebug/MyGame.o: MyGame.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c MyGame.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/MyGame.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM MyGame.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/MyGame.d
+# Compiles file robot_program.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/robot_program.d
+d:/Projects/robot/source/robot/gccDebug/robot_program.o: robot_program.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c robot_program.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/robot_program.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM robot_program.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/robot_program.d
 
-# Compiles file RobotProgram.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/RobotProgram.d
-D:/Projects/robot/code/robot/robot/gccDebug/RobotProgram.o: RobotProgram.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c RobotProgram.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/RobotProgram.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM RobotProgram.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/RobotProgram.d
+# Compiles file settings.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/settings.d
+d:/Projects/robot/source/robot/gccDebug/settings.o: settings.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c settings.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/settings.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM settings.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/settings.d
 
-# Compiles file Settings.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Settings.d
-D:/Projects/robot/code/robot/robot/gccDebug/Settings.o: Settings.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Settings.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Settings.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Settings.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Settings.d
+# Compiles file theme.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/theme.d
+d:/Projects/robot/source/robot/gccDebug/theme.o: theme.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c theme.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/theme.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM theme.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/theme.d
 
-# Compiles file Theme.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Theme.d
-D:/Projects/robot/code/robot/robot/gccDebug/Theme.o: Theme.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Theme.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Theme.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Theme.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Theme.d
+# Compiles file base_game_theme.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/base_game_theme.d
+d:/Projects/robot/source/robot/gccDebug/base_game_theme.o: base_game_theme.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c base_game_theme.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/base_game_theme.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM base_game_theme.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/base_game_theme.d
 
-# Compiles file ErrorState.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/ErrorState.d
-D:/Projects/robot/code/robot/robot/gccDebug/ErrorState.o: ErrorState.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c ErrorState.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/ErrorState.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM ErrorState.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/ErrorState.d
+# Compiles file color.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/color.d
+d:/Projects/robot/source/robot/gccDebug/color.o: color.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c color.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/color.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM color.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/color.d
 
-# Compiles file MenuState.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/MenuState.d
-D:/Projects/robot/code/robot/robot/gccDebug/MenuState.o: MenuState.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c MenuState.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/MenuState.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM MenuState.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/MenuState.d
+# Compiles file font_manager.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/font_manager.d
+d:/Projects/robot/source/robot/gccDebug/font_manager.o: font_manager.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c font_manager.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/font_manager.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM font_manager.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/font_manager.d
 
-# Compiles file PlayState.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/PlayState.d
-D:/Projects/robot/code/robot/robot/gccDebug/PlayState.o: PlayState.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c PlayState.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/PlayState.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM PlayState.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/PlayState.d
+# Compiles file font_manager_font.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/font_manager_font.d
+d:/Projects/robot/source/robot/gccDebug/font_manager_font.o: font_manager_font.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c font_manager_font.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/font_manager_font.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM font_manager_font.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/font_manager_font.d
 
-# Compiles file BaseGameTheme.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/BaseGameTheme.d
-D:/Projects/robot/code/robot/robot/gccDebug/BaseGameTheme.o: BaseGameTheme.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c BaseGameTheme.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/BaseGameTheme.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM BaseGameTheme.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/BaseGameTheme.d
+# Compiles file game.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/game.d
+d:/Projects/robot/source/robot/gccDebug/game.o: game.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c game.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/game.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM game.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/game.d
 
-# Compiles file Color.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Color.d
-D:/Projects/robot/code/robot/robot/gccDebug/Color.o: Color.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Color.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Color.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Color.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Color.d
+# Compiles file exception.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/exception.d
+d:/Projects/robot/source/robot/gccDebug/exception.o: exception.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c exception.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/exception.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM exception.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/exception.d
 
-# Compiles file FontManager.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/FontManager.d
-D:/Projects/robot/code/robot/robot/gccDebug/FontManager.o: FontManager.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c FontManager.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/FontManager.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM FontManager.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/FontManager.d
+# Compiles file functions.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/functions.d
+d:/Projects/robot/source/robot/gccDebug/functions.o: functions.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c functions.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/functions.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM functions.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/functions.d
 
-# Compiles file FontManagerFont.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/FontManagerFont.d
-D:/Projects/robot/code/robot/robot/gccDebug/FontManagerFont.o: FontManagerFont.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c FontManagerFont.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/FontManagerFont.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM FontManagerFont.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/FontManagerFont.d
+# Compiles file game_font.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/game_font.d
+d:/Projects/robot/source/robot/gccDebug/game_font.o: game_font.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c game_font.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/game_font.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM game_font.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/game_font.d
 
-# Compiles file Game.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Game.d
-D:/Projects/robot/code/robot/robot/gccDebug/Game.o: Game.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Game.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Game.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Game.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Game.d
+# Compiles file game_objects.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/game_objects.d
+d:/Projects/robot/source/robot/gccDebug/game_objects.o: game_objects.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c game_objects.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/game_objects.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM game_objects.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/game_objects.d
 
-# Compiles file Exception.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Exception.d
-D:/Projects/robot/code/robot/robot/gccDebug/Exception.o: Exception.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Exception.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Exception.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Exception.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Exception.d
+# Compiles file input_handler.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/input_handler.d
+d:/Projects/robot/source/robot/gccDebug/input_handler.o: input_handler.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c input_handler.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/input_handler.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM input_handler.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/input_handler.d
 
-# Compiles file Functions.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Functions.d
-D:/Projects/robot/code/robot/robot/gccDebug/Functions.o: Functions.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Functions.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Functions.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Functions.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Functions.d
+# Compiles file mouse_data.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/mouse_data.d
+d:/Projects/robot/source/robot/gccDebug/mouse_data.o: mouse_data.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c mouse_data.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/mouse_data.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM mouse_data.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/mouse_data.d
 
-# Compiles file GameFont.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/GameFont.d
-D:/Projects/robot/code/robot/robot/gccDebug/GameFont.o: GameFont.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c GameFont.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/GameFont.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM GameFont.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/GameFont.d
+# Compiles file game_object.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/game_object.d
+d:/Projects/robot/source/robot/gccDebug/game_object.o: game_object.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c game_object.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/game_object.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM game_object.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/game_object.d
 
-# Compiles file GameObjects.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/GameObjects.d
-D:/Projects/robot/code/robot/robot/gccDebug/GameObjects.o: GameObjects.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c GameObjects.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/GameObjects.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM GameObjects.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/GameObjects.d
+# Compiles file image_manager.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/image_manager.d
+d:/Projects/robot/source/robot/gccDebug/image_manager.o: image_manager.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c image_manager.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/image_manager.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM image_manager.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/image_manager.d
 
-# Compiles file InputHandler.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/InputHandler.d
-D:/Projects/robot/code/robot/robot/gccDebug/InputHandler.o: InputHandler.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c InputHandler.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/InputHandler.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM InputHandler.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/InputHandler.d
+# Compiles file image.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/image.d
+d:/Projects/robot/source/robot/gccDebug/image.o: image.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c image.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/image.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM image.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/image.d
 
-# Compiles file MouseData.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/MouseData.d
-D:/Projects/robot/code/robot/robot/gccDebug/MouseData.o: MouseData.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c MouseData.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/MouseData.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM MouseData.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/MouseData.d
+# Compiles file settings_base.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/settings_base.d
+d:/Projects/robot/source/robot/gccDebug/settings_base.o: settings_base.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c settings_base.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/settings_base.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM settings_base.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/settings_base.d
 
-# Compiles file GameObject.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/GameObject.d
-D:/Projects/robot/code/robot/robot/gccDebug/GameObject.o: GameObject.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c GameObject.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/GameObject.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM GameObject.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/GameObject.d
+# Compiles file stdafx.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/stdafx.d
+d:/Projects/robot/source/robot/gccDebug/stdafx.o: stdafx.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c stdafx.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/stdafx.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM stdafx.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/stdafx.d
 
-# Compiles file ImageManager.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/ImageManager.d
-D:/Projects/robot/code/robot/robot/gccDebug/ImageManager.o: ImageManager.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c ImageManager.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/ImageManager.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM ImageManager.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/ImageManager.d
+# Compiles file theme_object_image.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/theme_object_image.d
+d:/Projects/robot/source/robot/gccDebug/theme_object_image.o: theme_object_image.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c theme_object_image.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/theme_object_image.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM theme_object_image.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/theme_object_image.d
 
-# Compiles file Image.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Image.d
-D:/Projects/robot/code/robot/robot/gccDebug/Image.o: Image.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Image.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Image.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Image.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Image.d
+# Compiles file split_path.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/split_path.d
+d:/Projects/robot/source/robot/gccDebug/split_path.o: split_path.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c split_path.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/split_path.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM split_path.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/split_path.d
 
-# Compiles file SettingsBase.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/SettingsBase.d
-D:/Projects/robot/code/robot/robot/gccDebug/SettingsBase.o: SettingsBase.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c SettingsBase.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/SettingsBase.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM SettingsBase.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/SettingsBase.d
+# Compiles file state.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/state.d
+d:/Projects/robot/source/robot/gccDebug/state.o: state.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c state.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/state.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM state.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/state.d
 
-# Compiles file StdAfx.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/StdAfx.d
-D:/Projects/robot/code/robot/robot/gccDebug/StdAfx.o: StdAfx.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c StdAfx.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/StdAfx.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM StdAfx.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/StdAfx.d
+# Compiles file state_manager.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/state_manager.d
+d:/Projects/robot/source/robot/gccDebug/state_manager.o: state_manager.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c state_manager.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/state_manager.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM state_manager.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/state_manager.d
 
-# Compiles file ThemeObjectImage.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/ThemeObjectImage.d
-D:/Projects/robot/code/robot/robot/gccDebug/ThemeObjectImage.o: ThemeObjectImage.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c ThemeObjectImage.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/ThemeObjectImage.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM ThemeObjectImage.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/ThemeObjectImage.d
+# Compiles file theme_object.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/theme_object.d
+d:/Projects/robot/source/robot/gccDebug/theme_object.o: theme_object.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c theme_object.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/theme_object.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM theme_object.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/theme_object.d
 
-# Compiles file SplitPath.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/SplitPath.d
-D:/Projects/robot/code/robot/robot/gccDebug/SplitPath.o: SplitPath.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c SplitPath.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/SplitPath.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM SplitPath.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/SplitPath.d
+# Compiles file types.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/types.d
+d:/Projects/robot/source/robot/gccDebug/types.o: types.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c types.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/types.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM types.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/types.d
 
-# Compiles file State.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/State.d
-D:/Projects/robot/code/robot/robot/gccDebug/State.o: State.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c State.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/State.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM State.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/State.d
+# Compiles file vector_2d.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/vector_2d.d
+d:/Projects/robot/source/robot/gccDebug/vector_2d.o: vector_2d.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c vector_2d.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/vector_2d.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM vector_2d.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/vector_2d.d
 
-# Compiles file StateManager.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/StateManager.d
-D:/Projects/robot/code/robot/robot/gccDebug/StateManager.o: StateManager.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c StateManager.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/StateManager.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM StateManager.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/StateManager.d
-
-# Compiles file ThemeObject.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/ThemeObject.d
-D:/Projects/robot/code/robot/robot/gccDebug/ThemeObject.o: ThemeObject.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c ThemeObject.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/ThemeObject.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM ThemeObject.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/ThemeObject.d
-
-# Compiles file Types.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Types.d
-D:/Projects/robot/code/robot/robot/gccDebug/Types.o: Types.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Types.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Types.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Types.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Types.d
-
-# Compiles file Vector2D.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Vector2D.d
-D:/Projects/robot/code/robot/robot/gccDebug/Vector2D.o: Vector2D.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Vector2D.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Vector2D.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Vector2D.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Vector2D.d
-
-# Compiles file Window.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Window.d
-D:/Projects/robot/code/robot/robot/gccDebug/Window.o: Window.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Window.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Window.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Window.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Window.d
+# Compiles file window.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/window.d
+d:/Projects/robot/source/robot/gccDebug/window.o: window.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c window.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/window.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM window.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/window.d
 
 # Compiles file format.cc for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/format.d
-D:/Projects/robot/code/robot/robot/gccDebug/format.o: format.cc
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c format.cc $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/format.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM format.cc $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/format.d
+-include d:/Projects/robot/source/robot/gccDebug/format.d
+d:/Projects/robot/source/robot/gccDebug/format.o: format.cc
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c format.cc $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/format.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM format.cc $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/format.d
 
 # Compiles file tinystr.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/tinystr.d
-D:/Projects/robot/code/robot/robot/gccDebug/tinystr.o: tinystr.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c tinystr.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/tinystr.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM tinystr.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/tinystr.d
+-include d:/Projects/robot/source/robot/gccDebug/tinystr.d
+d:/Projects/robot/source/robot/gccDebug/tinystr.o: tinystr.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c tinystr.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/tinystr.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM tinystr.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/tinystr.d
 
 # Compiles file tinyxml.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/tinyxml.d
-D:/Projects/robot/code/robot/robot/gccDebug/tinyxml.o: tinyxml.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c tinyxml.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/tinyxml.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM tinyxml.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/tinyxml.d
+-include d:/Projects/robot/source/robot/gccDebug/tinyxml.d
+d:/Projects/robot/source/robot/gccDebug/tinyxml.o: tinyxml.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c tinyxml.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/tinyxml.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM tinyxml.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/tinyxml.d
 
 # Compiles file tinyxmlerror.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlerror.d
-D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlerror.o: tinyxmlerror.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c tinyxmlerror.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlerror.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM tinyxmlerror.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlerror.d
+-include d:/Projects/robot/source/robot/gccDebug/tinyxmlerror.d
+d:/Projects/robot/source/robot/gccDebug/tinyxmlerror.o: tinyxmlerror.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c tinyxmlerror.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/tinyxmlerror.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM tinyxmlerror.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/tinyxmlerror.d
 
 # Compiles file tinyxmlparser.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlparser.d
-D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlparser.o: tinyxmlparser.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c tinyxmlparser.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlparser.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM tinyxmlparser.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/tinyxmlparser.d
+-include d:/Projects/robot/source/robot/gccDebug/tinyxmlparser.d
+d:/Projects/robot/source/robot/gccDebug/tinyxmlparser.o: tinyxmlparser.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c tinyxmlparser.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/tinyxmlparser.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM tinyxmlparser.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/tinyxmlparser.d
 
-# Compiles file BoardSquare.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/BoardSquare.d
-D:/Projects/robot/code/robot/robot/gccDebug/BoardSquare.o: BoardSquare.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c BoardSquare.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/BoardSquare.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM BoardSquare.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/BoardSquare.d
+# Compiles file level.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/level.d
+d:/Projects/robot/source/robot/gccDebug/level.o: level.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c level.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/level.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM level.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/level.d
 
-# Compiles file Board.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Board.d
-D:/Projects/robot/code/robot/robot/gccDebug/Board.o: Board.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Board.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Board.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Board.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Board.d
+# Compiles file level_pack.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/level_pack.d
+d:/Projects/robot/source/robot/gccDebug/level_pack.o: level_pack.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c level_pack.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/level_pack.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM level_pack.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/level_pack.d
 
-# Compiles file Buttn.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Buttn.d
-D:/Projects/robot/code/robot/robot/gccDebug/Buttn.o: Buttn.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Buttn.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Buttn.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Buttn.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Buttn.d
+# Compiles file level_packs.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/level_packs.d
+d:/Projects/robot/source/robot/gccDebug/level_packs.o: level_packs.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c level_packs.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/level_packs.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM level_packs.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/level_packs.d
 
-# Compiles file ButtonBar.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/ButtonBar.d
-D:/Projects/robot/code/robot/robot/gccDebug/ButtonBar.o: ButtonBar.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c ButtonBar.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/ButtonBar.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM ButtonBar.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/ButtonBar.d
+# Compiles file level_square.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/level_square.d
+d:/Projects/robot/source/robot/gccDebug/level_square.o: level_square.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c level_square.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/level_square.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM level_square.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/level_square.d
 
-# Compiles file CommandBar.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/CommandBar.d
-D:/Projects/robot/code/robot/robot/gccDebug/CommandBar.o: CommandBar.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c CommandBar.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/CommandBar.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM CommandBar.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/CommandBar.d
+# Compiles file board_square.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/board_square.d
+d:/Projects/robot/source/robot/gccDebug/board_square.o: board_square.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c board_square.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/board_square.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM board_square.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/board_square.d
 
-# Compiles file CommandBarButton.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/CommandBarButton.d
-D:/Projects/robot/code/robot/robot/gccDebug/CommandBarButton.o: CommandBarButton.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c CommandBarButton.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/CommandBarButton.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM CommandBarButton.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/CommandBarButton.d
+# Compiles file board.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/board.d
+d:/Projects/robot/source/robot/gccDebug/board.o: board.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c board.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/board.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM board.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/board.d
 
-# Compiles file DebugInfo.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/DebugInfo.d
-D:/Projects/robot/code/robot/robot/gccDebug/DebugInfo.o: DebugInfo.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c DebugInfo.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/DebugInfo.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM DebugInfo.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/DebugInfo.d
+# Compiles file button.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/button.d
+d:/Projects/robot/source/robot/gccDebug/button.o: button.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c button.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/button.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM button.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/button.d
 
-# Compiles file Labl.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Labl.d
-D:/Projects/robot/code/robot/robot/gccDebug/Labl.o: Labl.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Labl.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Labl.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Labl.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Labl.d
+# Compiles file button_bar.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/button_bar.d
+d:/Projects/robot/source/robot/gccDebug/button_bar.o: button_bar.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c button_bar.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/button_bar.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM button_bar.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/button_bar.d
 
-# Compiles file MenuItem.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/MenuItem.d
-D:/Projects/robot/code/robot/robot/gccDebug/MenuItem.o: MenuItem.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c MenuItem.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/MenuItem.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM MenuItem.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/MenuItem.d
+# Compiles file command_bar.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/command_bar.d
+d:/Projects/robot/source/robot/gccDebug/command_bar.o: command_bar.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c command_bar.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/command_bar.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM command_bar.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/command_bar.d
 
-# Compiles file Robot.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Robot.d
-D:/Projects/robot/code/robot/robot/gccDebug/Robot.o: Robot.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Robot.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Robot.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Robot.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Robot.d
+# Compiles file command_bar_button.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/command_bar_button.d
+d:/Projects/robot/source/robot/gccDebug/command_bar_button.o: command_bar_button.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c command_bar_button.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/command_bar_button.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM command_bar_button.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/command_bar_button.d
 
-# Compiles file BoardRotationArrow.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/BoardRotationArrow.d
-D:/Projects/robot/code/robot/robot/gccDebug/BoardRotationArrow.o: BoardRotationArrow.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c BoardRotationArrow.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/BoardRotationArrow.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM BoardRotationArrow.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/BoardRotationArrow.d
+# Compiles file head_up_display.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/head_up_display.d
+d:/Projects/robot/source/robot/gccDebug/head_up_display.o: head_up_display.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c head_up_display.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/head_up_display.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM head_up_display.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/head_up_display.d
 
-# Compiles file StandardBackground.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/StandardBackground.d
-D:/Projects/robot/code/robot/robot/gccDebug/StandardBackground.o: StandardBackground.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c StandardBackground.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/StandardBackground.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM StandardBackground.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/StandardBackground.d
+# Compiles file label.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/label.d
+d:/Projects/robot/source/robot/gccDebug/label.o: label.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c label.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/label.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM label.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/label.d
 
-# Compiles file Level.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/Level.d
-D:/Projects/robot/code/robot/robot/gccDebug/Level.o: Level.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c Level.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/Level.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM Level.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/Level.d
+# Compiles file menu_item.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/menu_item.d
+d:/Projects/robot/source/robot/gccDebug/menu_item.o: menu_item.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c menu_item.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/menu_item.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM menu_item.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/menu_item.d
 
-# Compiles file LevelPack.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/LevelPack.d
-D:/Projects/robot/code/robot/robot/gccDebug/LevelPack.o: LevelPack.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c LevelPack.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/LevelPack.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM LevelPack.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/LevelPack.d
+# Compiles file robot.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/robot.d
+d:/Projects/robot/source/robot/gccDebug/robot.o: robot.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c robot.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/robot.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM robot.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/robot.d
 
-# Compiles file LevelPacks.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/LevelPacks.d
-D:/Projects/robot/code/robot/robot/gccDebug/LevelPacks.o: LevelPacks.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c LevelPacks.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/LevelPacks.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM LevelPacks.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/LevelPacks.d
+# Compiles file board_rotation_arrow.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/board_rotation_arrow.d
+d:/Projects/robot/source/robot/gccDebug/board_rotation_arrow.o: board_rotation_arrow.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c board_rotation_arrow.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/board_rotation_arrow.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM board_rotation_arrow.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/board_rotation_arrow.d
 
-# Compiles file LevelSquare.cpp for the Debug_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccDebug/LevelSquare.d
-D:/Projects/robot/code/robot/robot/gccDebug/LevelSquare.o: LevelSquare.cpp
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c LevelSquare.cpp $(Debug_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccDebug/LevelSquare.o
-	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM LevelSquare.cpp $(Debug_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccDebug/LevelSquare.d
+# Compiles file standard_background.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/standard_background.d
+d:/Projects/robot/source/robot/gccDebug/standard_background.o: standard_background.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c standard_background.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/standard_background.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM standard_background.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/standard_background.d
+
+# Compiles file error_state.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/error_state.d
+d:/Projects/robot/source/robot/gccDebug/error_state.o: error_state.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c error_state.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/error_state.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM error_state.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/error_state.d
+
+# Compiles file menu_state.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/menu_state.d
+d:/Projects/robot/source/robot/gccDebug/menu_state.o: menu_state.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c menu_state.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/menu_state.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM menu_state.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/menu_state.d
+
+# Compiles file play_state.cpp for the Debug_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccDebug/play_state.d
+d:/Projects/robot/source/robot/gccDebug/play_state.o: play_state.cpp
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -c play_state.cpp $(Debug_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccDebug/play_state.o
+	$(CPP_COMPILER) $(Debug_Win32_Preprocessor_Definitions) $(Debug_Win32_Compiler_Flags) -MM play_state.cpp $(Debug_Win32_Include_Path) > d:/Projects/robot/source/robot/gccDebug/play_state.d
 
 # Builds the Release_Win32 configuration...
 .PHONY: Release_Win32
-Release_Win32: create_folders D:/Projects/robot/code/robot/robot/gccRelease/StdAfx.h.gch D:/Projects/robot/code/robot/robot/gccRelease/EventHndler.o D:/Projects/robot/code/robot/robot/gccRelease/Main.o D:/Projects/robot/code/robot/robot/gccRelease/MyGame.o D:/Projects/robot/code/robot/robot/gccRelease/RobotProgram.o D:/Projects/robot/code/robot/robot/gccRelease/Settings.o D:/Projects/robot/code/robot/robot/gccRelease/Theme.o D:/Projects/robot/code/robot/robot/gccRelease/ErrorState.o D:/Projects/robot/code/robot/robot/gccRelease/MenuState.o D:/Projects/robot/code/robot/robot/gccRelease/PlayState.o D:/Projects/robot/code/robot/robot/gccRelease/BaseGameTheme.o D:/Projects/robot/code/robot/robot/gccRelease/Color.o D:/Projects/robot/code/robot/robot/gccRelease/FontManager.o D:/Projects/robot/code/robot/robot/gccRelease/FontManagerFont.o D:/Projects/robot/code/robot/robot/gccRelease/Game.o D:/Projects/robot/code/robot/robot/gccRelease/Exception.o D:/Projects/robot/code/robot/robot/gccRelease/Functions.o D:/Projects/robot/code/robot/robot/gccRelease/GameFont.o D:/Projects/robot/code/robot/robot/gccRelease/GameObjects.o D:/Projects/robot/code/robot/robot/gccRelease/InputHandler.o D:/Projects/robot/code/robot/robot/gccRelease/MouseData.o D:/Projects/robot/code/robot/robot/gccRelease/GameObject.o D:/Projects/robot/code/robot/robot/gccRelease/ImageManager.o D:/Projects/robot/code/robot/robot/gccRelease/Image.o D:/Projects/robot/code/robot/robot/gccRelease/SettingsBase.o D:/Projects/robot/code/robot/robot/gccRelease/StdAfx.o D:/Projects/robot/code/robot/robot/gccRelease/ThemeObjectImage.o D:/Projects/robot/code/robot/robot/gccRelease/SplitPath.o D:/Projects/robot/code/robot/robot/gccRelease/State.o D:/Projects/robot/code/robot/robot/gccRelease/StateManager.o D:/Projects/robot/code/robot/robot/gccRelease/ThemeObject.o D:/Projects/robot/code/robot/robot/gccRelease/Types.o D:/Projects/robot/code/robot/robot/gccRelease/Vector2D.o D:/Projects/robot/code/robot/robot/gccRelease/Window.o D:/Projects/robot/code/robot/robot/gccRelease/format.o D:/Projects/robot/code/robot/robot/gccRelease/tinystr.o D:/Projects/robot/code/robot/robot/gccRelease/tinyxml.o D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlerror.o D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlparser.o D:/Projects/robot/code/robot/robot/gccRelease/BoardSquare.o D:/Projects/robot/code/robot/robot/gccRelease/Board.o D:/Projects/robot/code/robot/robot/gccRelease/Buttn.o D:/Projects/robot/code/robot/robot/gccRelease/ButtonBar.o D:/Projects/robot/code/robot/robot/gccRelease/CommandBar.o D:/Projects/robot/code/robot/robot/gccRelease/CommandBarButton.o D:/Projects/robot/code/robot/robot/gccRelease/DebugInfo.o D:/Projects/robot/code/robot/robot/gccRelease/Labl.o D:/Projects/robot/code/robot/robot/gccRelease/MenuItem.o D:/Projects/robot/code/robot/robot/gccRelease/Robot.o D:/Projects/robot/code/robot/robot/gccRelease/BoardRotationArrow.o D:/Projects/robot/code/robot/robot/gccRelease/StandardBackground.o D:/Projects/robot/code/robot/robot/gccRelease/Level.o D:/Projects/robot/code/robot/robot/gccRelease/LevelPack.o D:/Projects/robot/code/robot/robot/gccRelease/LevelPacks.o D:/Projects/robot/code/robot/robot/gccRelease/LevelSquare.o 
-	g++ D:/Projects/robot/code/robot/robot/gccRelease/EventHndler.o D:/Projects/robot/code/robot/robot/gccRelease/Main.o D:/Projects/robot/code/robot/robot/gccRelease/MyGame.o D:/Projects/robot/code/robot/robot/gccRelease/RobotProgram.o D:/Projects/robot/code/robot/robot/gccRelease/Settings.o D:/Projects/robot/code/robot/robot/gccRelease/Theme.o D:/Projects/robot/code/robot/robot/gccRelease/ErrorState.o D:/Projects/robot/code/robot/robot/gccRelease/MenuState.o D:/Projects/robot/code/robot/robot/gccRelease/PlayState.o D:/Projects/robot/code/robot/robot/gccRelease/BaseGameTheme.o D:/Projects/robot/code/robot/robot/gccRelease/Color.o D:/Projects/robot/code/robot/robot/gccRelease/FontManager.o D:/Projects/robot/code/robot/robot/gccRelease/FontManagerFont.o D:/Projects/robot/code/robot/robot/gccRelease/Game.o D:/Projects/robot/code/robot/robot/gccRelease/Exception.o D:/Projects/robot/code/robot/robot/gccRelease/Functions.o D:/Projects/robot/code/robot/robot/gccRelease/GameFont.o D:/Projects/robot/code/robot/robot/gccRelease/GameObjects.o D:/Projects/robot/code/robot/robot/gccRelease/InputHandler.o D:/Projects/robot/code/robot/robot/gccRelease/MouseData.o D:/Projects/robot/code/robot/robot/gccRelease/GameObject.o D:/Projects/robot/code/robot/robot/gccRelease/ImageManager.o D:/Projects/robot/code/robot/robot/gccRelease/Image.o D:/Projects/robot/code/robot/robot/gccRelease/SettingsBase.o D:/Projects/robot/code/robot/robot/gccRelease/StdAfx.o D:/Projects/robot/code/robot/robot/gccRelease/ThemeObjectImage.o D:/Projects/robot/code/robot/robot/gccRelease/SplitPath.o D:/Projects/robot/code/robot/robot/gccRelease/State.o D:/Projects/robot/code/robot/robot/gccRelease/StateManager.o D:/Projects/robot/code/robot/robot/gccRelease/ThemeObject.o D:/Projects/robot/code/robot/robot/gccRelease/Types.o D:/Projects/robot/code/robot/robot/gccRelease/Vector2D.o D:/Projects/robot/code/robot/robot/gccRelease/Window.o D:/Projects/robot/code/robot/robot/gccRelease/format.o D:/Projects/robot/code/robot/robot/gccRelease/tinystr.o D:/Projects/robot/code/robot/robot/gccRelease/tinyxml.o D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlerror.o D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlparser.o D:/Projects/robot/code/robot/robot/gccRelease/BoardSquare.o D:/Projects/robot/code/robot/robot/gccRelease/Board.o D:/Projects/robot/code/robot/robot/gccRelease/Buttn.o D:/Projects/robot/code/robot/robot/gccRelease/ButtonBar.o D:/Projects/robot/code/robot/robot/gccRelease/CommandBar.o D:/Projects/robot/code/robot/robot/gccRelease/CommandBarButton.o D:/Projects/robot/code/robot/robot/gccRelease/DebugInfo.o D:/Projects/robot/code/robot/robot/gccRelease/Labl.o D:/Projects/robot/code/robot/robot/gccRelease/MenuItem.o D:/Projects/robot/code/robot/robot/gccRelease/Robot.o D:/Projects/robot/code/robot/robot/gccRelease/BoardRotationArrow.o D:/Projects/robot/code/robot/robot/gccRelease/StandardBackground.o D:/Projects/robot/code/robot/robot/gccRelease/Level.o D:/Projects/robot/code/robot/robot/gccRelease/LevelPack.o D:/Projects/robot/code/robot/robot/gccRelease/LevelPacks.o D:/Projects/robot/code/robot/robot/gccRelease/LevelSquare.o  $(Release_Win32_Library_Path) $(Release_Win32_Libraries) -Wl,-rpath,./ -o D:/Projects/robot/code/robot/gccRelease/robot.exe
+Release_Win32: create_folders d:/Projects/robot/source/robot/gccRelease/stdafx.h.gch d:/Projects/robot/source/robot/gccRelease/main.o d:/Projects/robot/source/robot/gccRelease/my_game.o d:/Projects/robot/source/robot/gccRelease/robot_program.o d:/Projects/robot/source/robot/gccRelease/settings.o d:/Projects/robot/source/robot/gccRelease/theme.o d:/Projects/robot/source/robot/gccRelease/base_game_theme.o d:/Projects/robot/source/robot/gccRelease/color.o d:/Projects/robot/source/robot/gccRelease/font_manager.o d:/Projects/robot/source/robot/gccRelease/font_manager_font.o d:/Projects/robot/source/robot/gccRelease/game.o d:/Projects/robot/source/robot/gccRelease/exception.o d:/Projects/robot/source/robot/gccRelease/functions.o d:/Projects/robot/source/robot/gccRelease/game_font.o d:/Projects/robot/source/robot/gccRelease/game_objects.o d:/Projects/robot/source/robot/gccRelease/input_handler.o d:/Projects/robot/source/robot/gccRelease/mouse_data.o d:/Projects/robot/source/robot/gccRelease/game_object.o d:/Projects/robot/source/robot/gccRelease/image_manager.o d:/Projects/robot/source/robot/gccRelease/image.o d:/Projects/robot/source/robot/gccRelease/settings_base.o d:/Projects/robot/source/robot/gccRelease/stdafx.o d:/Projects/robot/source/robot/gccRelease/theme_object_image.o d:/Projects/robot/source/robot/gccRelease/split_path.o d:/Projects/robot/source/robot/gccRelease/state.o d:/Projects/robot/source/robot/gccRelease/state_manager.o d:/Projects/robot/source/robot/gccRelease/theme_object.o d:/Projects/robot/source/robot/gccRelease/types.o d:/Projects/robot/source/robot/gccRelease/vector_2d.o d:/Projects/robot/source/robot/gccRelease/window.o d:/Projects/robot/source/robot/gccRelease/format.o d:/Projects/robot/source/robot/gccRelease/tinystr.o d:/Projects/robot/source/robot/gccRelease/tinyxml.o d:/Projects/robot/source/robot/gccRelease/tinyxmlerror.o d:/Projects/robot/source/robot/gccRelease/tinyxmlparser.o d:/Projects/robot/source/robot/gccRelease/level.o d:/Projects/robot/source/robot/gccRelease/level_pack.o d:/Projects/robot/source/robot/gccRelease/level_packs.o d:/Projects/robot/source/robot/gccRelease/level_square.o d:/Projects/robot/source/robot/gccRelease/board_square.o d:/Projects/robot/source/robot/gccRelease/board.o d:/Projects/robot/source/robot/gccRelease/button.o d:/Projects/robot/source/robot/gccRelease/button_bar.o d:/Projects/robot/source/robot/gccRelease/command_bar.o d:/Projects/robot/source/robot/gccRelease/command_bar_button.o d:/Projects/robot/source/robot/gccRelease/head_up_display.o d:/Projects/robot/source/robot/gccRelease/label.o d:/Projects/robot/source/robot/gccRelease/menu_item.o d:/Projects/robot/source/robot/gccRelease/robot.o d:/Projects/robot/source/robot/gccRelease/board_rotation_arrow.o d:/Projects/robot/source/robot/gccRelease/standard_background.o d:/Projects/robot/source/robot/gccRelease/error_state.o d:/Projects/robot/source/robot/gccRelease/menu_state.o d:/Projects/robot/source/robot/gccRelease/play_state.o 
+	g++ d:/Projects/robot/source/robot/gccRelease/main.o d:/Projects/robot/source/robot/gccRelease/my_game.o d:/Projects/robot/source/robot/gccRelease/robot_program.o d:/Projects/robot/source/robot/gccRelease/settings.o d:/Projects/robot/source/robot/gccRelease/theme.o d:/Projects/robot/source/robot/gccRelease/base_game_theme.o d:/Projects/robot/source/robot/gccRelease/color.o d:/Projects/robot/source/robot/gccRelease/font_manager.o d:/Projects/robot/source/robot/gccRelease/font_manager_font.o d:/Projects/robot/source/robot/gccRelease/game.o d:/Projects/robot/source/robot/gccRelease/exception.o d:/Projects/robot/source/robot/gccRelease/functions.o d:/Projects/robot/source/robot/gccRelease/game_font.o d:/Projects/robot/source/robot/gccRelease/game_objects.o d:/Projects/robot/source/robot/gccRelease/input_handler.o d:/Projects/robot/source/robot/gccRelease/mouse_data.o d:/Projects/robot/source/robot/gccRelease/game_object.o d:/Projects/robot/source/robot/gccRelease/image_manager.o d:/Projects/robot/source/robot/gccRelease/image.o d:/Projects/robot/source/robot/gccRelease/settings_base.o d:/Projects/robot/source/robot/gccRelease/stdafx.o d:/Projects/robot/source/robot/gccRelease/theme_object_image.o d:/Projects/robot/source/robot/gccRelease/split_path.o d:/Projects/robot/source/robot/gccRelease/state.o d:/Projects/robot/source/robot/gccRelease/state_manager.o d:/Projects/robot/source/robot/gccRelease/theme_object.o d:/Projects/robot/source/robot/gccRelease/types.o d:/Projects/robot/source/robot/gccRelease/vector_2d.o d:/Projects/robot/source/robot/gccRelease/window.o d:/Projects/robot/source/robot/gccRelease/format.o d:/Projects/robot/source/robot/gccRelease/tinystr.o d:/Projects/robot/source/robot/gccRelease/tinyxml.o d:/Projects/robot/source/robot/gccRelease/tinyxmlerror.o d:/Projects/robot/source/robot/gccRelease/tinyxmlparser.o d:/Projects/robot/source/robot/gccRelease/level.o d:/Projects/robot/source/robot/gccRelease/level_pack.o d:/Projects/robot/source/robot/gccRelease/level_packs.o d:/Projects/robot/source/robot/gccRelease/level_square.o d:/Projects/robot/source/robot/gccRelease/board_square.o d:/Projects/robot/source/robot/gccRelease/board.o d:/Projects/robot/source/robot/gccRelease/button.o d:/Projects/robot/source/robot/gccRelease/button_bar.o d:/Projects/robot/source/robot/gccRelease/command_bar.o d:/Projects/robot/source/robot/gccRelease/command_bar_button.o d:/Projects/robot/source/robot/gccRelease/head_up_display.o d:/Projects/robot/source/robot/gccRelease/label.o d:/Projects/robot/source/robot/gccRelease/menu_item.o d:/Projects/robot/source/robot/gccRelease/robot.o d:/Projects/robot/source/robot/gccRelease/board_rotation_arrow.o d:/Projects/robot/source/robot/gccRelease/standard_background.o d:/Projects/robot/source/robot/gccRelease/error_state.o d:/Projects/robot/source/robot/gccRelease/menu_state.o d:/Projects/robot/source/robot/gccRelease/play_state.o  $(Release_Win32_Library_Path) $(Release_Win32_Libraries) -Wl,-rpath,./ -o d:/Projects/robot/source/gccRelease/robot.exe
 
-# Compiles file StdAfx.h as the precompiled header StdAfx.h.gch for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/StdAfx.d
-D:/Projects/robot/code/robot/robot/gccRelease/StdAfx.h.gch: StdAfx.h
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c StdAfx.h $(Release_Win32_Include_Path) -o StdAfx.h.gch
+# Compiles file stdafx.h as the precompiled header stdafx.h.gch for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/stdafx.d
+d:/Projects/robot/source/robot/gccRelease/stdafx.h.gch: stdafx.h
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c stdafx.h $(Release_Win32_Include_Path) -o stdafx.h.gch
 
-# Compiles file EventHndler.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/EventHndler.d
-D:/Projects/robot/code/robot/robot/gccRelease/EventHndler.o: EventHndler.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c EventHndler.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/EventHndler.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM EventHndler.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/EventHndler.d
+# Compiles file main.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/main.d
+d:/Projects/robot/source/robot/gccRelease/main.o: main.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c main.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/main.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM main.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/main.d
 
-# Compiles file Main.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Main.d
-D:/Projects/robot/code/robot/robot/gccRelease/Main.o: Main.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Main.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Main.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Main.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Main.d
+# Compiles file my_game.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/my_game.d
+d:/Projects/robot/source/robot/gccRelease/my_game.o: my_game.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c my_game.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/my_game.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM my_game.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/my_game.d
 
-# Compiles file MyGame.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/MyGame.d
-D:/Projects/robot/code/robot/robot/gccRelease/MyGame.o: MyGame.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c MyGame.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/MyGame.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM MyGame.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/MyGame.d
+# Compiles file robot_program.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/robot_program.d
+d:/Projects/robot/source/robot/gccRelease/robot_program.o: robot_program.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c robot_program.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/robot_program.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM robot_program.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/robot_program.d
 
-# Compiles file RobotProgram.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/RobotProgram.d
-D:/Projects/robot/code/robot/robot/gccRelease/RobotProgram.o: RobotProgram.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c RobotProgram.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/RobotProgram.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM RobotProgram.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/RobotProgram.d
+# Compiles file settings.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/settings.d
+d:/Projects/robot/source/robot/gccRelease/settings.o: settings.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c settings.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/settings.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM settings.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/settings.d
 
-# Compiles file Settings.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Settings.d
-D:/Projects/robot/code/robot/robot/gccRelease/Settings.o: Settings.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Settings.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Settings.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Settings.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Settings.d
+# Compiles file theme.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/theme.d
+d:/Projects/robot/source/robot/gccRelease/theme.o: theme.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c theme.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/theme.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM theme.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/theme.d
 
-# Compiles file Theme.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Theme.d
-D:/Projects/robot/code/robot/robot/gccRelease/Theme.o: Theme.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Theme.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Theme.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Theme.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Theme.d
+# Compiles file base_game_theme.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/base_game_theme.d
+d:/Projects/robot/source/robot/gccRelease/base_game_theme.o: base_game_theme.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c base_game_theme.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/base_game_theme.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM base_game_theme.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/base_game_theme.d
 
-# Compiles file ErrorState.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/ErrorState.d
-D:/Projects/robot/code/robot/robot/gccRelease/ErrorState.o: ErrorState.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c ErrorState.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/ErrorState.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM ErrorState.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/ErrorState.d
+# Compiles file color.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/color.d
+d:/Projects/robot/source/robot/gccRelease/color.o: color.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c color.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/color.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM color.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/color.d
 
-# Compiles file MenuState.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/MenuState.d
-D:/Projects/robot/code/robot/robot/gccRelease/MenuState.o: MenuState.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c MenuState.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/MenuState.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM MenuState.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/MenuState.d
+# Compiles file font_manager.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/font_manager.d
+d:/Projects/robot/source/robot/gccRelease/font_manager.o: font_manager.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c font_manager.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/font_manager.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM font_manager.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/font_manager.d
 
-# Compiles file PlayState.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/PlayState.d
-D:/Projects/robot/code/robot/robot/gccRelease/PlayState.o: PlayState.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c PlayState.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/PlayState.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM PlayState.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/PlayState.d
+# Compiles file font_manager_font.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/font_manager_font.d
+d:/Projects/robot/source/robot/gccRelease/font_manager_font.o: font_manager_font.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c font_manager_font.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/font_manager_font.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM font_manager_font.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/font_manager_font.d
 
-# Compiles file BaseGameTheme.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/BaseGameTheme.d
-D:/Projects/robot/code/robot/robot/gccRelease/BaseGameTheme.o: BaseGameTheme.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c BaseGameTheme.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/BaseGameTheme.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM BaseGameTheme.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/BaseGameTheme.d
+# Compiles file game.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/game.d
+d:/Projects/robot/source/robot/gccRelease/game.o: game.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c game.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/game.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM game.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/game.d
 
-# Compiles file Color.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Color.d
-D:/Projects/robot/code/robot/robot/gccRelease/Color.o: Color.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Color.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Color.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Color.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Color.d
+# Compiles file exception.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/exception.d
+d:/Projects/robot/source/robot/gccRelease/exception.o: exception.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c exception.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/exception.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM exception.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/exception.d
 
-# Compiles file FontManager.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/FontManager.d
-D:/Projects/robot/code/robot/robot/gccRelease/FontManager.o: FontManager.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c FontManager.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/FontManager.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM FontManager.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/FontManager.d
+# Compiles file functions.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/functions.d
+d:/Projects/robot/source/robot/gccRelease/functions.o: functions.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c functions.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/functions.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM functions.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/functions.d
 
-# Compiles file FontManagerFont.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/FontManagerFont.d
-D:/Projects/robot/code/robot/robot/gccRelease/FontManagerFont.o: FontManagerFont.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c FontManagerFont.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/FontManagerFont.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM FontManagerFont.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/FontManagerFont.d
+# Compiles file game_font.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/game_font.d
+d:/Projects/robot/source/robot/gccRelease/game_font.o: game_font.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c game_font.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/game_font.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM game_font.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/game_font.d
 
-# Compiles file Game.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Game.d
-D:/Projects/robot/code/robot/robot/gccRelease/Game.o: Game.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Game.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Game.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Game.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Game.d
+# Compiles file game_objects.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/game_objects.d
+d:/Projects/robot/source/robot/gccRelease/game_objects.o: game_objects.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c game_objects.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/game_objects.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM game_objects.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/game_objects.d
 
-# Compiles file Exception.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Exception.d
-D:/Projects/robot/code/robot/robot/gccRelease/Exception.o: Exception.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Exception.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Exception.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Exception.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Exception.d
+# Compiles file input_handler.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/input_handler.d
+d:/Projects/robot/source/robot/gccRelease/input_handler.o: input_handler.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c input_handler.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/input_handler.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM input_handler.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/input_handler.d
 
-# Compiles file Functions.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Functions.d
-D:/Projects/robot/code/robot/robot/gccRelease/Functions.o: Functions.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Functions.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Functions.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Functions.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Functions.d
+# Compiles file mouse_data.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/mouse_data.d
+d:/Projects/robot/source/robot/gccRelease/mouse_data.o: mouse_data.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c mouse_data.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/mouse_data.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM mouse_data.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/mouse_data.d
 
-# Compiles file GameFont.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/GameFont.d
-D:/Projects/robot/code/robot/robot/gccRelease/GameFont.o: GameFont.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c GameFont.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/GameFont.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM GameFont.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/GameFont.d
+# Compiles file game_object.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/game_object.d
+d:/Projects/robot/source/robot/gccRelease/game_object.o: game_object.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c game_object.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/game_object.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM game_object.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/game_object.d
 
-# Compiles file GameObjects.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/GameObjects.d
-D:/Projects/robot/code/robot/robot/gccRelease/GameObjects.o: GameObjects.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c GameObjects.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/GameObjects.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM GameObjects.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/GameObjects.d
+# Compiles file image_manager.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/image_manager.d
+d:/Projects/robot/source/robot/gccRelease/image_manager.o: image_manager.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c image_manager.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/image_manager.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM image_manager.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/image_manager.d
 
-# Compiles file InputHandler.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/InputHandler.d
-D:/Projects/robot/code/robot/robot/gccRelease/InputHandler.o: InputHandler.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c InputHandler.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/InputHandler.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM InputHandler.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/InputHandler.d
+# Compiles file image.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/image.d
+d:/Projects/robot/source/robot/gccRelease/image.o: image.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c image.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/image.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM image.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/image.d
 
-# Compiles file MouseData.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/MouseData.d
-D:/Projects/robot/code/robot/robot/gccRelease/MouseData.o: MouseData.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c MouseData.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/MouseData.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM MouseData.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/MouseData.d
+# Compiles file settings_base.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/settings_base.d
+d:/Projects/robot/source/robot/gccRelease/settings_base.o: settings_base.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c settings_base.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/settings_base.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM settings_base.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/settings_base.d
 
-# Compiles file GameObject.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/GameObject.d
-D:/Projects/robot/code/robot/robot/gccRelease/GameObject.o: GameObject.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c GameObject.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/GameObject.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM GameObject.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/GameObject.d
+# Compiles file stdafx.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/stdafx.d
+d:/Projects/robot/source/robot/gccRelease/stdafx.o: stdafx.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c stdafx.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/stdafx.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM stdafx.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/stdafx.d
 
-# Compiles file ImageManager.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/ImageManager.d
-D:/Projects/robot/code/robot/robot/gccRelease/ImageManager.o: ImageManager.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c ImageManager.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/ImageManager.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM ImageManager.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/ImageManager.d
+# Compiles file theme_object_image.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/theme_object_image.d
+d:/Projects/robot/source/robot/gccRelease/theme_object_image.o: theme_object_image.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c theme_object_image.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/theme_object_image.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM theme_object_image.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/theme_object_image.d
 
-# Compiles file Image.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Image.d
-D:/Projects/robot/code/robot/robot/gccRelease/Image.o: Image.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Image.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Image.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Image.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Image.d
+# Compiles file split_path.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/split_path.d
+d:/Projects/robot/source/robot/gccRelease/split_path.o: split_path.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c split_path.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/split_path.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM split_path.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/split_path.d
 
-# Compiles file SettingsBase.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/SettingsBase.d
-D:/Projects/robot/code/robot/robot/gccRelease/SettingsBase.o: SettingsBase.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c SettingsBase.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/SettingsBase.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM SettingsBase.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/SettingsBase.d
+# Compiles file state.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/state.d
+d:/Projects/robot/source/robot/gccRelease/state.o: state.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c state.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/state.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM state.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/state.d
 
-# Compiles file StdAfx.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/StdAfx.d
-D:/Projects/robot/code/robot/robot/gccRelease/StdAfx.o: StdAfx.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c StdAfx.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/StdAfx.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM StdAfx.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/StdAfx.d
+# Compiles file state_manager.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/state_manager.d
+d:/Projects/robot/source/robot/gccRelease/state_manager.o: state_manager.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c state_manager.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/state_manager.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM state_manager.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/state_manager.d
 
-# Compiles file ThemeObjectImage.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/ThemeObjectImage.d
-D:/Projects/robot/code/robot/robot/gccRelease/ThemeObjectImage.o: ThemeObjectImage.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c ThemeObjectImage.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/ThemeObjectImage.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM ThemeObjectImage.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/ThemeObjectImage.d
+# Compiles file theme_object.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/theme_object.d
+d:/Projects/robot/source/robot/gccRelease/theme_object.o: theme_object.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c theme_object.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/theme_object.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM theme_object.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/theme_object.d
 
-# Compiles file SplitPath.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/SplitPath.d
-D:/Projects/robot/code/robot/robot/gccRelease/SplitPath.o: SplitPath.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c SplitPath.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/SplitPath.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM SplitPath.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/SplitPath.d
+# Compiles file types.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/types.d
+d:/Projects/robot/source/robot/gccRelease/types.o: types.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c types.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/types.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM types.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/types.d
 
-# Compiles file State.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/State.d
-D:/Projects/robot/code/robot/robot/gccRelease/State.o: State.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c State.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/State.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM State.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/State.d
+# Compiles file vector_2d.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/vector_2d.d
+d:/Projects/robot/source/robot/gccRelease/vector_2d.o: vector_2d.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c vector_2d.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/vector_2d.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM vector_2d.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/vector_2d.d
 
-# Compiles file StateManager.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/StateManager.d
-D:/Projects/robot/code/robot/robot/gccRelease/StateManager.o: StateManager.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c StateManager.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/StateManager.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM StateManager.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/StateManager.d
-
-# Compiles file ThemeObject.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/ThemeObject.d
-D:/Projects/robot/code/robot/robot/gccRelease/ThemeObject.o: ThemeObject.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c ThemeObject.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/ThemeObject.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM ThemeObject.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/ThemeObject.d
-
-# Compiles file Types.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Types.d
-D:/Projects/robot/code/robot/robot/gccRelease/Types.o: Types.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Types.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Types.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Types.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Types.d
-
-# Compiles file Vector2D.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Vector2D.d
-D:/Projects/robot/code/robot/robot/gccRelease/Vector2D.o: Vector2D.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Vector2D.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Vector2D.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Vector2D.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Vector2D.d
-
-# Compiles file Window.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Window.d
-D:/Projects/robot/code/robot/robot/gccRelease/Window.o: Window.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Window.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Window.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Window.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Window.d
+# Compiles file window.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/window.d
+d:/Projects/robot/source/robot/gccRelease/window.o: window.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c window.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/window.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM window.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/window.d
 
 # Compiles file format.cc for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/format.d
-D:/Projects/robot/code/robot/robot/gccRelease/format.o: format.cc
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c format.cc $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/format.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM format.cc $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/format.d
+-include d:/Projects/robot/source/robot/gccRelease/format.d
+d:/Projects/robot/source/robot/gccRelease/format.o: format.cc
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c format.cc $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/format.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM format.cc $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/format.d
 
 # Compiles file tinystr.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/tinystr.d
-D:/Projects/robot/code/robot/robot/gccRelease/tinystr.o: tinystr.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c tinystr.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/tinystr.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM tinystr.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/tinystr.d
+-include d:/Projects/robot/source/robot/gccRelease/tinystr.d
+d:/Projects/robot/source/robot/gccRelease/tinystr.o: tinystr.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c tinystr.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/tinystr.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM tinystr.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/tinystr.d
 
 # Compiles file tinyxml.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/tinyxml.d
-D:/Projects/robot/code/robot/robot/gccRelease/tinyxml.o: tinyxml.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c tinyxml.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/tinyxml.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM tinyxml.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/tinyxml.d
+-include d:/Projects/robot/source/robot/gccRelease/tinyxml.d
+d:/Projects/robot/source/robot/gccRelease/tinyxml.o: tinyxml.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c tinyxml.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/tinyxml.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM tinyxml.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/tinyxml.d
 
 # Compiles file tinyxmlerror.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlerror.d
-D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlerror.o: tinyxmlerror.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c tinyxmlerror.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlerror.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM tinyxmlerror.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlerror.d
+-include d:/Projects/robot/source/robot/gccRelease/tinyxmlerror.d
+d:/Projects/robot/source/robot/gccRelease/tinyxmlerror.o: tinyxmlerror.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c tinyxmlerror.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/tinyxmlerror.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM tinyxmlerror.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/tinyxmlerror.d
 
 # Compiles file tinyxmlparser.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlparser.d
-D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlparser.o: tinyxmlparser.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c tinyxmlparser.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlparser.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM tinyxmlparser.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/tinyxmlparser.d
+-include d:/Projects/robot/source/robot/gccRelease/tinyxmlparser.d
+d:/Projects/robot/source/robot/gccRelease/tinyxmlparser.o: tinyxmlparser.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c tinyxmlparser.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/tinyxmlparser.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM tinyxmlparser.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/tinyxmlparser.d
 
-# Compiles file BoardSquare.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/BoardSquare.d
-D:/Projects/robot/code/robot/robot/gccRelease/BoardSquare.o: BoardSquare.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c BoardSquare.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/BoardSquare.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM BoardSquare.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/BoardSquare.d
+# Compiles file level.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/level.d
+d:/Projects/robot/source/robot/gccRelease/level.o: level.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c level.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/level.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM level.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/level.d
 
-# Compiles file Board.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Board.d
-D:/Projects/robot/code/robot/robot/gccRelease/Board.o: Board.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Board.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Board.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Board.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Board.d
+# Compiles file level_pack.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/level_pack.d
+d:/Projects/robot/source/robot/gccRelease/level_pack.o: level_pack.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c level_pack.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/level_pack.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM level_pack.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/level_pack.d
 
-# Compiles file Buttn.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Buttn.d
-D:/Projects/robot/code/robot/robot/gccRelease/Buttn.o: Buttn.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Buttn.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Buttn.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Buttn.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Buttn.d
+# Compiles file level_packs.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/level_packs.d
+d:/Projects/robot/source/robot/gccRelease/level_packs.o: level_packs.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c level_packs.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/level_packs.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM level_packs.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/level_packs.d
 
-# Compiles file ButtonBar.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/ButtonBar.d
-D:/Projects/robot/code/robot/robot/gccRelease/ButtonBar.o: ButtonBar.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c ButtonBar.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/ButtonBar.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM ButtonBar.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/ButtonBar.d
+# Compiles file level_square.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/level_square.d
+d:/Projects/robot/source/robot/gccRelease/level_square.o: level_square.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c level_square.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/level_square.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM level_square.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/level_square.d
 
-# Compiles file CommandBar.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/CommandBar.d
-D:/Projects/robot/code/robot/robot/gccRelease/CommandBar.o: CommandBar.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c CommandBar.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/CommandBar.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM CommandBar.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/CommandBar.d
+# Compiles file board_square.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/board_square.d
+d:/Projects/robot/source/robot/gccRelease/board_square.o: board_square.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c board_square.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/board_square.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM board_square.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/board_square.d
 
-# Compiles file CommandBarButton.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/CommandBarButton.d
-D:/Projects/robot/code/robot/robot/gccRelease/CommandBarButton.o: CommandBarButton.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c CommandBarButton.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/CommandBarButton.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM CommandBarButton.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/CommandBarButton.d
+# Compiles file board.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/board.d
+d:/Projects/robot/source/robot/gccRelease/board.o: board.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c board.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/board.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM board.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/board.d
 
-# Compiles file DebugInfo.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/DebugInfo.d
-D:/Projects/robot/code/robot/robot/gccRelease/DebugInfo.o: DebugInfo.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c DebugInfo.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/DebugInfo.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM DebugInfo.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/DebugInfo.d
+# Compiles file button.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/button.d
+d:/Projects/robot/source/robot/gccRelease/button.o: button.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c button.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/button.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM button.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/button.d
 
-# Compiles file Labl.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Labl.d
-D:/Projects/robot/code/robot/robot/gccRelease/Labl.o: Labl.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Labl.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Labl.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Labl.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Labl.d
+# Compiles file button_bar.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/button_bar.d
+d:/Projects/robot/source/robot/gccRelease/button_bar.o: button_bar.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c button_bar.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/button_bar.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM button_bar.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/button_bar.d
 
-# Compiles file MenuItem.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/MenuItem.d
-D:/Projects/robot/code/robot/robot/gccRelease/MenuItem.o: MenuItem.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c MenuItem.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/MenuItem.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM MenuItem.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/MenuItem.d
+# Compiles file command_bar.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/command_bar.d
+d:/Projects/robot/source/robot/gccRelease/command_bar.o: command_bar.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c command_bar.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/command_bar.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM command_bar.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/command_bar.d
 
-# Compiles file Robot.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Robot.d
-D:/Projects/robot/code/robot/robot/gccRelease/Robot.o: Robot.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Robot.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Robot.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Robot.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Robot.d
+# Compiles file command_bar_button.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/command_bar_button.d
+d:/Projects/robot/source/robot/gccRelease/command_bar_button.o: command_bar_button.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c command_bar_button.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/command_bar_button.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM command_bar_button.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/command_bar_button.d
 
-# Compiles file BoardRotationArrow.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/BoardRotationArrow.d
-D:/Projects/robot/code/robot/robot/gccRelease/BoardRotationArrow.o: BoardRotationArrow.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c BoardRotationArrow.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/BoardRotationArrow.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM BoardRotationArrow.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/BoardRotationArrow.d
+# Compiles file head_up_display.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/head_up_display.d
+d:/Projects/robot/source/robot/gccRelease/head_up_display.o: head_up_display.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c head_up_display.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/head_up_display.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM head_up_display.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/head_up_display.d
 
-# Compiles file StandardBackground.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/StandardBackground.d
-D:/Projects/robot/code/robot/robot/gccRelease/StandardBackground.o: StandardBackground.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c StandardBackground.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/StandardBackground.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM StandardBackground.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/StandardBackground.d
+# Compiles file label.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/label.d
+d:/Projects/robot/source/robot/gccRelease/label.o: label.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c label.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/label.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM label.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/label.d
 
-# Compiles file Level.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/Level.d
-D:/Projects/robot/code/robot/robot/gccRelease/Level.o: Level.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c Level.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/Level.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM Level.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/Level.d
+# Compiles file menu_item.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/menu_item.d
+d:/Projects/robot/source/robot/gccRelease/menu_item.o: menu_item.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c menu_item.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/menu_item.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM menu_item.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/menu_item.d
 
-# Compiles file LevelPack.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/LevelPack.d
-D:/Projects/robot/code/robot/robot/gccRelease/LevelPack.o: LevelPack.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c LevelPack.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/LevelPack.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM LevelPack.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/LevelPack.d
+# Compiles file robot.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/robot.d
+d:/Projects/robot/source/robot/gccRelease/robot.o: robot.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c robot.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/robot.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM robot.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/robot.d
 
-# Compiles file LevelPacks.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/LevelPacks.d
-D:/Projects/robot/code/robot/robot/gccRelease/LevelPacks.o: LevelPacks.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c LevelPacks.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/LevelPacks.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM LevelPacks.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/LevelPacks.d
+# Compiles file board_rotation_arrow.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/board_rotation_arrow.d
+d:/Projects/robot/source/robot/gccRelease/board_rotation_arrow.o: board_rotation_arrow.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c board_rotation_arrow.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/board_rotation_arrow.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM board_rotation_arrow.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/board_rotation_arrow.d
 
-# Compiles file LevelSquare.cpp for the Release_Win32 configuration...
--include D:/Projects/robot/code/robot/robot/gccRelease/LevelSquare.d
-D:/Projects/robot/code/robot/robot/gccRelease/LevelSquare.o: LevelSquare.cpp
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c LevelSquare.cpp $(Release_Win32_Include_Path) -o D:/Projects/robot/code/robot/robot/gccRelease/LevelSquare.o
-	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM LevelSquare.cpp $(Release_Win32_Include_Path) > D:/Projects/robot/code/robot/robot/gccRelease/LevelSquare.d
+# Compiles file standard_background.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/standard_background.d
+d:/Projects/robot/source/robot/gccRelease/standard_background.o: standard_background.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c standard_background.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/standard_background.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM standard_background.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/standard_background.d
+
+# Compiles file error_state.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/error_state.d
+d:/Projects/robot/source/robot/gccRelease/error_state.o: error_state.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c error_state.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/error_state.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM error_state.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/error_state.d
+
+# Compiles file menu_state.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/menu_state.d
+d:/Projects/robot/source/robot/gccRelease/menu_state.o: menu_state.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c menu_state.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/menu_state.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM menu_state.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/menu_state.d
+
+# Compiles file play_state.cpp for the Release_Win32 configuration...
+-include d:/Projects/robot/source/robot/gccRelease/play_state.d
+d:/Projects/robot/source/robot/gccRelease/play_state.o: play_state.cpp
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -c play_state.cpp $(Release_Win32_Include_Path) -o d:/Projects/robot/source/robot/gccRelease/play_state.o
+	$(CPP_COMPILER) $(Release_Win32_Preprocessor_Definitions) $(Release_Win32_Compiler_Flags) -MM play_state.cpp $(Release_Win32_Include_Path) > d:/Projects/robot/source/robot/gccRelease/play_state.d
 
 # Creates the intermediate and output folders for each configuration...
 .PHONY: create_folders
 create_folders:
-	mkdir -p D:/Projects/robot/code/robot/robot/gccDebug/source
-	mkdir -p D:/Projects/robot/code/robot/gccDebug
-	mkdir -p D:/Projects/robot/code/robot/robot/gccRelease/source
-	mkdir -p D:/Projects/robot/code/robot/gccRelease
+	mkdir -p d:/Projects/robot/source/robot/gccDebug/source
+	mkdir -p d:/Projects/robot/source/gccDebug
+	mkdir -p d:/Projects/robot/source/robot/gccRelease/source
+	mkdir -p d:/Projects/robot/source/gccRelease
 
 # Cleans intermediate and output files (objects, libraries, executables)...
 .PHONY: clean
 clean:
-	rm -f D:/Projects/robot/code/robot/robot/gccDebug/*.o
-	rm -f D:/Projects/robot/code/robot/robot/gccDebug/*.d
-	rm -f D:/Projects/robot/code/robot/gccDebug/*.a
-	rm -f D:/Projects/robot/code/robot/gccDebug/*.so
-	rm -f D:/Projects/robot/code/robot/gccDebug/*.dll
-	rm -f D:/Projects/robot/code/robot/gccDebug/*.exe
-	rm -f D:/Projects/robot/code/robot/robot/gccRelease/*.o
-	rm -f D:/Projects/robot/code/robot/robot/gccRelease/*.d
-	rm -f D:/Projects/robot/code/robot/gccRelease/*.a
-	rm -f D:/Projects/robot/code/robot/gccRelease/*.so
-	rm -f D:/Projects/robot/code/robot/gccRelease/*.dll
-	rm -f D:/Projects/robot/code/robot/gccRelease/*.exe
+	rm -f d:/Projects/robot/source/robot/gccDebug/*.o
+	rm -f d:/Projects/robot/source/robot/gccDebug/*.d
+	rm -f d:/Projects/robot/source/gccDebug/*.a
+	rm -f d:/Projects/robot/source/gccDebug/*.so
+	rm -f d:/Projects/robot/source/gccDebug/*.dll
+	rm -f d:/Projects/robot/source/gccDebug/*.exe
+	rm -f d:/Projects/robot/source/robot/gccRelease/*.o
+	rm -f d:/Projects/robot/source/robot/gccRelease/*.d
+	rm -f d:/Projects/robot/source/gccRelease/*.a
+	rm -f d:/Projects/robot/source/gccRelease/*.so
+	rm -f d:/Projects/robot/source/gccRelease/*.dll
+	rm -f d:/Projects/robot/source/gccRelease/*.exe
 

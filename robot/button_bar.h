@@ -14,10 +14,15 @@ public:
   void AddButton(Buttn* button);
   Buttn* ButtonAt(POINT pt);
   SIZE SizeCalculate();
-  void Resize(int width, int height) override;
+  void Click(void* sender) override;
+  void Resize(int width, int height) override;  
+  void OnButtonClick(std::function<void(void*, Buttn* button)> onButtonClickCallBack); //void * will be the sender i.e me
+  virtual void PositionAndAutoSize(POINT pt);
+  State* ParentState;
 protected:
+  std::function<void(void*, Buttn* button)> _onButtonClickCallBack;
   SIZE ButtonSize();  
-private:
+private:  
   int _columns;
   int _buttonMargin;
   SIZE _buttonSize;

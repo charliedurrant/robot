@@ -57,18 +57,6 @@ string PlayState::ProgramTextGetFromFunctionCommandBar(CommandBar* commandBar, s
 }
 
 
-void PlayState::Render()
-{
-  State::Render();  
-}
-
-
-
-void PlayState::Update()
-{
-  State::Update();  
-}
-
 void PlayState::BoardRotationArrowClick(void* sender)
 {
   BoardRotationArrow* arrow;
@@ -114,6 +102,7 @@ void PlayState::CommandDragDrop(CommandBarButton* sender)
   {
     dragButton->CommandSet(sender->CommandGet());
   }
+ 
 }
 
 void PlayState::OnEnter()

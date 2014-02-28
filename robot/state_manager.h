@@ -11,6 +11,7 @@ public:
   ~StateManager(void);
   void Push(State* state);
   void Change(State* state);
+  
   void Pop();
   State* Current();
 
@@ -21,5 +22,6 @@ private:
   std::vector<State*> _states;
   State* _lastState;
   void ClearLast();
+  void Enter(State* state);
 };
 

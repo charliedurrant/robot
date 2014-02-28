@@ -37,9 +37,7 @@ private:
   void CoordinateToPosition(POINT coordinate, Vector2D vector);  
   bool CrossesSquareAt(RECTF rectRobot, POINT squareCoordinate);
   void ConvertTileRectTo3dPolygon(RECTF rect, POINTF polygon4Points[]);
-  int DistanceBetweenSquared(POINT pt1, POINT pt2);
-  float DistanceBetweenSquared(POINTF pt1, POINTF Fpt2);
-
+ 
   RECTF TileRect2();
   void UpdateScanXY(float moveMentIncrement, float xStep, float yStep);
   

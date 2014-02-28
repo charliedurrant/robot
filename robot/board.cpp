@@ -484,8 +484,6 @@ void Board::CalculateBrickData()
 bool Board::CanRender()
 { return _squares.size() > 0; }
 
-
-
 POINT Board::TransForm(POINT point, bool inverse)
 {
   POINT transformed;

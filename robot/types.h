@@ -1,5 +1,20 @@
 #pragma once
+
 #include "framework.h"
+
+
+typedef enum TextAlign
+{
+  TextAlignTopLeft,
+  TextAlignMiddleLeft,
+  TextAlignBottomLeft,
+  TextAlignTopCenter,
+  TextAlignMiddleCenter,
+  TextAlignBottomCenter,
+  TextAlignTopRight,
+  TextAlignMiddleRight,
+  TextAlignBottomRight
+} TextAlign;
 
 typedef enum FlipType
 {
@@ -50,7 +65,6 @@ typedef struct FRAME_DATA
 {
   int Start;
   int End;
-  int Step;
   int PerSecond;
   int Current;
   int Total;
@@ -94,12 +108,30 @@ typedef struct POINT
   int Y;
   POINT operator=(POINTF const& rhs);
   POINT() { this->X = this->Y = 0; };
+  
   std::string ToString()
   {
     std::string s;
     s = str(fmt::Format("x({0}), y({1})") << this->X << this->Y );
     return s;
   };
+
+  int DistanceBetweenSquared(POINT pt)
+  {
+    SIZE sz;
+    int i;
+
+    sz.Width = this->X - pt.X;
+    sz.Height  = this->Y - pt.Y;
+
+    i = (sz.Height * sz.Height) + (sz.Width + sz.Width);;
+    if (i < 0)
+    { 
+      i*= -1;
+    }
+    return i;
+  }
+
 } POINT;
 
 POINT operator+(POINT const& lhs, POINT const& rhs);
@@ -141,6 +173,19 @@ typedef struct POINTF
     s = str(fmt::Format("x({0}), y({1})") << this->X << this->Y );
     return s;
   };
+
+  float DistanceBetweenSquared(POINTF pt)
+  {
+    SIZEF sz;
+
+    sz.Width = this->X - pt.X;
+    sz.Height = this->Y - pt.Y;
+
+    return (sz.Height * sz.Height) + (sz.Width + sz.Width);
+  }
+
+
+
 } POINTF;
 
 
@@ -208,12 +253,14 @@ typedef struct RECT
     pt.Y += this->Y;
     return pt;
   }
+  
   std::string ToString()
   {
     std::string s;
     s = str(fmt::Format("x({0}), y({1})\nw({2}), h({3})") << this->X << this->Y << this->Width << this->Height);
     return s;
   }
+
   POINT Center()
   {
     POINT pt;
@@ -222,6 +269,71 @@ typedef struct RECT
     pt.Y = this->Y + this->Height / 2;
     return pt;
   }
+
+  int DistanceBetweenSquared(POINT pt)
+  {
+    POINT ptTemp;
+    int distance = 0;
+    int right;
+    int bottom;
+
+    if (this->Contains(pt))
+    { return 0; }
+
+    if (pt.X < this->X)
+    { 
+      ptTemp.X = this->X;
+      if (pt.Y < this->Y)
+      {
+        ptTemp.Y = this->Y;
+      }
+      else if (pt.Y >(bottom = this->Bottom()))
+      {
+        ptTemp.Y = bottom;
+
+      }
+      else
+      {
+        ptTemp.Y = pt.Y;
+      }
+    }
+    else if (pt.X > (right = this->Right()))
+    {
+      ptTemp.X = right;
+      if (pt.Y < this->Y)
+      {
+        ptTemp.Y = this->Y;
+      }
+      else if (pt.Y >(bottom = this->Bottom()))
+      {
+        ptTemp.Y = bottom;
+      }
+      else
+      {
+        ptTemp.Y = pt.Y;
+      }
+    }
+    else
+    {
+      ptTemp.X = pt.X;
+      if (pt.Y < this->Y)
+      {
+        ptTemp.Y = this->Y;
+      }
+      else if (pt.Y >(bottom = this->Bottom()))
+      {
+        ptTemp.Y = bottom;
+      }
+      else
+      {
+        ptTemp.Y = pt.Y;
+      }
+    }
+
+    distance = ptTemp.DistanceBetweenSquared(pt);
+    return distance;
+  }
+
   bool Contains(POINT pt)
   {
     if ( this->X <= pt.X && this->Right() >= pt.X )

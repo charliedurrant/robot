@@ -53,10 +53,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <TreatWarningAsError>false</TreatWarningAsError>
       <DisableLanguageExtensions>false</DisableLanguageExtensions>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -67,7 +68,8 @@
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
     </Link>
     <PostBuildEvent>
-      <Command>call $(ProjectDir)build_copy_files.bat  "$(SolutionDir)" "$(OutDir)"</Command>
+      <Command>
+      </Command>
       <Message>
       </Message>
     </PostBuildEvent>
@@ -77,11 +79,13 @@
     <PreBuildEvent>
       <Command>
       </Command>
-      <Message>Copy program resources etc to binary folder</Message>
+      <Message>
+      </Message>
     </PreBuildEvent>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>call $(ProjectDir)batch\build_copy_files.bat  "$(SolutionDir)" "$(OutDir)"</Command>
+      <Outputs>$(OutDir)\non_existant_file.txt</Outputs>
+      <Message>Copy program resources etc to binary folder</Message>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -101,8 +105,18 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>call $(ProjectDir)..\Batch\robot_post_build_copy_files.bat  "$(ProjectDir)" "$(OutDir)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>call $(ProjectDir)batch\build_copy_files.bat  "$(SolutionDir)" "$(OutDir)"</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>Copy program resources etc to binary folder</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>$(OutDir)\non_existant_file.txt;%(Outputs)</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="base_game_theme.cpp" />
@@ -135,6 +149,7 @@
     <ClCompile Include="menu_item.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="menu_play_state.cpp" />
     <ClCompile Include="menu_state.cpp" />
     <ClCompile Include="mouse_data.cpp" />
     <ClCompile Include="my_game.cpp" />
@@ -144,7 +159,9 @@
     <ClCompile Include="robot_program.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="settings_base.cpp" />
-    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="theme.cpp" />
     <ClCompile Include="theme_object_image.cpp" />
     <ClCompile Include="play_state.cpp" />
@@ -190,6 +207,7 @@
     <ClInclude Include="level_packs.h" />
     <ClInclude Include="level_square.h" />
     <ClInclude Include="menu_item.h" />
+    <ClInclude Include="menu_play_state.h" />
     <ClInclude Include="menu_state.h" />
     <ClInclude Include="mouse_data.h" />
     <ClInclude Include="my_game.h" />
@@ -219,7 +237,7 @@
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="build_copy_files.bat" />
+    <None Include="batch\build_copy_files.bat" />
     <None Include="readme.txt">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </None>

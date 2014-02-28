@@ -38,13 +38,10 @@ class Game
   protected:
     bool _quit;  
     bool _sdlInited;
-    unsigned int _nextTime;  
-    
-    //vector<GameObject*> _gameObjects;
+    unsigned int _nextTime;      
   private:
     void Construct();
     void CalculateCurrentFramesPerSecond();
-
 };
 
 

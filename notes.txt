@@ -1,4 +1,4 @@
-Add solution to GitHub
+****************************** Add solution to GitHub *******************
 
 1.Open the solution in Visual Studio 2013
 2.Select File | Add to Source Control
@@ -20,3 +20,29 @@ That creates an empty repository with no Master branch
 
 Your solution is now in GitHub
 
+
+*************************** SWITCH visual studio addin ******************
+allows simple switching between header and cpp 
+see http://visualstudiogallery.msdn.microsoft.com/6f1f42c6-33a9-4cfc-95cf-d2b9e55e1472/view/Discussions
+written by DWM Kerr (Dave Kerr) - the link is for VS2013, it is also available for VS2008-VS2012
+
+************************** auto locate curent file in solution explorer ***
+Tools – Options – Projects and Solutions – Track Active Item in Solution Explorer
+
+*********************** VS always do a command on build or debug ***********
+Add custom build step
+In the outputs setting of the custom build step add $(OutDir)\non_existant_file.txt
+The non existant file causes the step to be execute on build and debug
+
+****** CODE REFACTOR ADDIN **************************************
+http://visualstudiogallery.msdn.microsoft.com/164904b2-3b47-417f-9b6b-fdd35757d194
+************** PDB TO PROJECT ADDIN *****************************************
+can use to create projects from dbug souce builds made with makefiles
+http://visualstudiogallery.msdn.microsoft.com/271bc718-e668-4114-bb0b-4ac787192db0
+
+****** FORMAT c++  - ASTYLE **************************************
+http://visualstudiogallery.msdn.microsoft.com
+
+
+*** other addins  *** 
+http://visualstudioextensions.vlasovstudio.com/tag/c/

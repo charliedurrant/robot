@@ -15,7 +15,7 @@ GameObject::GameObject() : Position(0, 0),
                            _flipWithHorizontalVelocity(true),
                            CurrentThemeObject(nullptr),
                            _flip(FlipTypeNone),  
-                           Visible(true),_onClickCallBack(nullptr) , ParentState(nullptr)                     
+                           Visible(true), _onClickCallBack(nullptr), ParentState(nullptr), DebugInfoTextAlign(TextAlignTopLeft)
 {  
   ;
 }
@@ -104,12 +104,16 @@ void GameObject::Update()
      _children->Update();
   }
 
-  if (  _onClickCallBack != nullptr && this->ContainsMouse()  && (Game::GameInstance->Input->Mouse->LeftButton == MouseButtonClicked) )
+  if ((Game::GameInstance->Input->Mouse->LeftButton == MouseButtonClicked) && this->ContainsMouse() )
   { 
     captured = Game::GameInstance->Input->Mouse->GetCapture();
     if ( (captured != nullptr && captured == this) || captured == nullptr )
-    {
-      this->_onClickCallBack(this);        
+    {      
+      this->Click(this); ///can be overriden
+      if (_onClickCallBack != nullptr)
+      {
+        this->_onClickCallBack(this);   //the envet handler
+      }      
     }    
     
   }
@@ -232,32 +236,30 @@ void GameObject::Resize(int width, int height )
 void GameObject::Render()
 {
   if ( _children  )
-  {
-    _children->Render();
-  }
+  { _children->Render(); }
 
   if ( this->CurrentThemeObject != nullptr )
-  {
-    this->CurrentThemeObject->Render(this->Rentangle());    
-  }      
+  { this->CurrentThemeObject->Render(this->Rentangle()); }      
 }
 
 void GameObject::RenderDebugInfo() 
 {   
-  RECT r;
-  
   if ( ! this->Visible )
+  { return; }
+  this->RenderDebugInfo(this->Rentangle().ToString());  
+}
+
+void GameObject::RenderDebugInfo(string& text)
+{
+  RECT r;
+
+  if (!this->Visible)
   { return; }
 
   r = this->Rentangle();
-  r.Height = 200;
-  r.Width = 400;
-  Game::GameInstance->WindowMain->RenderText(this->Rentangle().ToString(),Game::GameInstance->SystemFont,Game::GameInstance->SystemFontColor,&r);
-  if ( _children )
-  {
-    _children->RenderDebugInfo();
-  }
-
+  Game::GameInstance->WindowMain->RenderDebugText(text, &r, this->DebugInfoTextAlign);
+  if (_children)
+  { _children->RenderDebugInfo(); }
 }
 
 void GameObject::Clean(){ ; }
@@ -292,4 +294,9 @@ void GameObject::Accelerate(float value)
 void GameObject::OnClick(std::function<void(void*)> onClickCallBack)
 {  
   this->_onClickCallBack = onClickCallBack;
+}
+
+void GameObject::Click(void* sender)
+{
+  
 }

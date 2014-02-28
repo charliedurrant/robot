@@ -39,7 +39,8 @@ void MyGame::Init()
      this->Theme = new GameTheme(path);
      path = applicationPath + "level_packs/level_packs.xml";
      this->LevlPacks = new LevelPacks(path);
-     state = new PlayState();
+
+     state = new MenuPlayState();
      this->States->Push(state);
   }
   catch (Exception* ex)
@@ -50,30 +51,6 @@ void MyGame::Init()
 }
 
 //http://www.codeguru.com/cpp/cpp/article.php/c17401/C-Tutorial-PointertoMember-Function.Heighttm
-void MyGame::MenuClick(string id)
-{
-  State* state;
-
-  state = this->States->Current();
-  if( state != nullptr )
-  {
-    if ( state->ID  == "menu")
-    {
-      state = new PlayState();
-      
-    }
-    else
-    {
-      state = new MenuState();
-      
-    }    
-  }
-  else
-  {
-    state = new MenuState();
-  }
-  this->States->Change(state);    
-}
 
 Rotation MyGame::Rotate90Degrees(Rotation currentRotation, bool clockwise)
 {

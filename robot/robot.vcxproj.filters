@@ -216,6 +216,9 @@
     <ClCompile Include="head_up_display.cpp">
       <Filter>source files\objects</Filter>
     </ClCompile>
+    <ClCompile Include="menu_play_state.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="format.h">
@@ -377,10 +380,13 @@
     <ClInclude Include="head_up_display.h">
       <Filter>header files\objects</Filter>
     </ClInclude>
+    <ClInclude Include="menu_play_state.h">
+      <Filter>header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.txt" />
-    <None Include="build_copy_files.bat">
+    <None Include="batch\build_copy_files.bat">
       <Filter>batch</Filter>
     </None>
   </ItemGroup>

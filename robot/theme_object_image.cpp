@@ -16,14 +16,12 @@ ThemeObjectImage::ThemeObjectImage (Image* image,
   this->Img = image;
   this->FrameData.Start = frameStart;
   this->FrameData.End = frameEnd;
-  this->FrameData.Step = 1;
   this->FrameData.PerSecond = framesPerSecond;
   this->FrameData.Current = this->FrameData.Start;
   this->FrameData.Total = this->FrameData.TotalCalculate();
 
   this->AlphaData.Start = alphaStart;
   this->AlphaData.End = alphaEnd;
-  this->AlphaData.Step = alphaStep;
   this->AlphaData.PerSecond = alphaPerSecond;
   this->AlphaData.Current = this->AlphaData.Start;
   this->AlphaData.Total = this->AlphaData.TotalCalculate();
@@ -60,7 +58,6 @@ ThemeObjectImage::ThemeObjectImage (BaseGameTheme* theme, TiXmlElement* xmlEleme
   this->FrameData.Total = this->FrameData.TotalCalculate();
   
   this->FrameData.CyclMode = BaseGameTheme::CycleMde(xmlElement,"frame_cycle_mode",CycleModeLeftToRight);
-  this->FrameData.Step = 1;
   this->FrameData.Reset();
   
   
@@ -68,7 +65,6 @@ ThemeObjectImage::ThemeObjectImage (BaseGameTheme* theme, TiXmlElement* xmlEleme
   this->AlphaData.Start = Functions::XMLAttributeInt(xmlElement,"alpha_start",SDL_ALPHA_OPAQUE);
   this->AlphaData.End = Functions::XMLAttributeInt(xmlElement,"alpha_end",SDL_ALPHA_OPAQUE);
   this->AlphaData.Total = this->AlphaData.TotalCalculate();
-  this->AlphaData.Step = Functions::XMLAttributeInt(xmlElement,"alpha_step",1);
   
   this->AlphaData.CyclMode = BaseGameTheme::CycleMde(xmlElement,"alpha_cycle_mode",CycleModeBackAndForth);  
   this->AlphaData.Reset();

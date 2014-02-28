@@ -26,10 +26,17 @@ CommandBar::~CommandBar(void)
   
 }
 
+
+//if the coord is in the bar space it will find the nearest one
 CommandBarButton* CommandBar::ButtonAt(POINT pt)
 {
   size_t i;
+  int distanceFromSquared = 9999999;
+  int distanceFromSquareTemp;
   CommandBarButton* button;
+  CommandBarButton* buttonNearest = nullptr;
+  RECT rectangle;
+  
   if ( ! this->Rentangle().Contains(pt) )
   { return nullptr; }
   
@@ -38,12 +45,21 @@ CommandBarButton* CommandBar::ButtonAt(POINT pt)
     button = (CommandBarButton*)this->Children()->Item(i);
     if ( button == nullptr )
     { continue; }
-    if ( button->Rentangle().Contains(pt) )
+    rectangle = button->Rentangle();
+    if (rectangle.Contains(pt))
+    { return button; }
+    else
     {
-      return button;
+      distanceFromSquareTemp = rectangle.DistanceBetweenSquared(pt);
+      if (distanceFromSquareTemp < distanceFromSquared)
+      {
+        buttonNearest = button;
+        distanceFromSquared = distanceFromSquareTemp;
+      }
     }
   }
-  return nullptr;
+  
+  return buttonNearest;
 }
 
 CommandBarButton* CommandBar::AddButton(ProgramCommand command)

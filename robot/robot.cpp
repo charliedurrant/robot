@@ -346,26 +346,6 @@ void Robot::UpdateFrame()
   themeObjectImage->FrameData.Current = themeObjectImage->FrameCalculateByPercentage(percentage);;
 }
 
-int Robot::DistanceBetweenSquared(POINT pt1, POINT pt2)
-{
-  SIZE sz;
-
-  sz.Width = pt2.X - pt1.X;
-  sz.Height = pt2.Y - pt1.Y;
-
-  return (sz.Height * sz.Height) + (sz.Width + sz.Width);
-}
-
-
-float Robot::DistanceBetweenSquared(POINTF pt1, POINTF pt2)
-{
-  SIZEF sz;
-
-  sz.Width = pt2.X - pt1.X;
-  sz.Height = pt2.Y - pt1.Y;
-
-  return (sz.Height * sz.Height) + (sz.Width + sz.Width);
-}
 
 //find my grid position and convert it to the world position and set coord so the board knows when to draw me
 //this ia all a little backwards, there will be a better way!

@@ -7,6 +7,8 @@ class Buttn : public GameObject
 {
 public:
   Buttn(ThemeObject* themeObject);
+  Buttn(ThemeObject* themeObject, int id);
   virtual ~Buttn(void);
+  int ID;
 };
 

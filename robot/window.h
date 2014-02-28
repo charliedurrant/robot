@@ -1,5 +1,6 @@
 #pragma once
 #include "framework.h"
+
 class Window
 {
   private:
@@ -10,8 +11,8 @@ class Window
     void Construct(string title,int x, int y, int w, int h,Uint32 flags, int rendererIndex,Uint32 rendererFlags,int logicalWidthDesign, int logicalHeightDesign);
     void Render(void);
     void Update(void);
-    void RenderText(const string& message, GameFont* font, Color* color, RECT* rectangle );
-    void RenderDebugText(const string& message, POINT pt);
+    void RenderText(const string& message, GameFont* font, Color* color, RECT* rectangle, TextAlign textAlignment = TextAlignMiddleCenter);
+    void RenderDebugText(const string& message, RECT* rectangle, TextAlign textAlignment);
     Image* CreateTextImage(const string& message, GameFont* font, Color* color, int boundingWidth );
     void Clear(void);
     SDL_Window* Pointer;

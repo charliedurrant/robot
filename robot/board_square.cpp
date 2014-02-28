@@ -9,6 +9,7 @@ BoardSquare::BoardSquare(Board* board) : GameObject(), BrickCount(0), _lightStat
   this->CurrentThemeObject = MyGame::Instance->Theme->Tile2;
   _frame = 0;     
   _board = board;
+  this->DebugInfoTextAlign = TextAlignMiddleCenter;
 }
 
 BoardSquare::~BoardSquare()
@@ -52,18 +53,13 @@ void BoardSquare::RenderDebugInfo()
 {
   string s;
   
+  this->PositionAndSize(this->RectangleRenderTop); //need this as we don't use the gameobjects rectangle
   /* Coords */
   //s = str(fmt::Format("Render cord: {0}\nCoord: {1}") << this->CoordinateRender.ToString() << this->Coordinate.ToString() );  
   
   /* Render order */
-  s = str(fmt::Format("{0}") << this->RenderOrder );  
-
-
-  MyGame::Instance->WindowMain->RenderDebugText(s,this->RectangleRenderBase->Center());  
-
-
-
-
+  s = str(fmt::Format("{0}") << this->RenderOrder ); 
+  GameObject::RenderDebugInfo(s);  
 }
 
 //done in the board. the image cycling is done by the board to keep things in sync

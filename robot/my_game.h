@@ -8,7 +8,6 @@ class MyGame : public Game
     MyGame(void); 
     ~MyGame(void);
     virtual void Init();
-    void MenuClick(string id);
     GameTheme* Theme;
     LevelPacks* LevlPacks;
     static MyGame* Instance;

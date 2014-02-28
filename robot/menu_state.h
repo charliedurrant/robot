@@ -5,11 +5,14 @@ using namespace std;
 class MenuState : public State 
 {
 public:
-  MenuState(void);
+  MenuState(string id);
   ~MenuState(void);
   virtual void OnEnter();
-  void Update() override;
-  void Render() override;
+  virtual void OnEnterAddButtons(ButtonBar* menus);
+  virtual void OnExit();
+  ButtonBar* Menus;
+  virtual void MenuClick(void* sender, Buttn* menu);
+  
 };
 
 

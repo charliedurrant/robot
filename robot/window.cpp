@@ -64,30 +64,37 @@ void Window::Clear(void)
   SDL_RenderClear(this->Renderer);
 }
 
-void Window::RenderDebugText(const string& message, POINT pt)
+void Window::RenderDebugText(const string& message, RECT* rectangle, TextAlign textAlignment)
 {    
-  RECT rect;
-
-  rect.X = pt.X;
-  rect.Y = pt.Y;
-  rect.Width = 400;
-  rect.Height = 400;
-  this->RenderText(message,Game::GameInstance->SystemFont,Game::GameInstance->SystemFontColor,&rect);  
-  
+  this->RenderText(message, Game::GameInstance->SystemFont, Game::GameInstance->SystemFontColor, rectangle, textAlignment);  
 }
 
 
-void Window::RenderText(const string& message, GameFont* font, Color* color, RECT* rectangle )
+void Window::RenderText(const string& message, GameFont* font, Color* color, RECT* rectangle, TextAlign textAlignment )
 {    
   Image* image;
-  RECT rect;
+  RECT rectposition;
+  
   if ( message.length() == 0 )
   { return; }
+  
   image = this->CreateTextImage(message, font, color, rectangle->Width);
-  rect = *rectangle;
-  rect.Width = image->Size.Width;
-  rect.Height = image->Size.Height;
-  Game::GameInstance->Images->RenderFrame(image, 0,&rect, SDL_ALPHA_OPAQUE,FlipTypeNone);
+  rectposition = *rectangle;
+  rectposition.Width = image->Size.Width;
+  rectposition.Height = image->Size.Height;
+  switch (textAlignment)
+  {
+    case TextAlignTopLeft:
+      break;
+    case TextAlignMiddleCenter:
+      if (image->Size.Width < rectangle->Width)
+      { rectposition.X += (rectangle->Width - image->Size.Width) / 2; }
+      if (image->Size.Height < rectangle->Height)
+      { rectposition.Y += (rectangle->Height - image->Size.Height) / 2; }
+      break;
+  }
+  
+  Game::GameInstance->Images->RenderFrame(image, 0,&rectposition, SDL_ALPHA_OPAQUE,FlipTypeNone);
   delete image;
 }
 

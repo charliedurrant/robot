@@ -14,8 +14,11 @@ MenuItem::~MenuItem(void)
 
 }
 
+
+//TODO: delete menu_item
 void MenuItem::Update()
 {
+  /*
   if ( this->ContainsMouse() )
   {
     if ( MyGame::GameInstance->Input->Mouse->LeftButton == MouseButtonDown )
@@ -32,5 +35,5 @@ void MenuItem::Update()
   else
   {
     //_frame = MouseOut;
-  }  
+  }*/ 
 }

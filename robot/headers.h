@@ -54,6 +54,7 @@ enum Rotation
 #include "error_state.h"
 #include "menu_item.h"
 #include "menu_state.h"
+#include "menu_play_state.h"
 #include "play_state.h"
 
 #include "my_game.h"

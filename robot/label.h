@@ -2,6 +2,8 @@
 #include "headers.h"
 using namespace std;
 
+
+
 class Labl : public GameObject
 {
 public:
@@ -10,6 +12,7 @@ public:
   void Render() override;
   void RenderDebugInfo() override;
   string Text;
+  TextAlign TextAlignment;
   Color* ForeColorGet();
   GameFont* FontGet();
 private: 
