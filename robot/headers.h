@@ -25,7 +25,6 @@ enum Rotation
   _RotationMaximum = RotationClockWise270,
 };
 
-#include "constant.h"
 #include "settings.h"
 
 #include "level_square.h"

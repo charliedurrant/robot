@@ -129,7 +129,6 @@
     <ClCompile Include="color.cpp" />
     <ClCompile Include="command_bar.cpp" />
     <ClCompile Include="command_bar_button.cpp" />
-    <ClCompile Include="constant.cpp" />
     <ClCompile Include="error_state.cpp" />
     <ClCompile Include="head_up_display.cpp" />
     <ClCompile Include="font_manager.cpp" />

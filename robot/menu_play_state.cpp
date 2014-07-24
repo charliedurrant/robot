@@ -16,7 +16,6 @@ MenuPlayState::~MenuPlayState()
 void MenuPlayState::OnEnterAddButtons(ButtonBar* menus)
 {
   Buttn* button;
-  ThemeObject* themeObject;
   
 
  // themeObject = new ThemeObject(MyGame::Instance->Theme->ButtonRunProgramTest);

@@ -219,9 +219,6 @@
     <ClCompile Include="menu_play_state.cpp">
       <Filter>source files</Filter>
     </ClCompile>
-    <ClCompile Include="constant.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="format.h">
