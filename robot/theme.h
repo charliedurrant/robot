@@ -23,12 +23,14 @@ public:
   ThemeObject* CommandBarButtonJump;
   ThemeObject* ButtonStopProgram;
   ThemeObject* ButtonRunProgram;
+  ThemeObject* ButtonRunProgramTest;
   ThemeObject* ButtonResetProgram;
   
   ThemeObject* TileOn2;
   ThemeObject* TileOff2;
   
   GameFont* FontGeneral;  
+  
 private:
   
 

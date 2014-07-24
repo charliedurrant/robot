@@ -21,8 +21,8 @@ public:
   void RenderDebugInfo() override;
   void Update() override;
   bool Rendered;
-  POINT BoardPositionRenderWith; //this is transformed
-  POINT BoardPositionDiamondStart; //this is transformed
+  POINT_FRAMEWORK BoardPositionRenderWith; //this is transformed
+  POINT_FRAMEWORK BoardPositionDiamondStart; //this is transformed
   POINTF3D BoardPosition;  
   float TilesPerSecond;
   Rotation CurrentRotation;
@@ -33,9 +33,9 @@ public:
   void CommandSet(ProgramCommand programCommand);
 private:
   PlayState* _playState;
-  void PositionToVector(POINT position, Vector2D vector);
-  void CoordinateToPosition(POINT coordinate, Vector2D vector);  
-  bool CrossesSquareAt(RECTF rectRobot, POINT squareCoordinate);
+  void PositionToVector(POINT_FRAMEWORK position, Vector2D vector);
+  void CoordinateToPosition(POINT_FRAMEWORK coordinate, Vector2D vector);
+  bool CrossesSquareAt(RECTF rectRobot, POINT_FRAMEWORK squareCoordinate);
   void ConvertTileRectTo3dPolygon(RECTF rect, POINTF polygon4Points[]);
  
   RECTF TileRect2();

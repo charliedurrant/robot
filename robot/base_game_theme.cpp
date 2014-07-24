@@ -7,35 +7,58 @@ BaseGameTheme::BaseGameTheme(string pathAndFile) :  BackgroundColor(nullptr), _r
 {
   SplitPath* splitPath = nullptr;
   string resourceRoot;
+  string xmlString;
+  string defineSearch;
+  string defineValue;
+  TiXmlElement* definesElement;
+
   try
   {    
     splitPath = new SplitPath(pathAndFile); 
     resourceRoot = splitPath->Drive + splitPath->Directory;
     this->ResourceRoot = Functions::FullPath( resourceRoot );
+
     _xmlDocument = Functions::XMLFileLoad(pathAndFile);
     _rootElement = _xmlDocument->RootElement();
+
+
+    //replace defines
+    definesElement = Functions::XMLFindFirstElementByName(_rootElement, "defines");
+    
+    if ( !definesElement->NoChildren() )
+    {
+      xmlString = Functions::TextFileRead(pathAndFile);
+      for (TiXmlElement* element = definesElement->FirstChildElement(); element != NULL; element = element->NextSiblingElement())
+      {
+        defineSearch = element->Attribute("id");
+        if (defineSearch.length() == 0 )
+        { continue; }
+        defineSearch = string("${") + defineSearch + string("}");
+        defineValue = element->Attribute("value");
+        Functions::StringReplace(xmlString,defineSearch, defineValue);
+        
+      }
+      delete _xmlDocument;
+      _xmlDocument = Functions::XMLStringLoad(xmlString, pathAndFile);
+      _rootElement = _xmlDocument->RootElement();
+    }
+    
+  
     _objectsElement = Functions::XMLFindFirstElementByName(_rootElement,"objects");
     _imagesElement = Functions::XMLFindFirstElementByName(_rootElement,"images");
 
     this->BackgroundColor = this->ColorGet("background");    
+    this->BoardBackgroundColor = this->ColorGet("board_background");
     
   }
   catch( Exception* ex )
   {
     if ( splitPath != nullptr ) { delete splitPath; splitPath = nullptr; }
-    this->ConstructorEnd();
     throw new Exception(string("Failed to load the theme: ") + pathAndFile , ex);
   }  
   if ( splitPath != nullptr ) { delete splitPath; splitPath = nullptr; }  
 }
 
-void BaseGameTheme::ConstructorEnd()
-{
-  if ( _xmlDocument != nullptr ) { delete _xmlDocument; _xmlDocument = nullptr; }
-  if ( _rootElement != nullptr ) { _rootElement = nullptr; }
-  if ( _imagesElement != nullptr ) { _imagesElement = nullptr; }
-  if ( _objectsElement != nullptr ) { _objectsElement = nullptr; }
-}
 
 BaseGameTheme::~BaseGameTheme()
 {
@@ -44,6 +67,25 @@ BaseGameTheme::~BaseGameTheme()
     delete this->BackgroundColor;
     this->BackgroundColor = nullptr;
   }
+  
+  if (this->BoardBackgroundColor != nullptr)
+  {
+    delete this->BoardBackgroundColor;
+    this->BoardBackgroundColor = nullptr;
+  }
+
+
+  for (auto it = this->Objects.begin(); it != this->Objects.end(); ++it)
+  {
+    delete it->second;
+    it->second = nullptr;
+  }
+  this->Objects.clear();
+
+  if (_xmlDocument != nullptr) { delete _xmlDocument; _xmlDocument = nullptr; }
+  if (_rootElement != nullptr) { _rootElement = nullptr; }
+  if (_imagesElement != nullptr) { _imagesElement = nullptr; }
+  if (_objectsElement != nullptr) { _objectsElement = nullptr; }
 
 }
 
@@ -87,82 +129,6 @@ Image* BaseGameTheme::ImageGet2(string id)
 
 }
 
-/*
-ThemeImage* BaseGameTheme::ImageGet(string id)
-{  
-  int framesPerSecond, frameStart, frameEnd;
-  int numberOfFrames, numberOfFramesPerRow, numberOfFramesRows;
-  CycleMode frameCycleMode;
-  string path, imageID, s;
-  ThemeImage* themeImage = nullptr;
-  Image* image;
-  const char* c;
-  TiXmlElement* elementImage = nullptr;
-  TiXmlElement* elementThemeImage = nullptr;
-  
-  elementThemeImage = this->ItemGet("theme_image",id);
-  imageID = elementThemeImage->Attribute("image");
-  
-  if ( ! Game::GameInstance->Images->Contains(imageID) )
-  {
-    elementImage = this->ItemGet(_imagesElement, "image",imageID);   
-    path = this->ResourceRoot + elementImage->Attribute("src");
-
-    numberOfFrames = 1;
-    elementImage->Attribute("frames",&numberOfFrames);
-    
-    numberOfFramesRows = -1;
-    elementImage->Attribute("rows",&numberOfFramesRows);
-    
-    numberOfFramesPerRow = -1;
-    elementImage->Attribute("frames_per_row",&numberOfFramesPerRow);
-    if ( numberOfFramesPerRow == -1 && numberOfFramesRows == -1 )
-    {
-      numberOfFramesRows = 1;
-      numberOfFramesPerRow = numberOfFrames;
-    } 
-    image = Game::GameInstance->Images->Load(imageID, path,numberOfFrames,numberOfFramesRows, numberOfFramesPerRow);    
-  }
-  else
-  {
-    image = Game::GameInstance->Images->Item(imageID);
-  }
-
-  framesPerSecond = 0;
-  elementThemeImage->Attribute("frames_per_second",&framesPerSecond);
-  
-  frameStart = 1;
-  elementThemeImage->Attribute("frame_start",&frameStart);
-
-  frameEnd = 1;
-  elementThemeImage->Attribute("frame_end",&frameEnd);
-
-  frameEnd = 1;
-  elementThemeImage->Attribute("frame_end",&frameEnd);
-
-  c = elementThemeImage->Attribute("frame_cycle_mode");
-  if ( ! c )
-  {
-    s = "";
-  }
-  else
-  { s.assign(c); }
-
-  
-  if ( s.length() == 0 || s == "left_to_right")
-  { frameCycleMode = CycleModeLeftToRight; }
-  else if ( s == "back_and_forth" )
-  { frameCycleMode = CycleModeBackAndForth; }
-  else if ( s == "right_to_left" )
-  { frameCycleMode = CycleModeRightToLeft; }
-    
-
-  themeImage = new ThemeImage( image, framesPerSecond, frameStart, frameEnd,frameCycleMode);
-    
-  return themeImage;
-}
-*/
-
 Image* BaseGameTheme::LoadImage(string imageID)
 {
   string path;
@@ -189,30 +155,6 @@ Image* BaseGameTheme::LoadImage(string imageID)
 
   image = Game::GameInstance->Images->Load(imageID, path,numberOfFrames,numberOfFrameRows, numberOfFramesPerRow);    
   return image;
-}
-
-ThemeObject* BaseGameTheme::ObjectGet(string id)
-{  
-  TiXmlElement* objectElement;
-  ThemeObject* themeObject;
-  string message;
-
-  try
-  {
-    objectElement = this->ItemGet(_objectsElement,"object",id);
-    if ( objectElement == nullptr )
-    {
-      message = str(fmt::Format("<oject id=\"{0}\" ...> does not exist under: {1}") << id << Functions::XMLElementDetails(_objectsElement));
-      throw new Exception( message );
-    }
-    themeObject = new ThemeObject(this,id, objectElement);  
-    return themeObject; 
-  }
-  catch( Exception* ex )
-  {
-    throw new Exception(str(fmt::Format("Failed to find the <object id=\"{0}\" ...>") << id),ex);
-  }
-
 }
 
 CycleMode BaseGameTheme::CycleMde(TiXmlElement* xmlElemenmt, string attributeName, CycleMode defaultValue)
@@ -265,6 +207,44 @@ GameFont* BaseGameTheme::LoadFont(TiXmlElement* element)
   pathAndFile = this->ResourceRoot + Functions::XMLAttributeString(element, "value","");
   pointSize = Functions::XMLAttributeInt(element,"point_size",10);
   pointSize = Game::GameInstance->WindowMain->ScaleToLogicalDesignHeight(pointSize); 
-  font = new GameFont(pathAndFile,pointSize);
+  font = new GameFont(pathAndFile,pointSize, "");
   return font;    
+}
+
+
+
+void BaseGameTheme::ObjectAdd(ThemeObject* themeObject, string id)
+{
+  this->Objects[id] = themeObject;
+ 
+}
+
+ThemeObject* BaseGameTheme::ObjectLoad(string id, bool storeInObjects)
+{
+  TiXmlElement* objectElement;
+  ThemeObject* themeObject;
+  string message;
+
+  try
+  {
+    objectElement = this->ItemGet(_objectsElement, "object", id);
+    if (objectElement == nullptr)
+    {
+      message = str(fmt::Format("<oject id=\"{0}\" ...> does not exist under: {1}") << id << Functions::XMLElementDetails(_objectsElement));
+      throw new Exception(message);
+    }
+    themeObject = new ThemeObject(this, id, objectElement);
+    if (storeInObjects)
+    {
+      this->ObjectAdd(themeObject, id);
+    }    
+    return themeObject;
+  }
+  catch (Exception* ex)
+  {
+    throw new Exception(str(fmt::Format("Failed to find the <object id=\"{0}\" ...>") << id), ex);
+  }
+
+
+
 }

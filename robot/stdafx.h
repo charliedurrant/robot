@@ -31,8 +31,18 @@ http://stackoverflow.com/questions/6096384/how-to-fix-pch-file-missing-on-build
 #include <SDL.h>  
 #include <SDL_image.h>
 #include <SDL_ttf.h>
-/*#include <SDL_opengl.h>*/
 
+#if defined(__OPENGL__)
+  #if defined(__RASPBERRY__)
+    #define HAVE_OPENGLES
+  #endif
+
+  #ifdef HAVE_OPENGLES
+    #include "SDL_opengles.h"
+  #else
+    #include "SDL_opengl.h"
+  #endif
+#endif
 
 
 #if ! defined(_MSC_VER)
@@ -47,6 +57,7 @@ http://stackoverflow.com/questions/6096384/how-to-fix-pch-file-missing-on-build
 #include <time.h>
 #include <string>
 #include <iostream> //cout
+#include <fstream>  // std::ifstream
 #include <memory>
 #include <map>
 #include <vector>

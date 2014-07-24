@@ -3,14 +3,14 @@
 #include "framework.h"
 using namespace std;
 
-Image::Image(string id,SDL_Texture* texture, SIZE* size) 
+Image::Image(string id,SDL_Texture* texture, SIZE_FRAMEWORK* size) 
 {
   this->Construct(id, texture,size,1,1,1) ;
 }
 
-Image::Image(string id,Image* imageAttributes, SIZE* size) 
+Image::Image(string id,Image* imageAttributes, SIZE_FRAMEWORK* size) 
 {
-  SIZE sz;
+  SIZE_FRAMEWORK sz;
   Uint32 format;
   int access;
   SDL_Texture* texture;
@@ -24,7 +24,7 @@ Image::Image(string id,Image* imageAttributes, SIZE* size)
 
 
 
-Image::Image( string id, SDL_Texture* texture, SIZE* size,int numberOfFrames, int numberOfFrameRows, int numberOfFramesPerRow )
+Image::Image( string id, SDL_Texture* texture, SIZE_FRAMEWORK* size,int numberOfFrames, int numberOfFrameRows, int numberOfFramesPerRow )
 {
   this->Construct(id, texture, size, numberOfFrames, numberOfFrameRows, numberOfFramesPerRow);
 }
@@ -34,9 +34,9 @@ void Image::AlphaSet(Uint8 alpha)
   SDL_SetTextureAlphaMod(this->Texture,alpha);
 }
 
-RECT Image::FrameRectangle(int frame)
+RECT_FRAMEWORK Image::FrameRectangle(int frame)
 {
-  RECT rectSource;
+  RECT_FRAMEWORK rectSource;
   int fullRows,framesInTheFullRows, row, frameInRow;
    
   if ( frame > this->NumberOfFrames - 1 )
@@ -71,7 +71,7 @@ RECT Image::FrameRectangle(int frame)
   return rectSource;
 }
 
-void Image::Construct( string& id, SDL_Texture* texture, SIZE* size,int numberOfFrames, int intNumberOfFrameRows, int numberOfFramesPerRow )
+void Image::Construct( string& id, SDL_Texture* texture, SIZE_FRAMEWORK* size,int numberOfFrames, int intNumberOfFrameRows, int numberOfFramesPerRow )
 {
   try
   {    

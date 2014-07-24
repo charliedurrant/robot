@@ -1,7 +1,6 @@
 #pragma once
 #include "framework.h"
 
-class ThemeImage;
 class ThemeObject; 
 
 class SettingsBase

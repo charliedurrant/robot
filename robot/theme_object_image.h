@@ -23,7 +23,6 @@ public:
   ~ThemeObjectImage(void);
   FRAME_DATA FrameData;
   FRAME_DATA AlphaData;
-  
   bool MouseDown;
   bool MouseOver;
   bool MouseOut;
@@ -35,5 +34,10 @@ public:
   //int FrameCalculate(int* frameIncrement);
   void FrameCalculate(FRAME_DATA* frameData);
   int FrameCalculateByPercentage(float percentage);
+  void TextSet(string s);
+private:
+  Image* _originalImage; 
+  string _text;
+  bool _imageIsMine; //this is used so we destroy the image, if my text is set the image is always mine
 };
 

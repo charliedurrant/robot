@@ -12,28 +12,28 @@ using namespace std;
   #define SplitPath(Path__,Drive__,Name__,Ext__) unix_splitpath(Path__,Drive__,Name__,Ext__)
 #endif
 
-POINT operator+(POINT const& lhs, POINT const& rhs)
+POINT_FRAMEWORK operator+(POINT_FRAMEWORK const& lhs, POINT_FRAMEWORK const& rhs)
 {
-  POINT ret;
+  POINT_FRAMEWORK ret;
   ret.X = lhs.X + rhs.X;
   ret.Y = lhs.Y + rhs.Y;
   return ret;
 }
 
-POINT operator-(POINT const& lhs, POINT const& rhs)
+POINT_FRAMEWORK operator-(POINT_FRAMEWORK const& lhs, POINT_FRAMEWORK const& rhs)
 {
-  POINT ret;
+  POINT_FRAMEWORK ret;
   ret.X = lhs.X - rhs.X;
   ret.Y = lhs.Y - rhs.Y;
   return ret;
 }
 
-bool operator==(POINT const& lhs, POINT const& rhs)
+bool operator==(POINT_FRAMEWORK const& lhs, POINT_FRAMEWORK const& rhs)
 {
   return (lhs.X == rhs.X && lhs.Y == rhs.Y);
 }
 
-POINT POINT::operator=(POINTF const& rhs)
+POINT_FRAMEWORK POINT_FRAMEWORK::operator=(POINTF const& rhs)
 {
   this->X = (int)(rhs.X);
   this->Y = (int)(rhs.Y);

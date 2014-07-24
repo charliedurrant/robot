@@ -12,20 +12,20 @@ public:
   int ColumnCount();
   int RowCount();
   void AddButton(Buttn* button);
-  Buttn* ButtonAt(POINT pt);
-  SIZE SizeCalculate();
+  Buttn* ButtonAt(POINT_FRAMEWORK pt);
+  SIZE_FRAMEWORK SizeCalculate();
   void Click(void* sender) override;
   void Resize(int width, int height) override;  
   void OnButtonClick(std::function<void(void*, Buttn* button)> onButtonClickCallBack); //void * will be the sender i.e me
-  virtual void PositionAndAutoSize(POINT pt);
+  virtual void PositionAndAutoSize(POINT_FRAMEWORK pt);
   State* ParentState;
 protected:
   std::function<void(void*, Buttn* button)> _onButtonClickCallBack;
-  SIZE ButtonSize();  
+  SIZE_FRAMEWORK ButtonSize();
 private:  
   int _columns;
   int _buttonMargin;
-  SIZE _buttonSize;
+  SIZE_FRAMEWORK _buttonSize;
   
 };
 

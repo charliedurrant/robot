@@ -16,7 +16,7 @@ public:
   string EntryMessage;
   string ExitMessage;
   std::vector<LevelSquare*> Squares;
-  POINT RobotPositon;
+  POINT_FRAMEWORK RobotPositon;
   Rotation RobotRotation;
   string Solution;
 };

@@ -1,22 +1,36 @@
 <?xml version="1.0" ?>
 <theme>
 	<description>Default</description>
-	<name>Default</name>	
+	<name>Default</name>
+  <!-- 
+    defines act like c/c++ defines, whereever ${id} is found it will be replaced with the vvalue
+    e.g. 
 
-	<images>
+    <define value="50" id="button_over_alpha"/>
+    all instances of ${button_over_alpha} will be repaced with 50
+    use defines to prevent typing the same value 
+  -->
+  <defines>
+    <define value="50" id="button_over_alpha"/>
+  </defines>
+  
+  <images>
 		<image id="background" src="background.png" frames="1" frames_per_row="1" rows="1"/>
 		<image id="brick" src="brick.png" frames="1" frames_per_row="1" rows="1"/>
 		<image id="tile" src="tile.png" frames="4"/>
 		<image id="robot" src="robot.png" frames="8"/>
-		<image id="board_rotation_arrow" src="board_rotation_arrow.png" frames="2" />
+    
+    <image id="board_rotation_arrow" src="board_rotation_arrow.png" frames="2" />
 		<image id="command_bar" src="command_bar.png" frames="8" />
 		<image id="general_buttons" src="general_buttons.png" frames="4" />
 	</images>
 	
-	<color id="background" value="292929"/> 	
-	
-	
-	<font id="general" value="bariol-regular.ttf" point_size="20"/> 	
+	<color id="background" value="292929"/>
+  <color id="board_background" value="000000"/>
+
+  
+
+  <font id="general" value="bariol-regular.ttf" point_size="20"/> 	
 	<font id="debug_info" value="bariol-regular.ttf" point_size="12"/> 		
 	
 	<color id="debug_text_color" value="FFFFFF"/>
@@ -76,21 +90,28 @@
 		<object id="button_run_program">
 			<object_images>			
 				<object_image image="general_buttons" frame="1"/>											
-				<object_image image="general_buttons" frame="4" mouse_over="true" alpha_start="50" alpha_end="50"/>															
+				<object_image image="general_buttons" frame="4" mouse_over="true" alpha="50"/>															
 			</object_images>
 		</object>
-		
-		<object id="button_stop_program">
+
+
+    <object id="button_run_program_test">
+      <object_images>
+        <object_image image="general_buttons" frame="1"/>
+      </object_images>
+    </object>
+
+    <object id="button_stop_program">
 			<object_images>			
 				<object_image image="general_buttons" frame="2" />														
-				<object_image image="general_buttons" frame="4" mouse_over="true" alpha_start="50" alpha_end="50"/>															
+				<object_image image="general_buttons" frame="4" mouse_over="true" alpha="50"/>															
 			</object_images>
 		</object>
 		
 		<object id="button_reset_program">
 			<object_images>			
 				<object_image image="general_buttons" frame="3" />	
-				<object_image image="general_buttons" frame="4" mouse_over="true" alpha_start="50" alpha_end="50"/>															
+				<object_image image="general_buttons" frame="4" mouse_over="true" alpha="50"/>															
 			</object_images>
 		</object>
 		
@@ -98,21 +119,21 @@
 		<object id="command_bar_button_move_forward">
 			<object_images>			
 				<object_image image="command_bar" frame="1"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
 			</object_images>
 		</object>
 		
 		<object id="command_bar_button_turn_right_90_degrees">
 			<object_images>			
 				<object_image image="command_bar" frame="2"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
 			</object_images>
 		</object>
 		
 		<object id="command_bar_button_turn_left_90_degrees">
 			<object_images>			
 				<object_image image="command_bar" frame="2" flip_horizontal="true"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
 			</object_images>
 		</object>
 		
@@ -126,28 +147,28 @@
 		<object id="command_bar_button_jump">
 			<object_images>			
 				<object_image image="command_bar" frame="4"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
 			</object_images>
 		</object>		
 		
 		<object id="command_bar_button_switch_light_switch">
 			<object_images>							
 				<object_image image="command_bar" frame="5"/>															
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
 			</object_images>
 		</object>
 		
 		<object id="command_bar_button_function_1">
 			<object_images>			
 				<object_image image="command_bar" frame="6"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50" />											
 			</object_images>
 		</object>
 		
 		<object id="command_bar_button_function_2">
 			<object_images>			
 				<object_image image="command_bar" frame="7"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha_start="50" alpha_end="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
 			</object_images>
 		</object>	
 	</objects>

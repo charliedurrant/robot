@@ -5,7 +5,7 @@
 Window::Window(string title,int x, int y, int w, int h,Uint32 flags, int logicalWidthDesign, int logicalHeightDesign)
 {
   //SDL_RendererFlags::SDL_RENDERER_PRESENTVSYNC |
-  this->Construct(title,x,y,w,h,flags,-1,SDL_RENDERER_ACCELERATED |  SDL_RENDERER_TARGETTEXTURE,logicalWidthDesign,logicalHeightDesign);// | SDL_RENDERER_PRESENTVSYNC);
+  this->Construct(title, x, y, w, h, flags, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE | SDL_RENDERER_PRESENTVSYNC, logicalWidthDesign, logicalHeightDesign);// | SDL_RENDERER_PRESENTVSYNC);
 }
 
 Window::Window(string title,int x, int y, int w, int h,Uint32 flags, int rendererIndex,Uint32 rendererFlags,int logicalWidthDesign, int logicalHeightDesign)
@@ -17,22 +17,130 @@ Window::Window(string title,int x, int y, int w, int h,Uint32 flags, int rendere
 //can create windows to odd sizes and everything still scales 
 void Window::Construct(string title,int x, int y, int w, int h,Uint32 flags, int rendererIndex,Uint32 rendererFlags,int logicalWidthDesign, int logicalHeightDesign)
 {
+  
+  #if defined(__OPENGL_TEST__)
+    this->_windowDrawMode = WindowDrawModeNone;
+    flags |= SDL_WINDOW_OPENGL;
+  #endif
+
   this->Pointer = SDL_CreateWindow(title.c_str(),x,y,w,h,flags);  
+  
+  #if defined(__OPENGL_TEST__)
+    rendererIndex = this->RendererIndex("opengl");
+  #endif
+
   if ( ! this->Pointer )
   {
     this->Pointer = nullptr;
     throw new ExceptionSDL(string("Failed to create window"));
   }
+  
   this->Renderer = SDL_CreateRenderer(this->Pointer,rendererIndex,rendererFlags);  
+  
   if ( ! this->Renderer )
   {
     throw new ExceptionSDL(string("Failed to create a renderer")); 
   }
+  
+  #if defined(__OPENGL_TEST__)
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+  #endif
+
   SDL_RenderSetLogicalSize(this->Renderer, w, h); //SDL will do all the image scaling, we just scale to the with and height!
   this->LogicalSize.Height = h;
   this->LogicalSize.Width = w;
   this->LogicalSizeDesign.Width = logicalWidthDesign; 
   this->LogicalSizeDesign.Height = logicalHeightDesign; 
+  
+}
+
+#if defined (__OPENGL_TEST__)
+void Window::DrawModeSet(WindowDrawMode windowDrawMode)
+{
+  SIZE_FRAMEWORK sz;
+
+  if (windowDrawMode != _windowDrawMode)
+  {
+    sz = this->Size();
+    switch (windowDrawMode)
+    {
+      case WindowDrawMode2D:
+        glMatrixMode(GL_MODELVIEW);
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        //glPushMatrix();        ----Not sure if I need this
+        glOrtho(0, sz.Width, sz.Height, 0, -1, 1);
+        glViewport(0, 0, sz.Width, sz.Height);
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+        glLoadIdentity();
+        
+        //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable(GL_BLEND);
+        glDisable(GL_CULL_FACE);
+        glDisable(GL_DEPTH_TEST);
+
+        this->_windowDrawMode = windowDrawMode;       
+        break;
+      case WindowDrawMode3D:
+        
+        glPopMatrix(); //From 2D
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        
+        this->gluPerspective(45.0f, 4.0f / 3.0f, 0.1f, 1000.0f); //isometric??, see 
+
+        glViewport(0, 0, sz.Width, sz.Height);
+        glMatrixMode(GL_MODELVIEW);
+
+        glCullFace(GL_BACK);
+        glEnable(GL_CULL_FACE);
+        glEnable(GL_DEPTH_TEST);
+        glDisable(GL_BLEND);
+        
+
+        this->_windowDrawMode = windowDrawMode;        
+        break;
+    }
+  }
+}
+
+
+void Window::gluPerspective(float fovy, float aspect, float zNear, float zFar)
+{
+  // Start in projection mode.
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  double xmin, xmax, ymin, ymax;
+  ymax = zNear * tan(fovy * M_PI / 360.0);
+  ymin = -ymax;
+  xmin = ymin * aspect;
+  xmax = ymax * aspect;
+  glFrustum((GLdouble)xmin, (GLdouble)xmax, (GLdouble)ymin, (GLdouble)ymax, (GLdouble)zNear, (GLdouble)zFar);
+  //glFrustumf(xmin, xmax, ymin, ymax, zNear, zFar);
+}
+#endif
+
+int Window::RendererIndex(string  nameSearchMatch)
+{
+  int nRD;
+  int i;
+  SDL_RendererInfo info;;
+
+  nRD = SDL_GetNumRenderDrivers();
+  for (i = 0; i < nRD; i++)
+  {
+    
+    if (!SDL_GetRenderDriverInfo(i, &info))
+    {
+      if (Functions::StrPos(info.name, nameSearchMatch) != -1)
+      {
+        return i;
+      }
+      
+    }
+  } 
+  return -1;
 }
 
 Window::~Window(void)
@@ -49,6 +157,25 @@ Window::~Window(void)
   }  
 }
 
+void Window::RendererTargetSet(Image* image)
+{
+  if (image == nullptr)
+  { 
+    SDL_SetRenderTarget(this->Renderer,NULL);
+  }
+  else
+  {
+    SDL_SetRenderTarget(this->Renderer, image->Texture);
+  }
+}
+
+void Window::RendererTargetClear()
+{
+  this->RendererTargetSet(nullptr);
+}
+
+void RendererTargetClear();
+
 void Window::Render(void)
 {
   SDL_RenderPresent(this->Renderer);
@@ -64,16 +191,16 @@ void Window::Clear(void)
   SDL_RenderClear(this->Renderer);
 }
 
-void Window::RenderDebugText(const string& message, RECT* rectangle, TextAlign textAlignment)
+void Window::RenderDebugText(const string& message, RECT_FRAMEWORK* rectangle, TextAlign textAlignment)
 {    
   this->RenderText(message, Game::GameInstance->SystemFont, Game::GameInstance->SystemFontColor, rectangle, textAlignment);  
 }
 
 
-void Window::RenderText(const string& message, GameFont* font, Color* color, RECT* rectangle, TextAlign textAlignment )
+void Window::RenderText(const string& message, GameFont* font, Color* color, RECT_FRAMEWORK* rectangle, TextAlign textAlignment )
 {    
   Image* image;
-  RECT rectposition;
+  RECT_FRAMEWORK rectposition;
   
   if ( message.length() == 0 )
   { return; }
@@ -105,7 +232,7 @@ Image* Window::CreateTextImage(const string& message, GameFont* font, Color* col
   SDL_Texture *texture;
   Uint32 format;
   int access;
-  SIZE sz;
+  SIZE_FRAMEWORK sz;
 
   Image* image;
   
@@ -138,28 +265,28 @@ int Window::ScaleToLogicalDesignHeight(int valueUnscaled)
 }
 
 
-SIZE Window::Size()
+SIZE_FRAMEWORK Window::Size()
 {
-  SIZE sz;
+  SIZE_FRAMEWORK sz;
 
   SDL_GetWindowSize(this->Pointer,&sz.Width, &sz.Height);
   return sz;
 }
 
-POINT Window::Position()
+POINT_FRAMEWORK Window::Position()
 {
-  POINT pt;
+  POINT_FRAMEWORK pt;
 
   SDL_GetWindowPosition(this->Pointer,&pt.X, &pt.Y);
   return pt;
 }
 
 
-RECT Window::Rectangle()
+RECT_FRAMEWORK Window::Rectangle()
 {
-  SIZE sz;
-  POINT pt;
-  RECT r;
+  SIZE_FRAMEWORK sz;
+  POINT_FRAMEWORK pt;
+  RECT_FRAMEWORK r;
   pt = this->Position();
   sz = this->Size();
   r.X = pt.X;

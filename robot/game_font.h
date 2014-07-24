@@ -16,10 +16,11 @@ enum FontStyle
 class GameFont
 {
   public:
-    GameFont(string pathAndFile, int pointSize);
+    GameFont(string pathAndFile, int pointSize, string family);
     ~GameFont(void);
     FontWeight Weight;
     FontStyle Style;
     int PointSize;
     TTF_Font* Font;    
+    string Family;
 };

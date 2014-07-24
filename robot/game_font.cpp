@@ -3,15 +3,17 @@
 #include "framework.h"
 using namespace std;
 
-GameFont::GameFont(string pathAndFile, int pointSize) : Font(nullptr)
+GameFont::GameFont(string pathAndFile, int pointSize, string family) : Font(nullptr)
 {  
   this->Font = TTF_OpenFont(pathAndFile.c_str(),pointSize);  
-  this->PointSize = pointSize;
+  
   if ( ! this->Font )
   {
     this->Font = nullptr;
     throw new ExceptionSDLTTF("Failed to load the font:" + pathAndFile);
   }       
+  this->PointSize = pointSize;
+  this->Family = family;
 }
 
 

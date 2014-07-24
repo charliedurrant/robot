@@ -253,7 +253,7 @@ class BasicStringRef {
  public:
   /**
     Constructs a string reference object from a C string and a size.
-    If *size* is zero, which is the default, the size is computed with
+    If *SIZE_FRAMEWORK* is zero, which is the default, the size is computed with
     `strlen`.
    */
   BasicStringRef(const Char *s, std::size_t size = 0) : data_(s), size_(size) {}

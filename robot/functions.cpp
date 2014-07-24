@@ -60,7 +60,7 @@ float Functions::RadiansToDegrees(float angleInRadians)
   return angleInDegrees;
 }
 
-SIZE Functions::ScaleToWidth(SIZE size, int width)
+SIZE_FRAMEWORK Functions::ScaleToWidth(SIZE_FRAMEWORK size, int width)
 {
   float ratio;
 
@@ -80,7 +80,7 @@ SIZEF Functions::ScaleToWidth(SIZEF size, float width)
   return size;
 }
 
-SIZEF Functions::ScaleToWidth(SIZE size, float width)
+SIZEF Functions::ScaleToWidth(SIZE_FRAMEWORK size, float width)
 {
   float ratio;
   SIZEF szF;
@@ -102,9 +102,9 @@ float Functions::ATanDegrees(float tanValue)
   return Functions::RadiansToDegrees(radiansValue);
 }
 
-RECT Functions::RectCenterInAnother(RECT* container, RECT* rectToCenter)
+RECT_FRAMEWORK Functions::RectCenterInAnother(RECT_FRAMEWORK* container, RECT_FRAMEWORK* rectToCenter)
 {
-  RECT r;
+  RECT_FRAMEWORK r;
   r.Height = 0;
   return r;      
 }
@@ -445,7 +445,7 @@ bool convexPolygonOverlap(
   return true;
 }
 
-POINTF* Functions::POINTArrayToPOINTFArray(POINT* polygon, int numberOfPointsInPolyGon)
+POINTF* Functions::POINTArrayToPOINTFArray(POINT_FRAMEWORK* polygon, int numberOfPointsInPolyGon)
 {
   POINTF* polygonF;
   POINTF* polygonFRet;
@@ -462,7 +462,7 @@ POINTF* Functions::POINTArrayToPOINTFArray(POINT* polygon, int numberOfPointsInP
   return polygonFRet;
 }
 
-bool Functions::ConvexPolygonsOverlap(POINT* polygonA, int numberOfPointsInPolyGonA, POINT* polygonB, int numberOfPointsInPolyGonB)
+bool Functions::ConvexPolygonsOverlap(POINT_FRAMEWORK* polygonA, int numberOfPointsInPolyGonA, POINT_FRAMEWORK* polygonB, int numberOfPointsInPolyGonB)
 {
   POINTF* polygonAF;
   POINTF* polygonBF;
@@ -553,7 +553,7 @@ bool Functions::PolygonInsidePolygon(POINTF* polygonInside, int numberOfPointsIn
   return true;
 }
 
-bool Functions::PolygonInsidePolygon(POINT* polygonInside, int numberOfPointsInPolyGonInside, POINT* polygonOutside, int numberOfPointsInPolyGonOutside)
+bool Functions::PolygonInsidePolygon(POINT_FRAMEWORK* polygonInside, int numberOfPointsInPolyGonInside, POINT_FRAMEWORK* polygonOutside, int numberOfPointsInPolyGonOutside)
 {
   POINTF* polygonInsideF;
   POINTF* polygonOutsideF;
@@ -593,13 +593,37 @@ string Functions::BoolToString(bool b)
   { return "True"; }
   return "False"; 
 }
+
+
+string Functions::TextFileRead(string fileName)
+{
+  std::ifstream in(fileName);
+  std::stringstream buffer;
+  buffer << in.rdbuf();
+  std::string contents(buffer.str());
+  return contents;
+}
+
+void Functions::StringReplace(std::string& str, const std::string& find, const std::string& replace) 
+{
+  size_t start_pos;
+
+  if (find.empty())
+  { return; }
+  start_pos = 0;
+  while ((start_pos = str.find(find, start_pos)) != std::string::npos)
+  {
+    str.replace(start_pos, find.length(), replace);
+    start_pos += replace.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+  }
+}
+
 TiXmlDocument* Functions::XMLFileLoad(string pathAndFile)
 {
   TiXmlDocument* xmlDoc = nullptr;
   try
   {
     xmlDoc = new TiXmlDocument();
-    
     if ( ! xmlDoc->LoadFile(pathAndFile,TIXML_ENCODING_UTF8) )
     {
       throw new Exception(str(fmt::Format("{0}, row: {1}, column: {2}") << xmlDoc->ErrorDesc() << xmlDoc->ErrorRow() << xmlDoc->ErrorCol() )); //TODO: add other info to exception
@@ -611,6 +635,42 @@ TiXmlDocument* Functions::XMLFileLoad(string pathAndFile)
     if ( xmlDoc != nullptr )
     { delete xmlDoc; }
     throw new Exception(string("Failed to load the xml file: ") + pathAndFile,ex); 
+  }
+}
+
+TiXmlDocument* Functions::XMLStringLoad(const string& data)
+{
+  return Functions::XMLStringLoad(data, ""
+  
+  );
+}
+
+TiXmlDocument* Functions::XMLStringLoad(const string& data, const string& source_file)
+{
+  TiXmlDocument* xmlDoc = nullptr;
+  const char* ret;
+  try
+  {
+    xmlDoc = new TiXmlDocument();
+    ret = xmlDoc->Parse(data.c_str(), 0, TIXML_ENCODING_UTF8);
+    if (ret)
+    {
+      throw new Exception(str(fmt::Format("{0}, row: {1}, column: {2}") << xmlDoc->ErrorDesc() << xmlDoc->ErrorRow() << xmlDoc->ErrorCol())); //TODO: add other info to exception
+    }
+    return xmlDoc;
+  }
+  catch (Exception* ex)
+  {
+    string message;
+    if (xmlDoc != nullptr)
+    { delete xmlDoc; }
+
+    message = "Failed to load xml from a string";
+    if ((source_file.length() > 0))
+    {
+      message = str(fmt::Format("{0}, source file: {1}") << message << source_file );      
+    }
+    throw new Exception(message, ex);
   }
 }
 
@@ -902,7 +962,7 @@ string Functions::XMLAttributeString(TiXmlElement* xmlElement, string name, stri
 }
 
 
-void Functions::CenterRectInRect(RECT* rectToCenter,RECT* rectToCenterIn)
+void Functions::CenterRectInRect(RECT_FRAMEWORK* rectToCenter,RECT_FRAMEWORK* rectToCenterIn)
 {
    rectToCenter->X = rectToCenterIn->X - ((rectToCenter->Width - rectToCenterIn->Width) / 2);
    rectToCenter->Y = rectToCenterIn->Y - ((rectToCenter->Height - rectToCenterIn->Height) / 2);
@@ -914,7 +974,7 @@ void Functions::CenterRectInRect(RECTF* rectToCenter,RECTF* rectToCenterIn)
    rectToCenter->Y = rectToCenterIn->Y - ((rectToCenter->Height - rectToCenterIn->Height) / 2.0f);
 }
 
-void Functions::CenterRectInRect(RECTF* rectToCenter,RECT* rectToCenterIn)
+void Functions::CenterRectInRect(RECTF* rectToCenter,RECT_FRAMEWORK* rectToCenterIn)
 {
    rectToCenter->X = (float)rectToCenterIn->X - ((rectToCenter->Width - (float)rectToCenterIn->Width) / 2.0f);
    rectToCenter->Y = (float)rectToCenterIn->Y - ((rectToCenter->Height - (float)rectToCenterIn->Height) / 2.0f);
@@ -950,7 +1010,3 @@ int Functions::Scale(int valueUnscaled, int numerator, int denominator)
   return scaled;
 }
 
-void Functions::MapClear( std::map<std::string, void*> map)
-{
-  ;  
-}

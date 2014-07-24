@@ -7,7 +7,6 @@ using namespace std;
 BoardSquare::BoardSquare(Board* board) : GameObject(), BrickCount(0), _lightState(LightStateNone), RenderOrder(-1), Rendered(false)
 {
   this->CurrentThemeObject = MyGame::Instance->Theme->Tile2;
-  _frame = 0;     
   _board = board;
   this->DebugInfoTextAlign = TextAlignMiddleCenter;
 }
@@ -18,7 +17,7 @@ BoardSquare::~BoardSquare()
 void BoardSquare::Render()
 {
   Image* image;
-  RECT rectangle;
+  RECT_FRAMEWORK rectangle;
   size_t i;
   
   //render a tile;
@@ -83,9 +82,9 @@ void BoardSquare::RenderTile()
   }    
 }
 
-void BoardSquare::RenderFloorTileOnly(SIZE moveBy)
+void BoardSquare::RenderFloorTileOnly(SIZE_FRAMEWORK moveBy)
 {
-   RECT rectangleRenderBase;
+   RECT_FRAMEWORK rectangleRenderBase;
    LightState lightState;
    int brickCount;
 
@@ -125,7 +124,6 @@ void BoardSquare::LightStateSet(LightState lightState)
         this->CurrentThemeObject = MyGame::Instance->Theme->Tile2;
         break;
     }
-    _frame = 0;
   }
   _lightState = lightState;
 }

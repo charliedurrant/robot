@@ -76,9 +76,9 @@ void Board::BoardSizeSet(int size)
 }
 
 
-SIZE Board::TileSize(int tilesInX, int tilesInY)
+SIZE_FRAMEWORK Board::TileSize(int tilesInX, int tilesInY)
 {
-  SIZE tileSize;
+  SIZE_FRAMEWORK tileSize;
 
   //always roound down so use (int)
   tileSize.Width = (int) (((float)this->Size.Width * 2.0f) / (float)(tilesInX + tilesInY ));
@@ -86,9 +86,9 @@ SIZE Board::TileSize(int tilesInX, int tilesInY)
   return tileSize;
 }
 
-SIZE Board::TileSize()
+SIZE_FRAMEWORK Board::TileSize()
 {
-  SIZE tileSize;
+  SIZE_FRAMEWORK tileSize;
   if (this->_boardSize.Area() > this->_standardBoardSize.Area() )
   {
     tileSize = this->TileSize(this->_boardSize.Width, this->_boardSize.Height);
@@ -101,10 +101,10 @@ SIZE Board::TileSize()
   return tileSize;
 }
 
-RECT Board::BoardRectangle()
+RECT_FRAMEWORK Board::BoardRectangle()
 {
-  SIZE tileSize;
-  RECT boardRect;
+  SIZE_FRAMEWORK tileSize;
+  RECT_FRAMEWORK boardRect;
 
   tileSize = this->TileSize();
   //calcualte the rect of the floor, this may need to be centered insize the game object rect
@@ -118,11 +118,11 @@ RECT Board::BoardRectangle()
 }
 
 //this is the square at 0,0 with no board rotation, from the screen view it is the one on the far left 
-RECT Board::SquareStart()
+RECT_FRAMEWORK Board::SquareStart()
 {
-  RECT boardRect;
-  SIZE tileSize;
-  RECT squareStart;
+  RECT_FRAMEWORK boardRect;
+  SIZE_FRAMEWORK tileSize;
+  RECT_FRAMEWORK squareStart;
   
   tileSize = this->TileSize();
   boardRect = this->BoardRectangle();
@@ -136,12 +136,12 @@ RECT Board::SquareStart()
 }
 
 
-BoardSquare* Board::Square(POINT coordinate)
+BoardSquare* Board::Square(POINT_FRAMEWORK coordinate)
 {
   return this->Square(coordinate, false);
 }
 
-BoardSquare* Board::Square(POINT coordinate, bool render, bool coordinateAlreadyTranformed)
+BoardSquare* Board::Square(POINT_FRAMEWORK coordinate, bool render, bool coordinateAlreadyTranformed)
 {
   int index;
 
@@ -161,7 +161,7 @@ BoardSquare* Board::Square(POINT coordinate, bool render, bool coordinateAlready
   }
 }
 
-bool Board::ContainsCoordinate(POINT coordinate)
+bool Board::ContainsCoordinate(POINT_FRAMEWORK coordinate)
 {
   return coordinate.X > -1 && coordinate.X < _boardSize.Width && coordinate.Y > -1 && coordinate.Y < _boardSize.Width;
 }
@@ -191,8 +191,8 @@ void Board::ResizeSquareStorage()
 void Board::PositionSquares()
 {
   //create the tiles array
-  RECT squareStartRect, squareRect;
-  POINT coordinate;
+  RECT_FRAMEWORK squareStartRect, squareRect;
+  POINT_FRAMEWORK coordinate;
   BoardSquare* square;
   Vector2D vectorStart;
   Vector2D vectorPosition;
@@ -220,7 +220,7 @@ void Board::PositionSquares()
 
 void Board::TransformSquares()
 {
-  POINT coordinate, transformed;
+  POINT_FRAMEWORK coordinate, transformed;
   int arrayIndex, arrayIndexTransformed;
   BoardSquare* squareTransformed;
  
@@ -279,18 +279,15 @@ void Board::Update()
     this->Dirty = false;
   }  
   
-
-  //we update in here to sync the board square tiles, it we do individual updates then fading images may get out of sync, this means we can't have separate images for tiles
+  //we update in here to sync the board square tiles, it we do individual updates to each square then fading images may get out of sync, the result of doing it like this is we we can't have separate images for tiles
   this->UpdateThemeObject(nullptr, MyGame::Instance->Theme->Tile2);
   this->UpdateThemeObject(nullptr, MyGame::Instance->Theme->TileOn2);
   this->UpdateThemeObject(nullptr, MyGame::Instance->Theme->TileOff2);
 
   //update squares
-
   for ( i = 0; i < this->_boardSize.Area(); i++ )
-  {
-    _squares[i]->Update();
-  }
+  { _squares[i]->Update(); }
+
   this->RoBot->Update();
   GameObject::Update();
 }
@@ -303,8 +300,8 @@ void Board::Rotate(bool clockWise)
 
 void Board::CreateBoardRenderInOneGo()
 {
-  SIZE szMoveBy;
-  POINT pt;
+  SIZE_FRAMEWORK szMoveBy;
+  POINT_FRAMEWORK pt;
   BoardSquare* boardSquare;
 
   if ( MyGame::Instance->Settngs->RenderBoardInOneGo && _boardRenderInOneGoImage == nullptr)
@@ -312,8 +309,8 @@ void Board::CreateBoardRenderInOneGo()
     _boardRenderInOneGoImage = new Image("board_render_in_one_go",MyGame::Instance->Theme->Brick->FirstImage()->Img,&this->Size);
     szMoveBy.Width = (int)Functions::Round(this->Position.X *  -1.0f); 
     szMoveBy.Height = (int)Functions::Round(this->Position.Y *  -1.0f); 
-    SDL_SetRenderTarget(MyGame::GameInstance->WindowMain->Renderer, _boardRenderInOneGoImage->Texture);
 
+    MyGame::Instance->WindowMain->RendererTargetSet(_boardRenderInOneGoImage);
     for (pt.X = 0; pt.X < this->_boardSize.Width; pt.X++)
     {
       for (pt.Y = 0; pt.Y < this->_boardSize.Height; pt.Y++)
@@ -322,8 +319,7 @@ void Board::CreateBoardRenderInOneGo()
         boardSquare->RenderFloorTileOnly(szMoveBy);
       }
     }
-
-    SDL_SetRenderTarget(MyGame::GameInstance->WindowMain->Renderer, NULL);
+    MyGame::Instance->WindowMain->RendererTargetClear();
   }
 }
 
@@ -335,8 +331,8 @@ void Board::CreateTowerBlocks()
   Image* imageTowerBlock = nullptr;
   size_t  brickNumber;
   size_t i;
-  SIZE sz;
-  RECT rectDest;
+  SIZE_FRAMEWORK sz;
+  RECT_FRAMEWORK rectDest;
   BRICKDATA brickData;
 
   if (!MyGame::Instance->Settngs->RenderBricksAsTowerBlocks)
@@ -365,8 +361,8 @@ void Board::CreateTowerBlocks()
 
         imageTowerBlock = new Image(str( fmt::Format("tower_block_{0}") << square->BrickCount), imageBrick,&sz);
         
-        SDL_SetRenderTarget(MyGame::GameInstance->WindowMain->Renderer, imageTowerBlock->Texture);
-
+        MyGame::GameInstance->WindowMain->RendererTargetSet(imageTowerBlock);
+        
         rectDest.X = 0;
         rectDest.Y = sz.Height - (brickData.Size.Height - brickData.VerticalDrawOffset);
         rectDest.Width = brickData.Size.Width;        
@@ -378,13 +374,11 @@ void Board::CreateTowerBlocks()
           if (SDL_RenderCopy(MyGame::GameInstance->WindowMain->Renderer, imageBrick->Texture, NULL, (SDL_Rect*)&rectDest))
           { throw new ExceptionSDL("RenderCopy failed when copying the brick for a tower"); }
         }        
-
-        SDL_SetRenderTarget(MyGame::GameInstance->WindowMain->Renderer, NULL);
+        MyGame::GameInstance->WindowMain->RendererTargetClear();
         this->_towerBlocks[square->BrickCount - 1] = imageTowerBlock;
       }
     }  
-  }
-  
+  }  
 }
 
 
@@ -398,7 +392,7 @@ void Board::UpdateMovementVectors()
 void Board::UpdateMovementVectors(Rotation boardRotation)
 {
   SIZEF sz;
-  SIZE tileSize;
+  SIZE_FRAMEWORK tileSize;
 
   tileSize = this->TileSize();
   sz.Width = (float)tileSize.Width / 2.0f;
@@ -440,7 +434,7 @@ void Board::UpdateMovementVectors(Rotation boardRotation)
 
 void Board::Render()
 {
-  RECT r;
+  RECT_FRAMEWORK r;
   if (!this->CanRender())
   { return; }
   
@@ -484,9 +478,9 @@ void Board::CalculateBrickData()
 bool Board::CanRender()
 { return _squares.size() > 0; }
 
-POINT Board::TransForm(POINT point, bool inverse)
+POINT_FRAMEWORK Board::TransForm(POINT_FRAMEWORK point, bool inverse)
 {
-  POINT transformed;
+  POINT_FRAMEWORK transformed;
 
   switch (this->_boardRotation)
   {
@@ -555,7 +549,6 @@ POINTF Board::TransForm(POINTF point, bool inverse)
       {
         transformed.X = point.Y;
         transformed.Y = (float)(this->_boardSize.Width - 1) - point.X;
-
       }      
       break;
     case RotationClockWise270:
@@ -564,7 +557,6 @@ POINTF Board::TransForm(POINTF point, bool inverse)
       {
         transformed.Y = (float)(this->_boardSize.Height - 1) - point.X;
         transformed.X = point.Y;
-
       }
       else
       {
@@ -590,17 +582,17 @@ POINTF Board::TransForm(POINTF point, bool inverse)
 }
 
 
-void Board::LightStateSwitch(POINT coordinate)
+void Board::LightStateSwitch(POINT_FRAMEWORK coordinate)
 {
   BoardSquare* square;
   square = this->Square(coordinate);
   square->LightStateSwitch();  
 }
 
-void Board::RenderSquare(POINT transformed)
+void Board::RenderSquare(POINT_FRAMEWORK transformed)
 {
   BoardSquare* square;
-  POINT position;
+  POINT_FRAMEWORK position;
   
   
   square = this->Square(transformed,true,true);
@@ -620,7 +612,7 @@ void Board::RenderSquare(POINT transformed)
 
 void Board::RenderDebugInfo()
 {
-  POINT coordinate;
+  POINT_FRAMEWORK coordinate;
   BoardSquare* square;
   for( coordinate.X = 0; coordinate.X < this->_boardSize.Width; coordinate.X++ )
   {
@@ -633,11 +625,11 @@ void Board::RenderDebugInfo()
   this->RoBot->RenderDebugInfo();  
 }
 
-BoardSquare* Board::RobotRenderSquare(POINT coordinate, bool coordinateIsTransformed)
+BoardSquare* Board::RobotRenderSquare(POINT_FRAMEWORK coordinate, bool coordinateIsTransformed)
 {
   BoardSquare* square;
   int index;
-  POINT transformed;
+  POINT_FRAMEWORK transformed;
 
   if ( ! coordinateIsTransformed)
   { transformed = this->TransForm(coordinate); }
@@ -651,7 +643,7 @@ BoardSquare* Board::RobotRenderSquare(POINT coordinate, bool coordinateIsTransfo
 
 void Board::RenderSquares()
 {
-  POINT coordinate, coordinate2;
+  POINT_FRAMEWORK coordinate, coordinate2;
   size_t i;
   const int DIMAOND_PATTERN_SIZE = 2;
   bool renderedSquaresAroundRobot;
@@ -701,9 +693,9 @@ void Board::RenderSquares()
 //  6   8
 //    9 
 //start is the offset, maxDiagonal in the above case would be 3 i.e. 1,4 & 9
-void Board::RenderSquaresWithRobotInDiamondPattern(POINT start, int maxDiagonal)
+void Board::RenderSquaresWithRobotInDiamondPattern(POINT_FRAMEWORK start, int maxDiagonal)
 {
-  POINT coordinate;
+  POINT_FRAMEWORK coordinate;
   int diagonal;
 
   for (diagonal = 0; diagonal < maxDiagonal; diagonal++)
@@ -733,7 +725,7 @@ void Board::RenderSquaresWithRobotInDiamondPattern(POINT start, int maxDiagonal)
 }
 
 
-int Board::CoordinateToArrayIndex(POINT coordinate)
+int Board::CoordinateToArrayIndex(POINT_FRAMEWORK coordinate)
 {
   int arrayIndex;
   arrayIndex = (coordinate.Y * this->_boardSize.Width) + coordinate.X;

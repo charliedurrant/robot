@@ -10,6 +10,12 @@ class Window;
 
 class Game
 {
+  private:
+    //open gl test 
+    #if defined (__OPENGL_TEST__)
+    void OpenGLTest();
+    #endif
+    //open gl test 
   public:
     Game(void);
     ~Game(void);

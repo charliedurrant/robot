@@ -8,7 +8,6 @@ ThemeObject::ThemeObject(BaseGameTheme* theme, string id, TiXmlElement* xmlEleme
   ThemeObjectImage* objectImage;
   TiXmlElement* objectImages;
 
-
   try
   {
     this->ID = id;  
@@ -42,13 +41,11 @@ void ThemeObject::Reset()
   }  
 }
 
-void ThemeObject::Render(RECT rectangleDestination )
+void ThemeObject::Render(RECT_FRAMEWORK rectangleDestination)
 {
   ThemeObjectImage* objectImage;
   
   size_t size = this->ObjectImages.size();
-
- 
 
   for(std::vector<ThemeObjectImage*>::size_type i = 0; i <  size; i++)
   {

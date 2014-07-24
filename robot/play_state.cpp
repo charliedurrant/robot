@@ -18,7 +18,7 @@ PlayState::~PlayState(void)
   }
 }
 
-CommandBarButton* PlayState::FunctionButtonAt(POINT pt)
+CommandBarButton* PlayState::FunctionButtonAt(POINT_FRAMEWORK pt)
 {
   CommandBarButton* button = nullptr;
 
@@ -113,13 +113,13 @@ void PlayState::OnEnter()
   Buttn* button;
   Board* board = nullptr;
   //Player* player = nullptr;
-  RECT rectBoard, rectGameObject;
+  RECT_FRAMEWORK rectBoard, rectGameObject;
   SIZEF szBoard;
   int BUTTON_MARGIN;
   int BUTTON_SIZE;
     
   COLOR color;
-  SIZE sz;
+  SIZE_FRAMEWORK sz;
   int margin, i;
   try
   {

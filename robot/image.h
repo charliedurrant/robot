@@ -5,22 +5,22 @@ using namespace std;
 class Image
 {
   private:
-    void Construct(string& id,SDL_Texture* texture, SIZE* size,int numberOfFrames,int intNumberOfFrameRows, int numberOfFramesPerRow);    
+    void Construct(string& id,SDL_Texture* texture, SIZE_FRAMEWORK* size,int numberOfFrames,int intNumberOfFrameRows, int numberOfFramesPerRow);    
   public:
-    Image(string id,Image* imageAttributes, SIZE* size);
-    Image(string id, SDL_Texture* texture, SIZE* size);
-    Image( string id, SDL_Texture* texture, SIZE* size,int numberOfFrames, int numberOfFrameRows, int numberOfFramesPerRow );
+    Image(string id,Image* imageAttributes, SIZE_FRAMEWORK* size);
+    Image(string id, SDL_Texture* texture, SIZE_FRAMEWORK* size);
+    Image( string id, SDL_Texture* texture, SIZE_FRAMEWORK* size,int numberOfFrames, int numberOfFrameRows, int numberOfFramesPerRow );
     ~Image(void); 
     SDL_Texture* Texture;
-    SIZE Size;
-    SIZE FrameSize;
+    SIZE_FRAMEWORK Size;
+    SIZE_FRAMEWORK FrameSize;
     void AlphaSet();
     string ID;
     int NumberOfFrameRows;
     int NumberOfFramesPerRow;
     int NumberOfFrames;
     void AlphaSet(Uint8 alpha);
-    RECT FrameRectangle(int frame);
+    RECT_FRAMEWORK FrameRectangle(int frame);
     int FrameCalculate(int framesPerSecond )
     { 
       return this->FrameCalculate(framesPerSecond, this->NumberOfFrames);      

@@ -21,32 +21,30 @@ public:
   void RenderDebugInfo(string& text);
   bool Contains(Vector2D* position);
   bool ContainsMouse();
-  RECT Rentangle();
+  RECT_FRAMEWORK Rentangle();
   void PositionAndSize(float x, float y, int width, int height);
   void PositionAndSize(Vector2D* position, int width, int height) ;
 
   void PositionAndSize(int x, int y, int width, int height);
-  void PositionAndSize(RECT r);
+  void PositionAndSize(RECT_FRAMEWORK r);
   virtual void Resize(int width, int height);
   void Accelerate(float value);
-  void RenderFrame(ThemeImage* themeImage, int x, int y,int width, int height, int frame);
-  void RenderFrame(ThemeImage* themeImage, RECT r, int frame );
+  void RenderBackground();
   TextAlign DebugInfoTextAlign;
   static void UpdateThemeObject(GameObject* gameObject,ThemeObject* themeObject);
-
   GameObjects* Children();
-  
-  int Frame();  
+  PADDING Padding;
   ThemeObject* CurrentThemeObject;  
   Vector2D Position;  
   bool Visible;
   virtual void Click(void* sender); //when clicked will be called
   void OnClick(std::function<void(void*)> onClickCallBack); //void * will be the sender i.e me
   State* ParentState;
+  RECT_FRAMEWORK RectangleLessPadding();
+  ThemeObject* BackgorundImage;
 protected:  
   std::function<void(void*)> _onClickCallBack;
-  SIZE Size;
-  int _frame;
+  SIZE_FRAMEWORK Size;
   Vector2D Velocity;
   Vector2D Acceleration;
   FlipType _flip;

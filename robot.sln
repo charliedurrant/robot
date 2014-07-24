@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "robot", "robot\robot.vcxproj", "{C6FB7F05-E30E-4888-86E1-BCB0ADBC87F3}"
 EndProject
@@ -281,6 +281,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		makeitso.config = makeitso.config
 		notes.txt = notes.txt
+		Performance1.psess = Performance1.psess
 	EndProjectSection
 EndProject
 Global
@@ -416,5 +417,8 @@ Global
 		{05EE531E-0165-4EDB-9984-567380141438} = {12132CA7-8BEA-4C61-92FC-C9C5CFFB8348}
 		{69EBC6ED-DC7D-46FE-A67A-2D62808D8003} = {02685896-3768-4DE0-A1FC-C72D09930C48}
 		{2C59DB2B-3549-420A-9302-16EE44C947E7} = {7704E713-9F6B-41CE-A3E5-1318314EB5F6}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

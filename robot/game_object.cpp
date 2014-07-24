@@ -9,13 +9,12 @@ GameObject::GameObject() : Position(0, 0),
                            Size(),
                            Velocity(0, 0),
                            Acceleration(0, 0),
-                           _frame(0),
                            _children(nullptr),
                            _flipWithVerticalVelocity(false),
                            _flipWithHorizontalVelocity(true),
                            CurrentThemeObject(nullptr),
                            _flip(FlipTypeNone),  
-                           Visible(true), _onClickCallBack(nullptr), ParentState(nullptr), DebugInfoTextAlign(TextAlignTopLeft)
+                           Visible(true), _onClickCallBack(nullptr), ParentState(nullptr), DebugInfoTextAlign(TextAlignTopLeft), BackgorundImage(nullptr)
 {  
   ;
 }
@@ -101,7 +100,7 @@ void GameObject::Update()
   
   if ( _children  )
   {
-     _children->Update();
+    _children->Update();
   }
 
   if ((Game::GameInstance->Input->Mouse->LeftButton == MouseButtonClicked) && this->ContainsMouse() )
@@ -115,9 +114,7 @@ void GameObject::Update()
         this->_onClickCallBack(this);   //the envet handler
       }      
     }    
-    
   }
-
 }
 
 void GameObject::UpdateThemeObject(GameObject* gameObject,ThemeObject* themeObject)
@@ -197,14 +194,12 @@ void GameObject::UpdateThemeObject(GameObject* gameObject,ThemeObject* themeObje
       
     }   
   }
-
-
 }
 
-RECT GameObject::Rentangle()
+RECT_FRAMEWORK GameObject::Rentangle()
 {
-  POINT pt;
-  RECT r;
+  POINT_FRAMEWORK pt;
+  RECT_FRAMEWORK r;
   
   pt = this->Position.Point();
   r.X = pt.X;
@@ -214,7 +209,7 @@ RECT GameObject::Rentangle()
   return r;
 }
 
-void GameObject::PositionAndSize(RECT r) { this->PositionAndSize((float)r.X, (float)r.Y, r.Width, r.Height); }
+void GameObject::PositionAndSize(RECT_FRAMEWORK r) { this->PositionAndSize((float)r.X, (float)r.Y, r.Width, r.Height); }
 
 void GameObject::PositionAndSize(int x, int y, int width, int height) { this->PositionAndSize((float)x, (float)y, width, height); }
 
@@ -233,13 +228,34 @@ void GameObject::Resize(int width, int height )
   this->Size.Height = height;  
 }
 
+RECT_FRAMEWORK GameObject::RectangleLessPadding()
+{
+  RECT_FRAMEWORK r;
+
+  r = this->Rentangle();
+  r.Width -= this->Padding.Left + this->Padding.Right;
+  r.X += this->Padding.Left;
+
+  r.Height -= this->Padding.Top + this->Padding.Bottom;
+  r.Y += this->Padding.Top;
+  return r;
+}
+
 void GameObject::Render()
 {
+  this->RenderBackground();
+
   if ( _children  )
   { _children->Render(); }
 
   if ( this->CurrentThemeObject != nullptr )
-  { this->CurrentThemeObject->Render(this->Rentangle()); }      
+  { this->CurrentThemeObject->Render(this->RectangleLessPadding()); }   
+}
+
+void GameObject::RenderBackground()
+{
+  if (this->BackgorundImage)
+  { this->BackgorundImage->Render(this->Rentangle()); }
 }
 
 void GameObject::RenderDebugInfo() 
@@ -251,7 +267,7 @@ void GameObject::RenderDebugInfo()
 
 void GameObject::RenderDebugInfo(string& text)
 {
-  RECT r;
+  RECT_FRAMEWORK r;
 
   if (!this->Visible)
   { return; }

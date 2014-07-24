@@ -12,9 +12,9 @@ public:
   float Y;
   float Length(); 
   
-  POINT Point()
+  POINT_FRAMEWORK Point()
   {
-    POINT point;
+    POINT_FRAMEWORK point;
     point.X = (int)Functions::Round(this->X);
     point.Y = (int)Functions::Round(this->Y);
     return point;

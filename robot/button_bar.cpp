@@ -63,30 +63,32 @@ int ButtonBar::RowCount()
 }
 
 
-SIZE ButtonBar::ButtonSize()
+SIZE_FRAMEWORK ButtonBar::ButtonSize()
 {
-  SIZE sz;
-  
-  sz.Width  = (this->Size.Width - (this->ColumnCount() - 1) * (this->_buttonMargin)) / (this->ColumnCount());
-  sz.Height= (this->Size.Height - (this->RowCount() - 1) * (this->_buttonMargin)) / (this->RowCount());;
+  SIZE_FRAMEWORK sz;
+  RECT_FRAMEWORK r;
+  r = this->RectangleLessPadding();
+
+  sz.Width  = (r.Width - (this->ColumnCount() - 1) * (this->_buttonMargin)) / (this->ColumnCount());
+  sz.Height= (r.Height - (this->RowCount() - 1) * (this->_buttonMargin)) / (this->RowCount());;
   return sz;  
 }
 
-void ButtonBar::PositionAndAutoSize(POINT pt)
+void ButtonBar::PositionAndAutoSize(POINT_FRAMEWORK pt)
 {
-  SIZE sz;
+  SIZE_FRAMEWORK sz;
   sz = this->SizeCalculate();
   GameObject::PositionAndSize(pt.X, pt.Y, sz.Width, sz.Height);  
 }
 
-SIZE ButtonBar::SizeCalculate()
+SIZE_FRAMEWORK ButtonBar::SizeCalculate()
 {
-  SIZE sz;
+  SIZE_FRAMEWORK sz;
 
   if ( this->Children()->Size() > 0 )
   {
-    sz.Width = (this->ColumnCount() * this->_buttonSize.Width) + (this->ColumnCount() - 1 * this->_buttonMargin); 
-    sz.Height = (this->RowCount() * this->_buttonSize.Height) + (this->RowCount() - 1 * this->_buttonMargin);   
+    sz.Width = (this->ColumnCount() * this->_buttonSize.Width) + (this->ColumnCount() - 1 * this->_buttonMargin) + this->Padding.Width(); 
+    sz.Height = (this->RowCount() * this->_buttonSize.Height) + (this->RowCount() - 1 * this->_buttonMargin) + this->Padding.Height();
   }
   else
   {
@@ -97,7 +99,7 @@ SIZE ButtonBar::SizeCalculate()
 
 
 
-Buttn* ButtonBar::ButtonAt(POINT pt)
+Buttn* ButtonBar::ButtonAt(POINT_FRAMEWORK pt)
 {
   size_t i;
   Buttn* button;
@@ -122,11 +124,11 @@ void ButtonBar::Resize(int width, int height)
 {
   int buttonCount;
   int i;
-  POINT pt, coordinate;
+  POINT_FRAMEWORK pt, coordinate, ptStart;
   Buttn* button;
-  SIZE szButton;
-  SIZE szGrid;
-  
+  SIZE_FRAMEWORK szButton;
+  SIZE_FRAMEWORK szGrid;
+ 
   GameObject::Resize(width, height);
   
   szButton = this->ButtonSize();
@@ -136,11 +138,11 @@ void ButtonBar::Resize(int width, int height)
 
   if ( buttonCount )
   {
-    pt = this->Position.Point();
+    pt= ptStart = this->RectangleLessPadding().Point();
     i = 0;
     for( coordinate.Y = 0; coordinate.Y < szGrid.Height; coordinate.Y++ )
     {
-      pt.X = (int)this->Position.X;
+      pt.X = ptStart.X;
       for( coordinate.X = 0; coordinate.X < szGrid.Width; coordinate.X++ )
       {
         button = (Buttn*)this->Children()->Item((size_t)i);
@@ -153,6 +155,5 @@ void ButtonBar::Resize(int width, int height)
       pt.Y += this->_buttonMargin + szButton.Height;
     }        
   }
-
 }
 

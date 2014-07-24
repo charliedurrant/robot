@@ -29,17 +29,20 @@ class Functions
     static float DegreesToRadians(float angleInDegrees);
     static float RadiansToDegrees(float angleInDegrees);
     static float RectangleDimensionToOtherByDegrees(float width, float degrees);
-    static SIZE ScaleToWidth(SIZE size, int width);
+    static SIZE_FRAMEWORK ScaleToWidth(SIZE_FRAMEWORK size, int width);
     static SIZEF ScaleToWidth(SIZEF size, float width);
-    static SIZEF ScaleToWidth(SIZE size, float width);
+    static SIZEF ScaleToWidth(SIZE_FRAMEWORK size, float width);
     static int PointInPolygon(POINTF pt, POINTF* points, int numberOfPoints);
     static bool ConvexPolygonsOverlap(POINTF* polygonA, int numberOfPointsInPolyGonA, POINTF* polygonB, int numberOfPointsInPolyGonB);
-    static bool ConvexPolygonsOverlap(POINT* polygonA, int numberOfPointsInPolyGonA, POINT* polygonB, int numberOfPointsInPolyGonB);
+    static bool ConvexPolygonsOverlap(POINT_FRAMEWORK* polygonA, int numberOfPointsInPolyGonA, POINT_FRAMEWORK* polygonB, int numberOfPointsInPolyGonB);
     static bool PolygonInsidePolygon(POINTF* polygonInside, int numberOfPointsInPolyGonInside, POINTF* polygonOutside, int numberOfPointsInPolyGonOutside);
-    static bool PolygonInsidePolygon(POINT* polygonInside, int numberOfPointsInPolyGonInside, POINT* polygonOutside, int numberOfPointsInPolyGonOutside);
+    static bool PolygonInsidePolygon(POINT_FRAMEWORK* polygonInside, int numberOfPointsInPolyGonInside, POINT_FRAMEWORK* polygonOutside, int numberOfPointsInPolyGonOutside);
     static bool AnyPointInRect(POINTF* polygonA, int numberOfPointsInPolyGonA, RECTF rectangle);
     static float Round(float number);
+    static string TextFileRead(string fileName);
     static TiXmlDocument* XMLFileLoad(string pathAndFile);
+    static TiXmlDocument* XMLStringLoad(const string& data);
+    static TiXmlDocument* XMLStringLoad(const string& data, const string& source_file);
     static TiXmlElement* XMLFindFirstElementByName(TiXmlDocument* xmlDocument, string name, bool throwExceptionIfNotFound = true);
     static TiXmlElement* XMLFindFirstElementByName(TiXmlElement* xmlElement, string name, bool throwExceptionIfNotFound = true);
     static TiXmlElement* XMLFindFirstChildByName(TiXmlElement* elem, std::string name, bool raiseExceptionIfNotPresent = true);
@@ -58,13 +61,14 @@ class Functions
     static string XMLElementDetails(TiXmlElement* xmlElement);
     static string StringToUpper(string& s);
     static string StringToLower(string& s);
+    static void StringReplace(string& str, const string& find, const string& replace);
+
     static string BoolToString(bool b);
-    static void CenterRectInRect(RECT* rectToCenter,RECT* rectToCenterIn);
+    static void CenterRectInRect(RECT_FRAMEWORK* rectToCenter,RECT_FRAMEWORK* rectToCenterIn);
     static void CenterRectInRect(RECTF* rectToCenter,RECTF* rectToCenterIn);
-    static void CenterRectInRect(RECTF* rectToCenter,RECT* rectToCenterIn);
+    static void CenterRectInRect(RECTF* rectToCenter,RECT_FRAMEWORK* rectToCenterIn);
     static bool RectsIntersect(RECTF* rect1,RECTF* rect2);
     static int Scale(int valueUnscaled, int numerator, int denominator);
-    static void MapClear( std::map<std::string, void*> map);
     static size_t StrPos(const string &haystack, const string &needle);
  
     // templated version of my_equal so it could work with both char and wchar_t
@@ -89,9 +93,9 @@ class Functions
       else return -1; // not found
     }
     */
-    RECT RectCenterInAnother(RECT* container, RECT* rectToCenter);
+    RECT_FRAMEWORK RectCenterInAnother(RECT_FRAMEWORK* container, RECT_FRAMEWORK* rectToCenter);
 
   private:
     static string _applicationExePath;
-    static POINTF* POINTArrayToPOINTFArray(POINT* polygon, int numberOfPointsInPolyGon);
+    static POINTF* POINTArrayToPOINTFArray(POINT_FRAMEWORK* polygon, int numberOfPointsInPolyGon);
 };

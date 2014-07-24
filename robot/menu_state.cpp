@@ -26,12 +26,12 @@ void MenuState::OnEnterAddButtons(ButtonBar* menus)
 
 void MenuState::OnEnter() 
 {
-  SIZE sz;
+  SIZE_FRAMEWORK sz;
   this->Menus = new ButtonBar(1,10,200,100);
   this->Menus->OnButtonClick(std::bind(&MenuState::MenuClick, this, _1, _2));
   this->Objects->Add(this->Menus);
   
-  POINT pt;
+  POINT_FRAMEWORK pt;
   pt.X = pt.Y = 0;
   this->OnEnterAddButtons(this->Menus);
   this->Menus->PositionAndAutoSize(pt);  

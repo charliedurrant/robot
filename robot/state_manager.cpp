@@ -72,6 +72,7 @@ void StateManager::ClearLast()
 {
   if ( _lastState != nullptr )
   {
+    _lastState->OnExit();
     delete _lastState;
     _lastState = nullptr;
   }
@@ -81,17 +82,17 @@ void StateManager::Change( State* state )
 {
   State* currentState;
 
-  this->ClearLast();
+  
 
   currentState = this->Current();
   if(currentState != nullptr )
   {
     if (currentState->ID != state->ID)
     {
-      currentState->OnExit();
+      
+      this->ClearLast();
       _states.pop_back();    
       _lastState = currentState;
-
       _states.push_back(state);
       this->Enter(state);
       
@@ -121,6 +122,7 @@ void StateManager::Update()
   {
     state->Update();
   }
+  this->ClearLast();
 }
 
 void StateManager::Render()

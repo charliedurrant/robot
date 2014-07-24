@@ -10,7 +10,7 @@ public:
   PlayState(void);
   virtual ~PlayState(void);
   void OnEnter() override;
-  CommandBarButton* FunctionButtonAt(POINT pt);
+  CommandBarButton* FunctionButtonAt(POINT_FRAMEWORK pt);
   string ProgramTextGet();
   
   RobotProgram* Program;

@@ -17,18 +17,18 @@ public:
   int BoardSizeGet();
   void BoardSizeSet(int size);
   void Resize(int width, int height) override;
-  bool ContainsCoordinate(POINT coordinate);
+  bool ContainsCoordinate(POINT_FRAMEWORK coordinate);
   /*
    This is used to determine the area of the board, if we didn't use this for a board less than standard the tiles would get larger
    If the board is more than standard we shrink the board, basically if either TilesInX or TilesinY is greater then we are shrinking the tiles
   */
   
-  RECT BoardRectangle();
-  RECT SquareStart();
-  BoardSquare* RobotRenderSquare(POINT coordinate, bool coordinateIsTransformed = false);
-  BoardSquare* Square(POINT coordinate);
-  BoardSquare* Square(POINT coordinate, bool render, bool coordinateAlreadyTranformed = false);
-  POINT TransForm(POINT coordinate, bool inverse = false);
+  RECT_FRAMEWORK BoardRectangle();
+  RECT_FRAMEWORK SquareStart();
+  BoardSquare* RobotRenderSquare(POINT_FRAMEWORK coordinate, bool coordinateIsTransformed = false);
+  BoardSquare* Square(POINT_FRAMEWORK coordinate);
+  BoardSquare* Square(POINT_FRAMEWORK coordinate, bool render, bool coordinateAlreadyTranformed = false);
+  POINT_FRAMEWORK TransForm(POINT_FRAMEWORK coordinate, bool inverse = false);
   POINTF TransForm(POINTF point, bool inverse = false);
   Vector2D VectorOneSuqareInY;
   Vector2D VectorOneSuqareInX;
@@ -39,34 +39,34 @@ public:
   
   void Rotate(bool clockWise);
   void ResizeSquares();
-  SIZE _boardSize; //TODO: make friend
+  SIZE_FRAMEWORK _boardSize; //TODO: make friend
   void LoadLevel(Level* level);  
   void LoadRobotStartPosition(Level* level);
   vector<Image*> _towerBlocks;
   Robot* RoBot;    
-  void LightStateSwitch(POINT coordinate);  
+  void LightStateSwitch(POINT_FRAMEWORK coordinate);
 private:  
   PlayState* _playState;
   Image* _boardRenderInOneGoImage;
   void DeleteLocalImages();
-  SIZE _standardBoardSize;
+  SIZE_FRAMEWORK _standardBoardSize;
   vector<BoardSquare*> _squares;
   vector<BoardSquare*> _squaresRender;  
-  SIZE TileSize();
-  SIZE TileSize(int tilesInX, int tilesInY);
+  SIZE_FRAMEWORK TileSize();
+  SIZE_FRAMEWORK TileSize(int tilesInX, int tilesInY);
   bool CanRender();
   void CalculateBrickData();
   void CreateTowerBlocks();
   void CreateBoardRenderInOneGo();
   void PositionSquares();
   void TransformSquares();
-  void RenderSquare(POINT transformed);
-  void RenderSquaresWithRobotInDiamondPattern(POINT offset, int maxDiagonal);
+  void RenderSquare(POINT_FRAMEWORK transformed);
+  void RenderSquaresWithRobotInDiamondPattern(POINT_FRAMEWORK offset, int maxDiagonal);
   void RenderSquares();
   void ResizeSquareStorage();
   void UpdateMovementVectors(Rotation boardRotation);
   void UpdateMovementVectors();
-  inline int CoordinateToArrayIndex(POINT coordinate);  
+  inline int CoordinateToArrayIndex(POINT_FRAMEWORK coordinate);
   Rotation _boardRotation;
   int _squareRenderOrder;
   

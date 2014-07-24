@@ -42,7 +42,7 @@ Image* ImageManager::Load(string key, string resourcePath, int numberOfFrames, i
 {
   Image* image = nullptr;
   SDL_Texture* texture = nullptr;
-  SIZE sz;
+  SIZE_FRAMEWORK sz;
   try
   {
     if ( this->Contains(key) )
@@ -106,7 +106,7 @@ Image* ImageManager::Item(string& key)
 }
 
 
-void ImageManager::Render( Image* image,RECT* rectangleSource, RECT* rectangleDestination, Uint8 alpha, FlipType flip  )
+void ImageManager::Render( Image* image,RECT_FRAMEWORK* rectangleSource, RECT_FRAMEWORK* rectangleDestination, Uint8 alpha, FlipType flip  )
 {
   Uint8 alphaCurrent;
 
@@ -121,26 +121,26 @@ void ImageManager::Render( Image* image,RECT* rectangleSource, RECT* rectangleDe
   this->RenderCounter++;
 }
 
-void ImageManager::RenderFrame( Image* image,int frame, RECT* rectangleDestination, Uint8 alpha, FlipType flip  )
+void ImageManager::RenderFrame( Image* image,int frame, RECT_FRAMEWORK* rectangleDestination, Uint8 alpha, FlipType flip  )
 {
-   RECT rectangleSource;
+  RECT_FRAMEWORK rectangleSource;
 
    rectangleSource = image->FrameRectangle(frame);
    this->Render(image, &rectangleSource, rectangleDestination,alpha, flip);  
 }
 
 
-void ImageManager::RenderWholeImage( Image* image,RECT* rectangleDestination, Uint8 alpha, FlipType flip  )
+void ImageManager::RenderWholeImage( Image* image,RECT_FRAMEWORK* rectangleDestination, Uint8 alpha, FlipType flip  )
 {
   this->Render(image, nullptr,rectangleDestination,alpha, flip);
 }
 
-void ImageManager::RenderTile( Image* image,RECT* rectDestination, Uint8 alpha, FlipType flip  )
+void ImageManager::RenderTile( Image* image,RECT_FRAMEWORK* rectDestination, Uint8 alpha, FlipType flip  )
 {
-  SIZE sz;
-  RECT rectangleSource, rectangleDestination;
-  POINT ptBottomRight;
-  POINT maxXY, pt;
+  SIZE_FRAMEWORK sz;
+  RECT_FRAMEWORK rectangleSource, rectangleDestination;
+  POINT_FRAMEWORK ptBottomRight;
+  POINT_FRAMEWORK maxXY, pt;
   
   sz = image->Size;
   rectangleSource.X = 0;
@@ -175,7 +175,6 @@ void ImageManager::RenderTile( Image* image,RECT* rectDestination, Uint8 alpha, 
       rectangleDestination.Y = rectDestination->Y +  (pt.Y * image->Size.Height);
       rectangleSource.Height = rectangleDestination.Height;
 
-
       if (SDL_RenderCopyEx(this->_window->Renderer, image->Texture, (SDL_Rect*)&rectangleSource, (SDL_Rect*)&rectangleDestination, 0, 0, (SDL_RendererFlip)flip))
       {
         throw new ExceptionSDL("Failed to RenderCopy the texture from an image");
@@ -186,192 +185,3 @@ void ImageManager::RenderTile( Image* image,RECT* rectDestination, Uint8 alpha, 
   this->Render(image, nullptr,&rectangleDestination,alpha, flip);
 }
 
-
-/*
-void ImageManager::Render( string id, int x, int y, int width, int height, FlipType flip  )
-{
-  Image* image;
-  RECT rectSource;
-  RECT rectDestination;
-
-  image = this->Item(id);
-  rectSource.X = 0;
-  rectSource.Y = 0;  
-  rectSource.Width = image->Size.Width;
-  rectSource.Height = image->Size.Height;
-
-  rectDestination.X = x;
-  rectDestination.Y = y;
-  rectDestination.Width = width;
-  rectDestination.Height = height;
-  
-  if ( SDL_RenderCopyEx(this->_window->Renderer,image->Texture,(SDL_Rect*)&rectSource,(SDL_Rect*)&rectDestination, 0,0,(SDL_RendererFlip)flip) )
-  {
-    throw ExceptionSDL("Failed to RenderCopy the texture: " + id);
-  }
-}
-
-
-void ImageManager::Render(string id, RECT rentangleDestination, FlipType flip)
-{
-  Image* image;
-  
-  try
-  {
-    image = this->Item(id);
-    this->Render(image, rentangleDestination, flip);
-  }
-  catch (Exception& ex)
-  {
-    throw new Exception("Failed to RenderCopy the texture from the image: " + id, ex);
-  }  
-}
-
-void ImageManager::Render(Image* image, RECT rentangleDestination, FlipType flip, bool tile)
-{
-  RECT rectangleSource;
-
-  rectangleSource.X = 0;
-  rectangleSource.Y = 0;
-  rectangleSource.Width = image->Size.Width;
-  rectangleSource.Height = image->Size.Height;
-
-  this->Render(image, rectangleSource, rentangleDestination, flip);  
-}
-
-void ImageManager::Render(Image* image, RECT rectangleSource, RECT rectDestination,FlipType flip, bool tile)
-{
-  if ( tile )
-  {
-    SIZE sz;
-    RECT rectangleSource, rectangleDestination;
-    POINT ptBottomRight;
-    POINT maxXY, pt;
-  
-    sz = image->Size;
-    rectangleSource.X = 0;
-    rectangleSource.Y = 0;
-  
-    ptBottomRight.X = rectDestination.Right();
-    ptBottomRight.Y = rectDestination.Bottom();
-
-    maxXY.X = (int)ceil((float)rectDestination.Width /  (float)image->Size.Width);
-    maxXY.Y = (int)ceil((float)rectDestination.Width /  (float)image->Size.Width);
-  
-    for( pt.X = 0; pt.X < maxXY.X; pt.X ++ )
-    {
-      //trim rect in X
-      
-      if ( pt.X == maxXY.X - 1 )
-      { rectangleDestination.Width = rectDestination.Right() - (pt.X * image->Size.Width); }
-      else
-      { rectangleDestination.Width = image->Size.Width; }
-
-      rectangleDestination.X = rectDestination.X +  (pt.X * image->Size.Width);
-      rectangleSource.Width = rectangleDestination.Width;
-
-      for( pt.Y = 0; pt.Y < maxXY.Y; pt.Y++ )
-      {
-      
-        //trim rect in Y
-        if ( pt.Y == maxXY.Y - 1 )
-        { rectangleDestination.Height = rectDestination.Bottom() - (pt.Y * image->Size.Height); }
-        else
-        { rectangleDestination.Height = image->Size.Height; }
-
-        rectangleDestination.Y = rectDestination.Y +  (pt.Y * image->Size.Height);
-        rectangleSource.Height = rectangleDestination.Height;
-        if (SDL_RenderCopyEx(this->_window->Renderer, image->Texture, (SDL_Rect*)&rectangleSource, (SDL_Rect*)&rectangleDestination, 0, 0, (SDL_RendererFlip)flip))
-        {
-          throw new ExceptionSDL("Failed to RenderCopy the texture from an image");
-        }
-        
-       
-      }
-    }
-  }
-  else
-  {
-    if (SDL_RenderCopyEx(this->_window->Renderer, image->Texture, (SDL_Rect*)&rectangleSource, (SDL_Rect*)&rectDestination, 0, 0, (SDL_RendererFlip)flip))
-    {
-      throw new ExceptionSDL("Failed to RenderCopy the texture from an image");
-    }
-  }
-}
-
-void ImageManager::RenderFrame(string id, int x, int y, int width, int height, int frame,FlipType flip )
-{
-  Image* image;
-
-  image = image = this->Item(id);
-  this->RenderFrame(image, x, y, width, height,frame,flip,SDL_ALPHA_OPAQUE, false);
-}
-
-void ImageManager::RenderFrame(Image* image, int x, int y, int width, int height, int frame,FlipType flip, Uint8 alpha, bool tile )
-{
-  
-  Uint8 alphaCurrent;
-  
-  SDL_GetTextureAlphaMod(image->Texture,&alphaCurrent);
-  if ( alphaCurrent != alpha )
-  {
-    //TODO: image has an alpha set
-    SDL_SetTextureAlphaMod(image->Texture, alpha);
-  }  
-  this->RenderFrame(image, x, y, width, height,frame,flip,tile);
-}
-
-
-
-void ImageManager::RenderFrame(Image* image, int x, int y, int width, int height, int frame,FlipType flip, bool tile )
-{
-  RECT rectSource;
-  RECT rectDestination;
-  int row, frameInRow, fullRows;
-  int framesInTheFullRows;
-  try
-  {
-    if ( frame > image->NumberOfFrames - 1 )
-    {
-      throw new Exception( str(fmt::Format("The frame '{0}' is outside of the number of frames '{1}'") << (frame - 1) << image->NumberOfFrames) );       
-    }
-    
-    frame++; //increment to 1 based for division
-    fullRows = frame / image->NumberOfFramesPerRow;
-    framesInTheFullRows = fullRows * image->NumberOfFramesPerRow;
-
-    if ( framesInTheFullRows == frame)
-    {
-      //end of row
-      row = fullRows;
-      frameInRow = image->NumberOfFramesPerRow;
-    }
-    else
-    {
-      row = fullRows + 1;
-      frameInRow = frame - framesInTheFullRows;
-    }
-
-    row--;
-    frameInRow--;
-
-    rectSource.Width = image->Size.Width / image->NumberOfFramesPerRow;
-    rectSource.Height = image->Size.Height / image->NumberOfFrameRows;
-
-    rectSource.X = (rectSource.Width) * frameInRow;
-    rectSource.Y = (rectSource.Height) * row;
-
-    rectDestination.X = x;
-    rectDestination.Y = y;
-    rectDestination.Width = width;
-    rectDestination.Height = height;
-
-    this->Render(image, rectSource,rectDestination, flip,tile);
-    
-  }
-  catch (Exception& ex)
-  {
-  	throw new Exception("Failed to render a frame of the image",ex);
-  }  
-}
-*/

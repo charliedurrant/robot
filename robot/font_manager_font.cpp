@@ -28,12 +28,12 @@ GameFont* FontManagerFont::Item(int pointSize, bool temporary)
 {
   GameFont* gameFont;
   if ( temporary )
-  { gameFont = new GameFont(this->PathAndFile,pointSize); }
+  { gameFont = new GameFont(this->PathAndFile,pointSize, this->Family); }
   else
   {
     if ( ! this->Contains(pointSize) )
     {
-      gameFont = new GameFont(this->PathAndFile,pointSize);
+      gameFont = new GameFont(this->PathAndFile,pointSize, this->Family);
       _fonts[pointSize] = gameFont;
     }
     else

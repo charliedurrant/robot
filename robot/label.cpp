@@ -3,9 +3,6 @@
 #include "headers.h"
 using namespace std;
 
-
-
-
 Labl::Labl(string text) : GameObject(), _foreColor(nullptr), TextAlignment(TextAlignTopLeft)
 {
   this->Text = text;
@@ -18,7 +15,7 @@ Labl::~Labl(void)
 
 void Labl::Render()
 {
-  RECT r;
+  RECT_FRAMEWORK r;
   
   r = this->Rentangle();
   MyGame::Instance->WindowMain->RenderText(this->Text,this->FontGet(),this->ForeColorGet(),&r);

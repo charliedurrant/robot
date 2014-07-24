@@ -61,7 +61,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib ;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <Profile>false</Profile>
       <ShowProgress>LinkVerbose</ShowProgress>
@@ -129,6 +129,7 @@
     <ClCompile Include="color.cpp" />
     <ClCompile Include="command_bar.cpp" />
     <ClCompile Include="command_bar_button.cpp" />
+    <ClCompile Include="constant.cpp" />
     <ClCompile Include="error_state.cpp" />
     <ClCompile Include="head_up_display.cpp" />
     <ClCompile Include="font_manager.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="color.h" />
     <ClInclude Include="command_bar.h" />
     <ClInclude Include="command_bar_button.h" />
+    <ClInclude Include="constant.h" />
     <ClInclude Include="error_state.h" />
     <ClInclude Include="head_up_display.h" />
     <ClInclude Include="font_manager.h" />

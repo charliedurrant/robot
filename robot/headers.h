@@ -4,11 +4,9 @@
 
 typedef struct BRICKDATA
 {
-  SIZE Size;
+  SIZE_FRAMEWORK Size;
   int VerticalDrawOffset;
 } BRICKDATA;
-
-
 
 typedef enum LightState
 {
@@ -27,6 +25,7 @@ enum Rotation
   _RotationMaximum = RotationClockWise270,
 };
 
+#include "constant.h"
 #include "settings.h"
 
 #include "level_square.h"

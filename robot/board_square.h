@@ -9,11 +9,11 @@ class BoardSquare : public GameObject
 public:
   BoardSquare(Board* board);
   virtual ~BoardSquare(void);
-  POINT Coordinate; //this is the coordinate (not transformed)
-  POINT CoordinateRender; //this is the transformed coordinate  
-  RECT RectangleBase;
-  RECT* RectangleRenderBase;
-  RECT RectangleRenderTop;
+  POINT_FRAMEWORK Coordinate; //this is the coordinate (not transformed)
+  POINT_FRAMEWORK CoordinateRender; //this is the transformed coordinate  
+  RECT_FRAMEWORK RectangleBase;
+  RECT_FRAMEWORK* RectangleRenderBase;
+  RECT_FRAMEWORK RectangleRenderTop;
   int RenderOrder;
   bool Rendered;
   void Render() override;  
@@ -22,7 +22,7 @@ public:
   void LightStateSet(LightState lightState);  
   LightState LightStateGet();  
   size_t BrickCount;  
-  void RenderFloorTileOnly(SIZE moveBy);
+  void RenderFloorTileOnly(SIZE_FRAMEWORK moveBy);
   void LightStateSwitch();
 private:
   LightState _lightState;

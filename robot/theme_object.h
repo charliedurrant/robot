@@ -11,7 +11,7 @@ public:
   string ID;
   std::vector<ThemeObjectImage*> ObjectImages;
   void Reset();  
-  void Render(RECT rectangleDestination );
+  void Render(RECT_FRAMEWORK rectangleDestination);
   float ScaleToParent;
   ThemeObjectImage* FirstImage();
 };

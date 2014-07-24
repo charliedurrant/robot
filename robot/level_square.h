@@ -7,7 +7,7 @@ class LevelSquare
 public:
   LevelSquare(TiXmlElement* xmlElement);
   ~LevelSquare(void);
-  POINT Coordinate;
+  POINT_FRAMEWORK Coordinate;
   LightState Light;
   int BrickCount;  
 };

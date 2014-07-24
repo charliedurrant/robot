@@ -10,7 +10,7 @@ ThemeObjectImage::ThemeObjectImage (Image* image,
   int framesPerSecond, int frameStart, int frameEnd, CycleMode frameCycleMode, 
    int alphaPerSecond, int alphaStart, int alphaEnd, int alphaStep, CycleMode alphaCycleMode
   
-) : Flip(FlipTypeNone)
+   ) : Flip(FlipTypeNone), _imageIsMine(false), _text("")
 {
   
   this->Img = image;
@@ -34,6 +34,7 @@ ThemeObjectImage::ThemeObjectImage (BaseGameTheme* theme, TiXmlElement* xmlEleme
 {
   string imageID;
   Image* image;
+  const int NO_DATA = -99999;
 
   imageID = xmlElement->Attribute("image");
   if ( ! Game::GameInstance->Images->Contains(imageID) )
@@ -44,17 +45,17 @@ ThemeObjectImage::ThemeObjectImage (BaseGameTheme* theme, TiXmlElement* xmlEleme
   { image = Game::GameInstance->Images->Item(imageID); }
 
   this->Img = image;
-
+  this->TextSet(Functions::XMLAttributeString(xmlElement, "text", ""));
   this->FrameData.PerSecond = Functions::XMLAttributeInt(xmlElement,"frames_per_second",0);
-  this->FrameData.Start = Functions::XMLAttributeInt(xmlElement,"frame_start",0);
-  if ( this->FrameData.Start == 0 )
+  
+  this->FrameData.Start = Functions::XMLAttributeInt(xmlElement, "frame", NO_DATA);
+  if ( this->FrameData.Start < 0 ) //we exepct frame start and end
   {
-    this->FrameData.End = this->FrameData.Start = Functions::XMLAttributeInt(xmlElement,"frame",1);
+     this->FrameData.Start = Functions::XMLAttributeInt(xmlElement,"frame_start",1);
+     this->FrameData.End = Functions::XMLAttributeInt(xmlElement, "frame_end", 1);
   }
   else
-  {
-    this->FrameData.End = Functions::XMLAttributeInt(xmlElement,"frame_end",0);
-  }
+  { this->FrameData.End = this->FrameData.Start; }
   this->FrameData.Total = this->FrameData.TotalCalculate();
   
   this->FrameData.CyclMode = BaseGameTheme::CycleMde(xmlElement,"frame_cycle_mode",CycleModeLeftToRight);
@@ -62,8 +63,15 @@ ThemeObjectImage::ThemeObjectImage (BaseGameTheme* theme, TiXmlElement* xmlEleme
   
   
   this->AlphaData.PerSecond = Functions::XMLAttributeInt(xmlElement,"alpha_per_second",1);
-  this->AlphaData.Start = Functions::XMLAttributeInt(xmlElement,"alpha_start",SDL_ALPHA_OPAQUE);
-  this->AlphaData.End = Functions::XMLAttributeInt(xmlElement,"alpha_end",SDL_ALPHA_OPAQUE);
+
+  this->AlphaData.Start = Functions::XMLAttributeInt(xmlElement, "alpha", NO_DATA);
+  if (this->AlphaData.Start < 0)
+  {
+    this->AlphaData.Start = Functions::XMLAttributeInt(xmlElement, "alpha_start", SDL_ALPHA_OPAQUE);
+    this->AlphaData.End = Functions::XMLAttributeInt(xmlElement, "alpha_end", SDL_ALPHA_OPAQUE);
+  }
+  else
+  { this->AlphaData.End = this->AlphaData.Start; }
   this->AlphaData.Total = this->AlphaData.TotalCalculate();
   
   this->AlphaData.CyclMode = BaseGameTheme::CycleMde(xmlElement,"alpha_cycle_mode",CycleModeBackAndForth);  
@@ -94,11 +102,40 @@ ThemeObjectImage::ThemeObjectImage (BaseGameTheme* theme, TiXmlElement* xmlEleme
   this->Tile = Functions::XMLAttributeBool(xmlElement,"tile",false);
 
   this->Render = true;
+  this->_imageIsMine = false;
 }
+
 
 ThemeObjectImage::~ThemeObjectImage(void)
 {
 
+}
+
+void ThemeObjectImage::TextSet(string s)
+{
+  Image* image;
+  RECT_FRAMEWORK r;
+
+  if (s == this->_text)
+  { return; }
+
+  if (!this->_imageIsMine)
+  {
+    _originalImage = this->Img;
+    this->_imageIsMine = true;
+    r.X = r.Y = 0;
+    r.SizeSet(_originalImage->FrameSize);
+    image = new Image("temp",_originalImage,&_originalImage->FrameSize); //need to fix here as we may have multiple frames, need to create multiple frames and also store the offset as our indexing may be different
+    Game::GameInstance->WindowMain->RendererTargetSet(image);
+    //copy the image
+    Game::GameInstance->Images->RenderFrame(_originalImage,this->FrameData.Start - 1,NULL,SDL_ALPHA_OPAQUE,FlipTypeNone);     
+    this->FrameData.End = this->FrameData.Start = 1;
+    GameFont* gf =  Game::GameInstance->Fonts->Item(Game::GameInstance->SystemFont->Family,50);
+    Game::GameInstance->WindowMain->RenderText(s, gf, Game::GameInstance->SystemFontColor, &r);
+    Game::GameInstance->WindowMain->RendererTargetClear();    
+    this->Img = image;
+  }
+  this->_text = s;
 }
 
 int ThemeObjectImage::FrameCalculateByPercentage(float percentage)

@@ -24,15 +24,41 @@ typedef enum FlipType
 } FlipType;
 
 
-typedef struct SIZE
+typedef struct PADDING
+{
+  int Top;
+  int Left;
+  int Bottom;
+  int Right;
+
+  PADDING()
+  {
+    this->Top = this->Left = this->Bottom = this->Right = 0;
+  }
+  void Set(int value)
+  {
+    this->Top = this->Left = this->Bottom = this->Right = value;
+  }
+
+  int Width()
+  {
+    return this->Left + this->Right;
+  }
+  int Height()
+  {
+    return this->Top + this->Bottom;
+  }
+
+} PADDING;
+
+typedef struct SIZE_FRAMEWORK
 {
   int Width;
   int Height;
-  SIZE(int width, int height) { this->Width = width; this->Height = height; }
-  SIZE() { this->Height = this->Width = 0; }
+  SIZE_FRAMEWORK(int width, int height) { this->Width = width; this->Height = height; }
+  SIZE_FRAMEWORK() { this->Height = this->Width = 0; }
   int Area() { return this->Height * this->Width; }
-} SIZE;
-
+} SIZE_FRAMEWORK;
 
 
 typedef SDL_Color COLOR;
@@ -102,12 +128,12 @@ typedef struct FRAME_DATA
 
 struct POINTF;
 
-typedef struct POINT
+typedef struct POINT_FRAMEWORK
 {
   int X;
   int Y;
-  POINT operator=(POINTF const& rhs);
-  POINT() { this->X = this->Y = 0; };
+  POINT_FRAMEWORK operator=(POINTF const& rhs);
+  POINT_FRAMEWORK() { this->X = this->Y = 0; };
   
   std::string ToString()
   {
@@ -116,9 +142,9 @@ typedef struct POINT
     return s;
   };
 
-  int DistanceBetweenSquared(POINT pt)
+  int DistanceBetweenSquared(POINT_FRAMEWORK pt)
   {
-    SIZE sz;
+    SIZE_FRAMEWORK sz;
     int i;
 
     sz.Width = this->X - pt.X;
@@ -131,12 +157,13 @@ typedef struct POINT
     }
     return i;
   }
+  
+} POINT_FRAMEWORK;
 
-} POINT;
+POINT_FRAMEWORK operator+(POINT_FRAMEWORK const& lhs, POINT_FRAMEWORK const& rhs);
+POINT_FRAMEWORK operator-(POINT_FRAMEWORK const& lhs, POINT_FRAMEWORK const& rhs);
 
-POINT operator+(POINT const& lhs, POINT const& rhs);
-POINT operator-(POINT const& lhs, POINT const& rhs);
-bool operator==(POINT const& lhs, POINT const& rhs);
+bool operator==(POINT_FRAMEWORK const& lhs, POINT_FRAMEWORK const& rhs);
 
 
 struct POINTF3D;
@@ -148,7 +175,7 @@ typedef struct POINT3D
   int Z;
   POINT3D operator=(POINTF3D const& rhs);
   POINT3D() { this->Z = this->X = this->Y = 0; };
-  POINT Point() { POINT pt; pt.X = this->X; pt.Y = this->Y; return pt; }
+  POINT_FRAMEWORK Point() { POINT_FRAMEWORK pt; pt.X = this->X; pt.Y = this->Y; return pt; }
 } POINT3D;
 
 POINT3D operator+(POINT3D const& lhs, POINT3D const& rhs);
@@ -160,7 +187,7 @@ typedef struct POINTF
 {
   float X;
   float Y;
-  POINTF operator=(POINT const& rhs)
+  POINTF operator=(POINT_FRAMEWORK const& rhs)
   {
     this->X = (float)rhs.X;
     this->Y = (float)rhs.Y;
@@ -199,7 +226,7 @@ typedef struct POINTF3D
   float X;
   float Y;
   float Z;
-  POINTF3D operator=(POINT const& rhs)
+  POINTF3D operator=(POINT_FRAMEWORK const& rhs)
   {
     this->X = (float)rhs.X;
     this->Y = (float)rhs.Y;    
@@ -212,7 +239,7 @@ typedef struct POINTF3D
     this->Z = rhs.Z;    
     return *this;
   }
-  POINT Point() { POINT pt; pt.X = (int)this->X; pt.Y = (int)this->Y; return pt; }
+  POINT_FRAMEWORK Point() { POINT_FRAMEWORK pt; pt.X = (int)this->X; pt.Y = (int)this->Y; return pt; }
   POINTF PointF() { POINTF pt; pt.X = this->X; pt.Y = this->Y; return pt; }
   POINTF3D() { this->X = this->Y = this->Z = 0.0f; };
   std::string ToString()
@@ -222,16 +249,30 @@ typedef struct POINTF3D
 } POINTF3D;
 
 
+
 POINTF3D operator+(POINTF3D const& lhs, POINTF3D const& rhs);
 POINTF3D operator-(POINTF3D const& lhs, POINTF3D const& rhs);
 bool operator==(POINTF3D const& lhs, POINTF3D const& rhs);
 
-typedef struct RECT
+typedef struct RECT_FRAMEWORK
 {
   int X;
   int Y;
   int Width;
   int Height;
+
+  RECT_FRAMEWORK()
+  {
+    this->X = this->Y = this->Width = this->Height = 0;
+  }
+
+  SIZE_FRAMEWORK Size()
+  {
+    SIZE_FRAMEWORK sz;
+    sz.Width = this->Width;
+    sz.Height = this->Height;
+    return sz;
+  }
   int Bottom()
   {
     return this->Y + this->Height;
@@ -240,14 +281,20 @@ typedef struct RECT
   {
     return this->X + this->Width;
   }
-  void MoveBy(SIZE sz)
+  void MoveBy(SIZE_FRAMEWORK sz)
   {
     this->X += sz.Width;
     this->Y += sz.Height;
   }
-  POINT Point()
+  void SizeSet(SIZE_FRAMEWORK sz)
   {
-    POINT pt;
+    this->Width = sz.Width;
+    this->Height = sz.Height;
+  }
+
+  POINT_FRAMEWORK Point()
+  {
+    POINT_FRAMEWORK pt;
 
     pt.X += this->X;
     pt.Y += this->Y;
@@ -261,18 +308,18 @@ typedef struct RECT
     return s;
   }
 
-  POINT Center()
+  POINT_FRAMEWORK Center()
   {
-    POINT pt;
+    POINT_FRAMEWORK pt;
 
     pt.X = this->X  + this->Width / 2;
     pt.Y = this->Y + this->Height / 2;
     return pt;
   }
 
-  int DistanceBetweenSquared(POINT pt)
+  int DistanceBetweenSquared(POINT_FRAMEWORK pt)
   {
-    POINT ptTemp;
+    POINT_FRAMEWORK ptTemp;
     int distance = 0;
     int right;
     int bottom;
@@ -334,7 +381,7 @@ typedef struct RECT
     return distance;
   }
 
-  bool Contains(POINT pt)
+  bool Contains(POINT_FRAMEWORK pt)
   {
     if ( this->X <= pt.X && this->Right() >= pt.X )
     {
@@ -345,7 +392,9 @@ typedef struct RECT
     }
     return false;
   }
-} RECT;
+
+  
+} RECT_FRAMEWORK;
 
 
 

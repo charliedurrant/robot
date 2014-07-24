@@ -35,7 +35,7 @@ RECTF Robot::RenderSquare(bool tile)//int brickCount)
   Vector2D vectordOffsetInSquareForZeroPoint;
   BoardSquare* squareZeroZero;
   Image* image;
-  POINT pt;
+  POINT_FRAMEWORK pt;
   SIZEF sz;
   RECTF rectDraw;
   
@@ -98,7 +98,7 @@ void Robot::Render()
 void Robot::RenderDebugInfo()
 {
   string s;
-  RECT r;
+  RECT_FRAMEWORK r;
   POINTF coordinateRender;
 
   //TODO: what a mess back and forth, coordinateRender should be calculated
@@ -212,7 +212,7 @@ void Robot::UpdateForCollision()
   */
 }
 
-bool Robot::CrossesSquareAt(RECTF rectRobot, POINT squareCoordinate)
+bool Robot::CrossesSquareAt(RECTF rectRobot, POINT_FRAMEWORK squareCoordinate)
 {
   POINTF square[4];
   POINTF squareRobot[4];
@@ -351,7 +351,7 @@ void Robot::UpdateFrame()
 //this ia all a little backwards, there will be a better way!
 void Robot::UpdateSetWorldPosition()
 {
-  POINT coordinateRobot, coordinate;
+  POINT_FRAMEWORK coordinateRobot, coordinate;
   RECTF robotTileRect;
   RECTF rectRender;
   BoardSquare* square1 = nullptr;
@@ -588,7 +588,7 @@ void Robot::UpdateCommand()
 {  
   const float JUMP_HEIGHT = 2.0f;
   int zChange, destinationZ, sourceZ;
-  POINT coordinate;
+  POINT_FRAMEWORK coordinate;
   if ( _currentCommand == ProgramCommandEnd )
   {
     return;

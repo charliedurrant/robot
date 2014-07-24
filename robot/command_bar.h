@@ -11,7 +11,7 @@ public:
   ~CommandBar(void);  
   bool CanReceiveCommands;
   void AddButtons(int count, ProgramCommand command);
-  CommandBarButton* ButtonAt(POINT pt);
+  CommandBarButton* ButtonAt(POINT_FRAMEWORK pt);
   CommandBarButton* DragButton;
   CommandBarButton* DragButtonSource;  
   void  OnCommandDragDrop(std::function<void(CommandBarButton* commandBarButton)> onCommandDragDropCallBack);
