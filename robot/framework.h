@@ -14,7 +14,7 @@
 #include "vector_2d.h"
 #include "mouse_data.h"
 #include "input_handler.h"
-
+#include "font_data.h"
 #include "font_manager_font.h"
 #include "font_manager.h"
 #include "image.h"

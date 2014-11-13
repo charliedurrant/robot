@@ -18,6 +18,8 @@ class Window
       WindowDrawMode _windowDrawMode;
     #endif
     void gluPerspective(float fovy, float aspect, float zNear, float zFar);
+    SDL_Surface* Window::CreateTextSurface(const string& message, GameFont* font, Color* color, int wrapWidth);
+
   public:
     Window(string title,int x, int y, int w, int h,Uint32 flags,int logicalWidthDesign, int logicalHeightDesign);
     Window(string title,int x, int y, int w, int h,Uint32 flags, int rendererIndex,Uint32 rendererFlags,int logicalWidthDesign, int logicalHeightDesign);
@@ -25,9 +27,10 @@ class Window
     void Construct(string title,int x, int y, int w, int h,Uint32 flags, int rendererIndex,Uint32 rendererFlags,int logicalWidthDesign, int logicalHeightDesign);
     void Render(void);
     void Update(void);
-    void RenderText(const string& message, GameFont* font, Color* color, RECT_FRAMEWORK* rectangle, TextAlign textAlignment = TextAlignMiddleCenter);
+    void RenderText(const string& message, GameFont* font, Color* color, RECT_FRAMEWORK* rectangle, TextAlign textAlignment = TextAlignMiddleCenter, bool wrap = false);
     void RenderDebugText(const string& message, RECT_FRAMEWORK* rectangle, TextAlign textAlignment);
-    Image* CreateTextImage(const string& message, GameFont* font, Color* color, int boundingWidth );
+    Image* CreateTextImage(const string& message, GameFont* font, Color* color, int wrapWidth = 0);
+    FontData* FontDataGet(GameFont* font);
     void Clear(void);
     SDL_Window* Pointer;
     SDL_Renderer* Renderer;    

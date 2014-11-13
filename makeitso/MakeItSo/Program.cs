@@ -34,7 +34,8 @@ namespace MakeItSo
         }
 
         // We get the name of the .sln file to parse...
-        string solutionFilename = config.SolutionFile;
+      
+        string solutionFilename = Utils.FullPath(Path.GetFullPath(config.SolutionRootFolder) )+ config.SolutionFile;
         if (solutionFilename == "")
         {
           Log.log("No solution file found.");

@@ -63,6 +63,22 @@ namespace MakeItSoLib
             throw new Exception(String.Format("'call' failed to call function after {0} tries.", numTries));
         }
 
+        public static string FullPath(string path)
+        {
+          return FullPath(path, '\\');
+        }
+
+        public static string FullPath(string path, char pathSeparator)
+        {
+          if (path != null && path.Length > 0)
+          {
+            if (path[path.Length - 1] == pathSeparator)
+            { return path; }
+            return path + pathSeparator;
+          }
+          return path;
+        }
+
         /// <summary>
         /// Calls a function with no return value, retrying if necessary.
         /// </summary>

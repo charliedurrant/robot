@@ -78,16 +78,22 @@ namespace MakeItSoLib
             {
                 // We find the working folder. We need this, as some settings such
                 // as paths that we store are relative to the solution root...
-                m_solutionRootFolder = Environment.CurrentDirectory;
-
-                // We check for a solution in the current folder...
-                findDefaultSolution();
-
+                
                 // We parse the command line and the config file (if there is one).
                 // Note: We parse the command-line after the file, as command-line 
                 //       settings may override config settings.
-                parseConfigFile();
                 parseCommandLine(args);
+                // m_solutionRootFolder = Environment.CurrentDirectory;
+
+                // We check for a solution in the current folder...
+                if (! string.IsNullOrEmpty(m_solutionFile))
+                {
+                  findDefaultSolution();
+                }
+                
+
+                //parseConfigFile();
+                //parseCommandLine(args);
             }
             catch (Exception ex)
             {
@@ -182,6 +188,7 @@ namespace MakeItSoLib
             if (solutionFiles.Length == 1)
             {
                 m_solutionFile = solutionFiles[0];
+                m_solutionRootFolder = Path.GetDirectoryName(m_solutionFile);
             }
         }
 
@@ -271,7 +278,7 @@ namespace MakeItSoLib
         {
             // We get the solution folder and solution name...
             string fullPath = Path.Combine(m_solutionRootFolder, value);
-            m_solutionRootFolder = Path.GetDirectoryName(fullPath);
+            m_solutionRootFolder = Path.GetFullPath(Path.GetDirectoryName(fullPath));
             m_solutionFile = Path.GetFileName(fullPath);
 
             // And we change the working folder...
@@ -306,6 +313,8 @@ namespace MakeItSoLib
         private void parseConfigFile()
         {
             string configFile = "MakeItSo.config";
+
+            configFile = Utils.FullPath(m_solutionRootFolder) + configFile;
             if (File.Exists(configFile) == false)
             {
                 return;

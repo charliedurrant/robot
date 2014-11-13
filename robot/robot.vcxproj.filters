@@ -189,9 +189,6 @@
     <ClCompile Include="standard_background.cpp">
       <Filter>source files\objects</Filter>
     </ClCompile>
-    <ClCompile Include="error_state.cpp">
-      <Filter>source files\states</Filter>
-    </ClCompile>
     <ClCompile Include="menu_state.cpp">
       <Filter>source files\states</Filter>
     </ClCompile>
@@ -217,6 +214,18 @@
       <Filter>source files\objects</Filter>
     </ClCompile>
     <ClCompile Include="menu_play_state.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="error_state.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="program_text.cpp">
+      <Filter>source files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="font_data.cpp">
+      <Filter>source files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="program_function_command_bar.cpp">
       <Filter>source files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -344,9 +353,6 @@
     <ClInclude Include="standard_background.h">
       <Filter>header files\objects</Filter>
     </ClInclude>
-    <ClInclude Include="error_state.h">
-      <Filter>header files\states</Filter>
-    </ClInclude>
     <ClInclude Include="menu_state.h">
       <Filter>header files\states</Filter>
     </ClInclude>
@@ -384,6 +390,18 @@
       <Filter>header files</Filter>
     </ClInclude>
     <ClInclude Include="constant.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="error_state.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="program_text.h">
+      <Filter>header files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="font_data.h">
+      <Filter>header files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="program_function_command_bar.h">
       <Filter>header files</Filter>
     </ClInclude>
   </ItemGroup>

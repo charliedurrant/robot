@@ -41,7 +41,6 @@ RECTF Robot::RenderSquare(bool tile)//int brickCount)
   
   pt.X = pt.Y = 0;
   squareZeroZero = this->_playState->GameBoard->Square(pt,true,false);
-  
   //postiion a base rect scaled to the ScaleToParent inside the 0,0 square's base rectangle
   rectDraw.X = rectDraw.Y = 0.0f;
   rectDraw.Width = Functions::Round((float)(squareZeroZero->RectangleRenderBase->Width) * this->CurrentThemeObject->ScaleToParent);
@@ -164,7 +163,7 @@ int Robot::CommandDestinationZAxisChange()
   return this->CommandDestinationZAxisChange(&i, &j);
 }
 
-void Robot::CommandSet(ProgramCommand programCommand)
+void Robot::CommandSet(ProgramCommandData programCommand)
 {
   _previousCommand = _currentCommand;
   _currentCommand = programCommand;
@@ -310,7 +309,7 @@ void Robot::UpdateScanXY(float moveMentIncrement, float xStep, float yStep)
 float Robot::FrameFloat()
 {
   float f = 0.0f;
-  if ( this->_currentCommand == ProgramCommandJump )
+  if ( this->_currentCommand.Command == ProgramCommandJump )
   {
     f = this->BoardPosition.Z;
   }
@@ -502,14 +501,14 @@ void Robot::UpdateFromCurrentCommand()
   int differenceInMilliseconds;
   float movement;
   BoardSquare* square;
-  if ( _currentCommand == ProgramCommandEnd  || _currentCommand == ProgramCommandNext )
+  if (_currentCommand.Command == ProgramCommandEnd || _currentCommand.Command == ProgramCommandNext)
   { return; }
 
   //in 1 second we need to move this->TilesPerSecond
   currentTotalMiliseconds = SDL_GetTicks();
   differenceInMilliseconds = currentTotalMiliseconds - this->_commandTotalMilliseconds;
     
-  switch( _currentCommand )
+  switch( _currentCommand.Command )
   {
     case ProgramCommandJump:     
       //todo remobved return value, I kn ow if fisniehd as currentcommand will = Next
@@ -539,16 +538,16 @@ void Robot::UpdateFromCurrentCommand()
       }
       
       break;
-    case ProgramCommandMoveForward:
+    case ProgramCommandForward:
       this->UpdateFromCommandForward(differenceInMilliseconds);    
       break;        
-    case ProgramCommandTurnLeft90Degrees:
+    case ProgramCommandLeft:
       this->CurrentRotation = MyGame::Instance->Rotate90Degrees(this->CurrentRotation,false);   
       break;
-    case ProgramCommandTurnRight90Degrees:
+    case ProgramCommandRight:
       this->CurrentRotation = MyGame::Instance->Rotate90Degrees(this->CurrentRotation,true);   
       break;      
-    case ProgramCommandSwitchLightSwitch:
+    case ProgramCommandSwitch:
       this->_playState->GameBoard->LightStateSwitch(this->BoardPosition.Point());             
       break;
   }
@@ -581,20 +580,28 @@ void Robot::UpdateDestinationImageFrameMoveForward()
 
 void Robot::ProgramRun()
 {
-  _currentCommand = ProgramCommandNext;
+  this->_playState->Program->Compile();
+  _currentCommand.Command = ProgramCommandNext;
+  _currentCommand.LineNumber = 0;
 }
+
+ProgramCommandData Robot::CommandGet()
+{
+  return this->_currentCommand;
+}
+
 //get the next command from the program if we have finished with the current command
 void Robot::UpdateCommand()
 {  
   const float JUMP_HEIGHT = 2.0f;
   int zChange, destinationZ, sourceZ;
   POINT_FRAMEWORK coordinate;
-  if ( _currentCommand == ProgramCommandEnd )
+  if ( _currentCommand.Command == ProgramCommandEnd )
   {
     return;
   }
   //TODO: do we need start and next, surely just next
-  if ( _currentCommand != ProgramCommandNext )
+  if ( _currentCommand.Command != ProgramCommandNext )
   {
     return;
   }
@@ -608,7 +615,7 @@ void Robot::UpdateCommand()
   this->_commandDestinatonImageFrame = this->BoardPosition;
   this->_boardPositionFImageFrame = this->BoardPosition;
 
-  switch ( _currentCommand )
+  switch ( _currentCommand.Command )
   {    
     case ProgramCommandJump:
       this->UpdateDestinationImageFrameMoveForward();
@@ -645,7 +652,7 @@ void Robot::UpdateCommand()
         }
       }
       break;
-    case ProgramCommandMoveForward:
+    case ProgramCommandForward:
       this->UpdateDestinationImageFrameMoveForward();
       this->_commandDestinatonCoordinate = _commandDestinatonImageFrame;
       if  ( ! this->_playState->GameBoard->ContainsCoordinate(_commandDestinatonImageFrame.Point()) ) 

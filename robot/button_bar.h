@@ -13,6 +13,7 @@ public:
   int RowCount();
   void AddButton(Buttn* button);
   Buttn* ButtonAt(POINT_FRAMEWORK pt);
+  Buttn* Button(int index);
   SIZE_FRAMEWORK SizeCalculate();
   void Click(void* sender) override;
   void Resize(int width, int height) override;  

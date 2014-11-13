@@ -3,7 +3,7 @@
 #include "headers.h"
 using namespace std;
 
-Labl::Labl(string text) : GameObject(), _foreColor(nullptr), TextAlignment(TextAlignTopLeft)
+Labl::Labl(string text) : GameObject(), _foreColor(nullptr), _font(nullptr), TextAlignment(TextAlignTopLeft)
 {
   this->Text = text;
 }
@@ -18,7 +18,7 @@ void Labl::Render()
   RECT_FRAMEWORK r;
   
   r = this->Rentangle();
-  MyGame::Instance->WindowMain->RenderText(this->Text,this->FontGet(),this->ForeColorGet(),&r);
+  MyGame::Instance->WindowMain->RenderText(this->Text,this->FontGet(),this->ForeColorGet(),&r,this->TextAlignment);
 }
 
 void Labl::RenderDebugInfo()
@@ -29,6 +29,15 @@ void Labl::RenderDebugInfo()
 GameFont* Labl::FontGet()
 {
   return MyGame::Instance->SystemFont;
+}
+
+void Labl::ForeColorSet(Color c)
+{
+  if (_foreColor != nullptr)
+  {
+    delete _foreColor;
+  }
+  _foreColor = new Color(c);
 }
 
 Color* Labl::ForeColorGet()

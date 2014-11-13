@@ -30,7 +30,8 @@ public:
   RECTF RenderTile();
   RECTF RenderSquare(bool tile = false);
   void ProgramRun();
-  void CommandSet(ProgramCommand programCommand);
+  ProgramCommandData CommandGet();
+  void CommandSet(ProgramCommandData programCommand);
 private:
   PlayState* _playState;
   void PositionToVector(POINT_FRAMEWORK position, Vector2D vector);
@@ -51,8 +52,8 @@ private:
   int _scanXYlastSecond;
   bool _scanXYScanningInX ;
   void UpdateFrame();
-  ProgramCommand _currentCommand;
-  ProgramCommand _previousCommand;
+  ProgramCommandData _currentCommand;
+  ProgramCommandData _previousCommand;
   
   
   POINTF3D _commandDestinatonCoordinate;

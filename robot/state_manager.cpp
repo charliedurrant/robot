@@ -75,27 +75,24 @@ void StateManager::ClearLast()
     _lastState->OnExit();
     delete _lastState;
     _lastState = nullptr;
-  }
-  
+  }  
 }
+
+
 void StateManager::Change( State* state )
 {
   State* currentState;
-
-  
 
   currentState = this->Current();
   if(currentState != nullptr )
   {
     if (currentState->ID != state->ID)
-    {
-      
+    {      
       this->ClearLast();
       _states.pop_back();    
       _lastState = currentState;
       _states.push_back(state);
-      this->Enter(state);
-      
+      this->Enter(state);      
     }    
   }
   else
@@ -106,6 +103,17 @@ void StateManager::Change( State* state )
   }    
 }
 
+void StateManager::Clear(bool noCleanUp)
+{
+  if (noCleanUp)
+  {
+    _states.clear();
+  }
+  else
+  {
+    throw new Exception("Clear with cleanup not implemented");
+  }
+}
 
 void StateManager::Enter(State* state)
 {

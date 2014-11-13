@@ -18,7 +18,7 @@ int main( int argc, char* args[] )
   }
   catch( Exception* ex )
   {    
-    printf( (string("An exception occured in the application: ") + ex->Message).c_str() );
+    Functions::ErrorMessageConsole(string("An exception occured in the application: "),ex);
     ret = 1;
   }
 

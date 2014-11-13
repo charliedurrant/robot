@@ -58,10 +58,11 @@
       <DisableLanguageExtensions>false</DisableLanguageExtensions>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ExceptionHandling>Async</ExceptionHandling>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib ;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <Profile>false</Profile>
       <ShowProgress>LinkVerbose</ShowProgress>
@@ -130,6 +131,7 @@
     <ClCompile Include="command_bar.cpp" />
     <ClCompile Include="command_bar_button.cpp" />
     <ClCompile Include="error_state.cpp" />
+    <ClCompile Include="font_data.cpp" />
     <ClCompile Include="head_up_display.cpp" />
     <ClCompile Include="font_manager.cpp" />
     <ClCompile Include="font_manager_font.cpp" />
@@ -156,6 +158,8 @@
     <ClCompile Include="game_object.cpp" />
     <ClCompile Include="image_manager.cpp" />
     <ClCompile Include="image.cpp" />
+    <ClCompile Include="program_function_command_bar.cpp" />
+    <ClCompile Include="program_text.cpp" />
     <ClCompile Include="robot_program.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="settings_base.cpp" />
@@ -191,6 +195,7 @@
     <ClInclude Include="command_bar_button.h" />
     <ClInclude Include="constant.h" />
     <ClInclude Include="error_state.h" />
+    <ClInclude Include="font_data.h" />
     <ClInclude Include="head_up_display.h" />
     <ClInclude Include="font_manager.h" />
     <ClInclude Include="font_manager_font.h" />
@@ -217,6 +222,8 @@
     <ClInclude Include="image_manager.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="const.h" />
+    <ClInclude Include="program_function_command_bar.h" />
+    <ClInclude Include="program_text.h" />
     <ClInclude Include="robot_program.h" />
     <ClInclude Include="settings.h" />
     <ClInclude Include="settings_base.h" />

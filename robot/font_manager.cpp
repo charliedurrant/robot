@@ -24,12 +24,21 @@ FontManager::~FontManager(void)
 void FontManager::Add(string family, string path)
 {
   FontManagerFont* font;
-  if ( this->Contains(family) )
-  {
-    font = _fonts.find(family)->second;
-    throw new Exception(str(fmt::Format("The font family '{0}' has already been loaded from '{1}'") << family << font->PathAndFile));
+
+  try
+  { 
+    if ( this->Contains(family) )
+    {
+      font = _fonts.find(family)->second;
+      throw new Exception(str(fmt::Format("The font family '{0}' has already been loaded from '{1}'") << family << font->PathAndFile));
+    }
+    _fonts[family] = new FontManagerFont(family,path);  
   }
-  _fonts[family] = new FontManagerFont(family,path);  
+  catch (Exception* ex)
+  {
+    throw new Exception(str(fmt::Format("Failed to load the font '{0}' from '{1}'") << family << path), ex);
+  }
+
 }
 
 bool FontManager::Contains(string family)
@@ -44,8 +53,11 @@ GameFont* FontManager::Item(string family, int pointSize)
   FontManagerFont* fontManagerFont;
   try
   {
+    
     if ( ! this->Contains(family) )
-    { throw new Exception("Font does not exist"); }     
+    { 
+      throw new Exception("The font family does not exist in the FontManager"); 
+    }     
     fontManagerFont = this->_fonts.find(family)->second;
     return fontManagerFont->Item(pointSize);
   }

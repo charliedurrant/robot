@@ -3,8 +3,9 @@
 #include "headers.h"
 using namespace std;
 using namespace std::placeholders; // for `_1` callback arguments
+using namespace fmt;
 
-PlayState::PlayState(void) : State("play"), Program(nullptr)
+PlayState::PlayState(void) : State("play"), Program(nullptr), _lastProgramCommandButton(nullptr)
 {
   
 }
@@ -33,13 +34,15 @@ string PlayState::ProgramTextGet()
   //generate the program text from the functions command bars  
   string program = "";
 
-  program += this->ProgramTextGetFromFunctionCommandBar(this->CommandsMain, "main");
+  program += this->ProgramTextGetFromFunctionCommandBar(this->CommandsMain, "main" );
+  program += "\r\n";
   program += this->ProgramTextGetFromFunctionCommandBar(this->CommandsFunction1,"function1");
+  program += "\r\n";
   program += this->ProgramTextGetFromFunctionCommandBar(this->CommandsFunction1,"function2");
   return Functions::Trim(program);
 }
 
-string PlayState::ProgramTextGetFromFunctionCommandBar(CommandBar* commandBar, string functionName)
+string PlayState::ProgramTextGetFromFunctionCommandBar(CommandBar* commandBar, string functionName )
 {
   size_t i;
   string s;
@@ -51,7 +54,10 @@ string PlayState::ProgramTextGetFromFunctionCommandBar(CommandBar* commandBar, s
   {
     button = (CommandBarButton*)commandBar->Children()->Item(i);
     line = this->Program->CommandToFunctionString( button->CommandGet() );
-    s = s + line + "\r\n\r\n";
+    if ( line.length() > 0 )
+    { 
+      s = s + "\t" + line + "\r\n";
+    }
   }  
   return s;  
 }
@@ -69,13 +75,81 @@ void PlayState::BoardRotationArrowClick(void* sender)
 
 void PlayState::ProgramRunClick(void* sender)
 {
-  string program;
-  
+  string text;
   this->ProgramStopClick(sender);
-
-  program = this->ProgramTextGet();
-  this->Program->Parse(program);
+  text = this->ProgramTextGet();
+  this->ProgText->TextSet(text);  
+  this->Program->Parse(text);
+  //now map back the command bar indexes back to the display so we can highlight the buttons was the program plays
+  //this all seems a little circular but it makes sense as we alsways want parsing to be the correct route...
+  this->MapCommandBarsIndexesFromProgram();
   this->GameBoard->RoBot->ProgramRun();
+}
+
+void PlayState::MapCommandBarsIndexesFromProgram()
+{
+  this->MapCommandBarIndexesFromProgramFunction(this->CommandsMain, &this->Program->_main, ProgramCommandFunctionMain);
+  this->MapCommandBarIndexesFromProgramFunction(this->CommandsFunction1, &this->Program->_function1, ProgramCommandFunction1);
+  this->MapCommandBarIndexesFromProgramFunction(this->CommandsFunction2, &this->Program->_function2, ProgramCommandFunction2);
+  //this->Program->
+}
+
+//function maps program function commands back to the command bar buttons
+void PlayState::MapCommandBarIndexesFromProgramFunction(CommandBar* commandBar, vector<ProgramCommandData>* function, ProgramCommand commandBarID)
+{
+  ProgramCommandData command;
+  CommandBarButton* button;
+  int i;
+  int programIndex;
+
+  for (programIndex = -1,i = 0; i < commandBar->Children()->Size(); i++)
+  {
+    button = (CommandBarButton*)commandBar->Children()->Item(i);
+    command = button->CommandGet();
+    
+    if ( command.Command == ProgramCommandNone )
+    { continue; }    
+
+    if ( this->Program->CommandIsFunction(command) )
+    { continue; }
+
+    programIndex++;
+    (*function)[programIndex].CommandBarButtonIndex = i;
+    (*function)[programIndex].CommandbarID = commandBarID;
+    button->CommandSet((*function)[programIndex]); ///put it back on the button
+  }
+}
+
+CommandBarButton* PlayState::ProgramCurrentCommandButton()
+{
+  ProgramCommandData command;
+  CommandBar* bar;
+  CommandBarButton* button;
+  command = this->GameBoard->RoBot->CommandGet();
+  if (command.Command < ProgramCommandActionsStart)
+  {
+    return nullptr;
+  }
+  switch (command.CommandbarID)
+  {
+    case ProgramCommandFunctionMain:
+      bar = this->CommandsMain;
+      break;
+    case ProgramCommandFunction1:
+      bar = this->CommandsFunction1;
+      break;
+    case ProgramCommandFunction2:
+      bar = this->CommandsFunction2;
+      break;
+    default:
+      throw new Exception(str(fmt::Format("Failed to find the command bar for the command id '{0}'") << command.CommandbarID));
+  }
+  button = (CommandBarButton*)bar->Button(command.CommandBarButtonIndex);
+  if (button->CommandGet().Command != command.Command )
+  {
+    throw new Exception(str(fmt::Format("Failed to find the button for the command '{0}'") << command.Command));;
+  }
+  return button;
 }
 
 void PlayState::ProgramStopClick(void* sender)
@@ -92,7 +166,6 @@ void PlayState::ProgramResetClick(void* sender)
   this->CommandsFunction1->Clear();
 }
 
-
 void PlayState::CommandDragDrop(CommandBarButton* sender)
 {
   CommandBarButton* dragButton;
@@ -101,8 +174,37 @@ void PlayState::CommandDragDrop(CommandBarButton* sender)
   if ( dragButton != nullptr )
   {
     dragButton->CommandSet(sender->CommandGet());
+    //if running dont do this
+    string text;
+    text = this->ProgramTextGet();
+  } 
+}
+
+void PlayState::Update()
+{
+  CommandBarButton* button;
+  State::Update();
+  ProgramCommandData command;
+  //we update the function buttons of the program is playing, we have to do this here as we don't have a game onject to do it
+  button = this->ProgramCurrentCommandButton();
+  if (button != nullptr)
+  {
+    command = button->CommandGet();
+    if ( (_lastProgramCommandButton != nullptr) && 
+         ((_lastProgramCommandButtonCommand.CommandbarID != command.CommandbarID) || ( _lastProgramCommandButtonCommand.CommandBarButtonIndex != command.CommandBarButtonIndex) ))
+    {
+      _lastProgramCommandButton->ForceLeftButtonMouseDown = false;
+    }
+    _lastProgramCommandButton = button;
+    _lastProgramCommandButtonCommand = command;
+    button->ForceLeftButtonMouseDown = true;
   }
- 
+  else if (_lastProgramCommandButton != nullptr)
+  {
+    _lastProgramCommandButton->ForceLeftButtonMouseDown = false;
+    _lastProgramCommandButton = nullptr;
+  }
+
 }
 
 void PlayState::OnEnter()
@@ -112,6 +214,7 @@ void PlayState::OnEnter()
   ButtonBar* buttonBar;
   Buttn* button;
   Board* board = nullptr;
+  ProgramText* programText = nullptr;
   //Player* player = nullptr;
   RECT_FRAMEWORK rectBoard, rectGameObject;
   SIZEF szBoard;
@@ -120,7 +223,7 @@ void PlayState::OnEnter()
     
   COLOR color;
   SIZE_FRAMEWORK sz;
-  int margin, i;
+  int margin, i, right;
   try
   {
     this->Program = new RobotProgram();
@@ -136,9 +239,10 @@ void PlayState::OnEnter()
     color = MyGame::Instance->Theme->BackgroundColor->Col();
     SDL_SetRenderDrawColor(MyGame::GameInstance->WindowMain->Renderer, color.r, color.g, color.b, color.a);
     
+    margin = MyGame::Instance->WindowMain->ScaleToLogicalDesignHeight(50);
     //BOARD
-    margin = MyGame::Instance->WindowMain->ScaleToLogicalDesignHeight( 50 );
-    szBoard.Width = (float)MyGame::Instance->WindowMain->ScaleToLogicalDesignWidth(1300); 
+    
+    szBoard.Width = (float)MyGame::Instance->WindowMain->ScaleToLogicalDesignWidth(1200); 
     szBoard.Height = Functions::RectangleDimensionToOtherByDegrees(szBoard.Width, 25.0f);
     rectBoard.Width = (int)Functions::Round(szBoard.Width);
     rectBoard.Height = (int)Functions::Round(szBoard.Height);
@@ -150,6 +254,8 @@ void PlayState::OnEnter()
     board->LoadLevel(MyGame::Instance->LevlPacks->CurrentLevel());
     this->GameBoard = board;
     this->Objects->Add( board);    
+
+    
 
     //ROTATION ARROW RIGHT
     go = new BoardRotationArrow(false);
@@ -186,11 +292,11 @@ void PlayState::OnEnter()
     //Command Bar - the program commands
     this->Commands = new CommandBar(-1,BUTTON_MARGIN,BUTTON_SIZE);
     this->Commands->CanReceiveCommands = false;
-    this->Commands->AddButton(ProgramCommandMoveForward);
-    this->Commands->AddButton(ProgramCommandTurnLeft90Degrees);
-    this->Commands->AddButton(ProgramCommandTurnRight90Degrees);
+    this->Commands->AddButton(ProgramCommandForward);
+    this->Commands->AddButton(ProgramCommandLeft);
+    this->Commands->AddButton(ProgramCommandRight);
     this->Commands->AddButton(ProgramCommandJump);
-    this->Commands->AddButton(ProgramCommandSwitchLightSwitch);
+    this->Commands->AddButton(ProgramCommandSwitch);
     this->Commands->AddButton(ProgramCommandFunction1);
     this->Commands->AddButton(ProgramCommandFunction2);
     
@@ -204,16 +310,26 @@ void PlayState::OnEnter()
     this->Commands->PositionAndSize(rectGameObject);
     this->Objects->Add(this->Commands);   
     
-
-    //Main  commands
+    //PROGRAM TEXT
+    programText = new ProgramText(this);
+    rectGameObject.Width = MyGame::Instance->WindowMain->ScaleToLogicalDesignWidth(235);
+    rectGameObject.Height = MyGame::Instance->WindowMain->ScaleToLogicalDesignHeight(400);
+    rectGameObject.X = MyGame::GameInstance->WindowMain->LogicalSize.Width - (margin + rectGameObject.Width);
+    rectGameObject.Y = this->Commands->Rentangle().Bottom() + margin;
+    programText->PositionAndSize(rectGameObject);
+    this->ProgText = programText;
+    this->Objects->Add(this->ProgText);
+    
+    right = this->ProgText->Rentangle().X - BUTTON_MARGIN;
+    
+    //FUNCTION MAIN commands
     this->CommandsMain = new CommandBar(4,BUTTON_MARGIN, BUTTON_SIZE);
     this->CommandsMain->AddButtons(12,ProgramCommandNone);
     sz = this->CommandsMain->SizeCalculate();
     rectGameObject.Width = sz.Width;
     rectGameObject.Height = sz.Height;
     rectGameObject.Y = this->Commands->Rentangle().Bottom() + margin;
-    rectGameObject.X = MyGame::GameInstance->WindowMain->LogicalSize.Width - (margin + rectGameObject.Width);
-    
+    rectGameObject.X = right - rectGameObject.Width;
     this->CommandsMain->OnCommandDragDrop(std::bind(&PlayState::CommandDragDrop,this,_1));
     this->CommandsMain->PositionAndSize(rectGameObject);
     this->Objects->Add(this->CommandsMain);   
@@ -226,7 +342,8 @@ void PlayState::OnEnter()
     rectGameObject.Width = sz.Width;
     rectGameObject.Height = sz.Height;
     rectGameObject.Y = this->CommandsMain->Rentangle().Bottom() + margin;
-    rectGameObject.X = MyGame::GameInstance->WindowMain->LogicalSize.Width - (margin + rectGameObject.Width);
+    rectGameObject.X = right - rectGameObject.Width;
+
     
     this->CommandsFunction1->OnCommandDragDrop(std::bind(&PlayState::CommandDragDrop,this,_1));
     this->CommandsFunction1->PositionAndSize(rectGameObject);
@@ -240,12 +357,24 @@ void PlayState::OnEnter()
     rectGameObject.Width = sz.Width;
     rectGameObject.Height = sz.Height;
     rectGameObject.Y = this->CommandsFunction1->Rentangle().Bottom() + margin;
-    rectGameObject.X = MyGame::GameInstance->WindowMain->LogicalSize.Width - (margin + rectGameObject.Width);
+    rectGameObject.X = right - rectGameObject.Width;
     
     this->CommandsFunction2->OnCommandDragDrop(std::bind(&PlayState::CommandDragDrop,this,_1));
     this->CommandsFunction2->PositionAndSize(rectGameObject);
     this->Objects->Add(this->CommandsFunction2);   
    
+    this->CommandBarProgramCommandHighlight = new Buttn(MyGame::Instance->Theme->CommandBarButtonJump);
+    
+    rectGameObject.X = rectGameObject.Y = 0;
+    rectGameObject.Height = rectGameObject.Width = BUTTON_SIZE;
+
+    this->CommandBarProgramCommandHighlight->PositionAndSize(rectGameObject);
+    this->Objects->Add(this->CommandBarProgramCommandHighlight);
+
+    //PROGRAM TEXT resize heigh
+    rectGameObject = this->ProgText->Rentangle();
+    rectGameObject.Height = this->CommandsFunction2->Rentangle().Bottom() - rectGameObject.Y;
+    this->ProgText->PositionAndSize(rectGameObject);
 
     //GENERAL BUTTONS
     buttonBar = new ButtonBar(1,BUTTON_MARGIN,BUTTON_SIZE * 2,BUTTON_SIZE);
@@ -261,7 +390,6 @@ void PlayState::OnEnter()
     buttonBar->AddButton(button);
     button->OnClick(std::bind(&PlayState::ProgramResetClick,this,_1));
     
-
     sz = buttonBar->SizeCalculate();
     rectGameObject.Width = sz.Width;
     rectGameObject.Height = sz.Height;

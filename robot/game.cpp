@@ -5,52 +5,60 @@
 Game* Game::GameInstance = nullptr;
 
 Game::Game(void)
-{ this->Construct(); }
-
-void Game::Construct()
-{
+{ 
   int sdlImageFlags;
-  this->WindowMain = nullptr;  
+  this->SystemFont = nullptr;
+  this->SystemFontColor = nullptr;
+  this->WindowMain = nullptr;
   this->_quit = false;
   this->_sdlInited = false;
   this->_nextTime = 0;
   this->FramesPerSecond = 30;
   this->Images = nullptr;
   this->_nextTime = 0;
-  this->Input = nullptr;  
+  this->Input = nullptr;
   this->States = nullptr;
   this->Fonts = nullptr;
   this->TicksDeltaUpdate = this->TicksCurrentUpdate = this->TicksLastUpdate = 0;
   this->SecondsDeltaUpdate = 0.0f;
 
-  #if _DEBUG 
-    this->DebugInfo = true;
-  #else
-    this->DebugInfo = false;
-  #endif
+#if _DEBUG 
+  this->DebugInfo = true;
+#else
+  this->DebugInfo = false;
+#endif
 
-  
   this->SystemFont = nullptr;
   this->SystemFontColor = nullptr;
+  this->CurrentFramesPerSecond = 0.0f;
+
   try
-  {   
-    this->CurrentFramesPerSecond = 0.0f;
+  {
     Game::GameInstance = this;
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-	  { throw new ExceptionSDL(string("VIDEO could not be initialised")); }
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
+    {
+      throw new ExceptionSDL(string("VIDEO could not be initialised"));
+    }
+    
     this->_sdlInited = true;
     sdlImageFlags = IMG_INIT_JPG | IMG_INIT_PNG;
-    if( (IMG_Init(sdlImageFlags) & sdlImageFlags) != sdlImageFlags) 
-    { throw new ExceptionSDLImage(string("Image library could not be initialised")); }   
+    if ((IMG_Init(sdlImageFlags) & sdlImageFlags) != sdlImageFlags)
+    {
+      throw new ExceptionSDLImage(string("Image library could not be initialised"));
+    }
     if (TTF_Init() == -1)
-    { throw new ExceptionSDLTTF(string("SDL2 Font library could not be initialised")); }       
+    {
+      throw new ExceptionSDLTTF(string("SDL2 Font library could not be initialised"));
+    }
 
     this->Input = new InputHandler();
     this->States = new StateManager();
     this->Fonts = new FontManager();
   }
-  catch( Exception* ex )
-  { throw new Exception("Failed to create the game", ex); }
+  catch (Exception* ex)
+  {
+    throw new Exception("Failed to create the game", ex);
+  }
 }
 
 Game::~Game(void) 
@@ -104,6 +112,7 @@ void Game::Run()
   SIZE_FRAMEWORK szDesign;
   float scaleDown;
   Uint32 windowFlags;
+  bool errorStatePushed = false;
   try
   {
 
@@ -115,7 +124,7 @@ void Game::Run()
 
     //use scale down to make the window smaller based on a widescreen ratio
     //TODO: this needs attention, what am I realy trying to do?
-
+    
     #if  _DEBUG 
       scaleDown  = 0.7f;
     #else
@@ -137,26 +146,49 @@ void Game::Run()
     #if ! _DEBUG 
       windowFlags |= SDL_WINDOW_FULLSCREEN; 
     #endif
-    this->WindowMain = new Window(string("Robot"),  SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, sz.Width, sz.Height, windowFlags,szDesign.Width,szDesign.Height); 
-     
-    this->Images = new ImageManager(this->WindowMain); 
-    this->Init();
-
-    while ( ! this->_quit )
+    
+    try
     {
-      
-      this->Update();
-
-      this->Render();
-
-
-      this->FrameRateDelay();      
+      this->WindowMain = new Window(string("Robot"), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, sz.Width, sz.Height, windowFlags, szDesign.Width, szDesign.Height);
+      this->Images = new ImageManager(this->WindowMain); 
+      this->Init();
     }
+    catch (Exception* ex)
+    {
+      errorStatePushed = this->ErrorStatePush("Failed to initialise the game", ex);
+    }
+    //do not place code between the game loop and init as init adds an error state
+    
+    try
+    { this->Loop(); }
+    catch ( Exception * ex )
+    {
+      if (! errorStatePushed )
+      {
+        errorStatePushed = this->ErrorStatePush("Failed in game loop", ex); //clear all states and add error state
+        if (errorStatePushed)
+        {  this->Loop(); }
+      }      
+    }    
   }
   catch( Exception* ex )
   { throw new Exception("Failed in the application run",ex); }  
 }
 
+void Game::Init()
+{
+  ;
+}
+
+void Game::Loop()
+{
+  while (!this->_quit)
+  {
+    this->Update();
+    this->Render();
+    this->FrameRateDelay();
+  }
+}
 
 void Game::FrameRateDelay()
 {
@@ -269,9 +301,9 @@ void Game::OpenGLTest()
 
 
 
-void Game::Init()
+bool Game::ErrorStatePush(const string& message, Exception* ex)
 {
-  ;
+  return false;
 }
 
 void Game::Quit()

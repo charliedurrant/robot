@@ -21,7 +21,8 @@ class Functions
     static string FullPath(string s);
         
     static bool FileExists(string& path);
-    
+    static string ErrorMessageString(const string& message, Exception* ex);
+    static void ErrorMessageConsole(const string& message, Exception* ex);
     static float SinDegrees(float angleInDegrees);
     static float CosDegrees(float angleInDegrees);
     static float TanDegrees(float angleInDegrees);

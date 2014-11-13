@@ -14,6 +14,6 @@ class MyGame : public Game
     PlayState* PlyState();
     Rotation Rotate90Degrees(Rotation currentRotation, bool clockwise);
     Settings* Settngs;
-    
+    bool ErrorStatePush(const string& message, Exception* ex);
 };
 

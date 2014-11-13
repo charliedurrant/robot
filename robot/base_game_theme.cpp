@@ -10,7 +10,7 @@ BaseGameTheme::BaseGameTheme(string pathAndFile) :  BackgroundColor(nullptr), _r
   string xmlString;
   string defineSearch;
   string defineValue;
-  TiXmlElement* definesElement;
+  TiXmlElement* definesElement = nullptr;
 
   try
   {    
@@ -21,12 +21,11 @@ BaseGameTheme::BaseGameTheme(string pathAndFile) :  BackgroundColor(nullptr), _r
     _xmlDocument = Functions::XMLFileLoad(pathAndFile);
     _rootElement = _xmlDocument->RootElement();
 
-
-    //replace defines
     definesElement = Functions::XMLFindFirstElementByName(_rootElement, "defines");
     
-    if ( !definesElement->NoChildren() )
+    if ( definesElement != nullptr && ! definesElement->NoChildren() )
     {
+      //replace defines
       xmlString = Functions::TextFileRead(pathAndFile);
       for (TiXmlElement* element = definesElement->FirstChildElement(); element != NULL; element = element->NextSiblingElement())
       {
@@ -42,14 +41,12 @@ BaseGameTheme::BaseGameTheme(string pathAndFile) :  BackgroundColor(nullptr), _r
       _xmlDocument = Functions::XMLStringLoad(xmlString, pathAndFile);
       _rootElement = _xmlDocument->RootElement();
     }
-    
   
-    _objectsElement = Functions::XMLFindFirstElementByName(_rootElement,"objects");
-    _imagesElement = Functions::XMLFindFirstElementByName(_rootElement,"images");
+    _objectsElement = Functions::XMLFindFirstElementByName(_rootElement,"objects",true);
+    _imagesElement = Functions::XMLFindFirstElementByName(_rootElement,"images", true);
 
     this->BackgroundColor = this->ColorGet("background");    
-    this->BoardBackgroundColor = this->ColorGet("board_background");
-    
+    this->BoardBackgroundColor = this->ColorGet("board_background");    
   }
   catch( Exception* ex )
   {

@@ -18,7 +18,7 @@ public:
   virtual void Update();
   virtual void Clean();  
   virtual void RenderDebugInfo();
-  void RenderDebugInfo(string& text);
+  void RenderDebugInfo(const string& text);
   bool Contains(Vector2D* position);
   bool ContainsMouse();
   RECT_FRAMEWORK Rentangle();
@@ -37,6 +37,8 @@ public:
   ThemeObject* CurrentThemeObject;  
   Vector2D Position;  
   bool Visible;
+  bool LeftMousebuttonDown();
+  bool LeftMousebuttonClicked();
   virtual void Click(void* sender); //when clicked will be called
   void OnClick(std::function<void(void*)> onClickCallBack); //void * will be the sender i.e me
   State* ParentState;

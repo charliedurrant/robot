@@ -15,10 +15,10 @@ GameTheme::GameTheme(string pathAndFile) : BaseGameTheme(pathAndFile),
   TileOn2(nullptr),
   TileOff2(nullptr),
   FontGeneral(nullptr),
-  CommandBarButtonMoveForward(nullptr),
-  CommandBarButtonTurnRight90Degrees(nullptr),
-  CommandBarButtonTurnLeft90Degrees(nullptr),
-  CommandBarButtonSwitchLightSwitch(nullptr),
+  CommandBarButtonForward(nullptr),
+  CommandBarButtonTurnRight(nullptr),
+  CommandBarButtonTurnLeft(nullptr),
+  CommandBarButtonSwitch(nullptr),
   CommandBarButtonFunction1(nullptr),
   CommandBarButtonFunction2(nullptr),
 
@@ -38,14 +38,14 @@ GameTheme::GameTheme(string pathAndFile) : BaseGameTheme(pathAndFile),
     this->TileOn2 = this->ObjectLoad("tile_on");
     this->TileOff2 = this->ObjectLoad("tile_off");
 
-    this->CommandBarButtonMoveForward = this->ObjectLoad("command_bar_button_move_forward");
-    this->CommandBarButtonTurnRight90Degrees = this->ObjectLoad("command_bar_button_turn_right_90_degrees");
-    this->CommandBarButtonTurnLeft90Degrees = this->ObjectLoad("command_bar_button_turn_left_90_degrees");
+    this->CommandBarButtonForward = this->ObjectLoad("command_bar_button_forward");
+    this->CommandBarButtonTurnRight = this->ObjectLoad("command_bar_button_right");
+    this->CommandBarButtonTurnLeft = this->ObjectLoad("command_bar_button_left");
     this->CommandBarButtonNone = this->ObjectLoad("command_bar_button_none");
-    this->CommandBarButtonSwitchLightSwitch = this->ObjectLoad("command_bar_button_switch_light_switch");
+    this->CommandBarButtonSwitch = this->ObjectLoad("command_bar_button_switch");
     this->CommandBarButtonJump = this->ObjectLoad("command_bar_button_jump");
-    this->CommandBarButtonFunction1 = this->ObjectLoad("command_bar_button_function_1");
-    this->CommandBarButtonFunction2 = this->ObjectLoad("command_bar_button_function_2");
+    this->CommandBarButtonFunction1 = this->ObjectLoad("command_bar_button_function1");
+    this->CommandBarButtonFunction2 = this->ObjectLoad("command_bar_button_function2");
 
     this->ButtonRunProgram = this->ObjectLoad("button_run_program");
     this->ButtonRunProgramTest = this->ObjectLoad("button_run_program_test");

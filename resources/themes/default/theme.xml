@@ -113,27 +113,26 @@
 				<object_image image="general_buttons" frame="3" />	
 				<object_image image="general_buttons" frame="4" mouse_over="true" alpha="50"/>															
 			</object_images>
-		</object>
+		</object>		
 		
-		
-		<object id="command_bar_button_move_forward">
+		<object id="command_bar_button_forward">
 			<object_images>			
 				<object_image image="command_bar" frame="1"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" mouse_down="true" alpha="50"/>											
 			</object_images>
 		</object>
 		
-		<object id="command_bar_button_turn_right_90_degrees">
+		<object id="command_bar_button_right">
 			<object_images>			
 				<object_image image="command_bar" frame="2"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" mouse_down="true" alpha="50"/>											
 			</object_images>
 		</object>
 		
-		<object id="command_bar_button_turn_left_90_degrees">
+		<object id="command_bar_button_left">
 			<object_images>			
 				<object_image image="command_bar" frame="2" flip_horizontal="true"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" mouse_down="true" alpha="50"/>											
 			</object_images>
 		</object>
 		
@@ -147,28 +146,28 @@
 		<object id="command_bar_button_jump">
 			<object_images>			
 				<object_image image="command_bar" frame="4"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" mouse_down="true"alpha="50"/>											
 			</object_images>
 		</object>		
 		
-		<object id="command_bar_button_switch_light_switch">
+		<object id="command_bar_button_switch">
 			<object_images>							
 				<object_image image="command_bar" frame="5"/>															
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" mouse_down="true" alpha="50"/>											
 			</object_images>
 		</object>
 		
-		<object id="command_bar_button_function_1">
+		<object id="command_bar_button_function1">
 			<object_images>			
-				<object_image image="command_bar" frame="6"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50" />											
+				<object_image image="command_bar" frame="6" />											
+				<object_image image="command_bar" frame="8" mouse_over="true" mouse_down="true" alpha="50" />											
 			</object_images>
 		</object>
 		
-		<object id="command_bar_button_function_2">
+		<object id="command_bar_button_function2">
 			<object_images>			
 				<object_image image="command_bar" frame="7"/>											
-				<object_image image="command_bar" frame="8" mouse_over="true" alpha="50"/>											
+				<object_image image="command_bar" frame="8" mouse_over="true" mouse_down="true" alpha="50"/>											
 			</object_images>
 		</object>	
 	</objects>

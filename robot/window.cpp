@@ -196,16 +196,20 @@ void Window::RenderDebugText(const string& message, RECT_FRAMEWORK* rectangle, T
   this->RenderText(message, Game::GameInstance->SystemFont, Game::GameInstance->SystemFontColor, rectangle, textAlignment);  
 }
 
-
-void Window::RenderText(const string& message, GameFont* font, Color* color, RECT_FRAMEWORK* rectangle, TextAlign textAlignment )
+void Window::RenderText(const string& message, GameFont* font, Color* color, RECT_FRAMEWORK* rectangle, TextAlign textAlignment, bool wrap )
 {    
   Image* image;
   RECT_FRAMEWORK rectposition;
-  
+  int wrapWidth;
   if ( message.length() == 0 )
   { return; }
   
-  image = this->CreateTextImage(message, font, color, rectangle->Width);
+  if (wrap)
+  { wrapWidth = rectangle->Width; }
+  else
+  { wrapWidth = 0; }
+
+  image = this->CreateTextImage(message, font, color,wrapWidth);
   rectposition = *rectangle;
   rectposition.Width = image->Size.Width;
   rectposition.Height = image->Size.Height;
@@ -226,26 +230,34 @@ void Window::RenderText(const string& message, GameFont* font, Color* color, REC
 }
 
 //Todo go into the image manager
-Image* Window::CreateTextImage(const string& message, GameFont* font, Color* color, int boundingWith)
+Image* Window::CreateTextImage(const string& message, GameFont* font, Color* color, int wrapWidth )
 {    
   SDL_Surface *surface;
   SDL_Texture *texture;
   Uint32 format;
   int access;
   SIZE_FRAMEWORK sz;
-
   Image* image;
   
-  surface = TTF_RenderText_Blended_Wrapped(font->Font, message.c_str(), (SDL_Color)color->Col(),boundingWith);    
-  
+  surface = this->CreateTextSurface(message, font, color, wrapWidth);
   texture = SDL_CreateTextureFromSurface(this->Renderer, surface);    
-      //Clean up unneeded stuff    
+  //Clean up unneeded stuff    
   SDL_FreeSurface(surface);
   SDL_QueryTexture(texture, &format, &access, &sz.Width, &sz.Height);
-  image= new Image(string(""),texture,&sz);
-  
+  image= new Image(string(""),texture,&sz);  
   return image;
+}
 
+SDL_Surface* Window::CreateTextSurface(const string& message, GameFont* font, Color* color, int wrapWidth)
+{
+  SDL_Surface *surface;
+
+  if (wrapWidth < 1)
+  {
+    wrapWidth = 4000; //make large so no auto wrapping occurs. We have to always use wrap otherwise \n are not taken into account
+  }
+  surface = TTF_RenderText_Blended_Wrapped(font->Font, message.c_str(), (SDL_Color)color->Col(), wrapWidth);
+  return surface;
 }
 
 int Window::ScaleToLogicalDesignWidth(int valueUnscaled)
@@ -294,4 +306,22 @@ RECT_FRAMEWORK Window::Rectangle()
   r.Width = sz.Width;
   r.Height = sz.Height;
   return r;
+}
+
+FontData* Window::FontDataGet(GameFont* font)
+{
+  SDL_Surface* surface;
+  Color c;
+  FontData* fontData;
+
+  fontData = new FontData();
+  surface = this->CreateTextSurface("A", font, &c, 200);
+  fontData->LineHeight = surface->h;
+  SDL_FreeSurface(surface);
+
+  surface = this->CreateTextSurface("A\r\nA", font, &c, 200);
+  fontData->LineGap = surface->h - (2 * fontData->LineHeight);
+  SDL_FreeSurface(surface);
+
+  return fontData;
 }

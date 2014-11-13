@@ -14,7 +14,7 @@ public:
   
   void Pop();
   State* Current();
-
+  void Clear(bool noCleanUp = false);
   void Update();
   void Render();
 

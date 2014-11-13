@@ -3,32 +3,32 @@
 #include "headers.h"
 using namespace std;
 
-CommandBarButton::CommandBarButton(ProgramCommand command) : Buttn(nullptr), Bar(false)
+CommandBarButton::CommandBarButton(ProgramCommandData command) : Buttn(nullptr), Bar(nullptr)
 {
   this->CommandSet(command); 
 }
 
-void CommandBarButton::CommandSet(ProgramCommand programCommand)
+void CommandBarButton::CommandSet(ProgramCommandData programCommand)
 {
   ThemeObject* themeObject;
   this->_command = programCommand;
   
-  switch( this->_command )
+  switch( this->_command.Command )
   {
-    case ProgramCommandMoveForward:
-      themeObject = MyGame::Instance->Theme->CommandBarButtonMoveForward;
+    case ProgramCommandForward:
+      themeObject = MyGame::Instance->Theme->CommandBarButtonForward;
       break; 
-    case ProgramCommandTurnLeft90Degrees:
-      themeObject = MyGame::Instance->Theme->CommandBarButtonTurnLeft90Degrees;
+    case ProgramCommandLeft:
+      themeObject = MyGame::Instance->Theme->CommandBarButtonTurnLeft;
       break; 
-    case ProgramCommandTurnRight90Degrees:
-      themeObject = MyGame::Instance->Theme->CommandBarButtonTurnRight90Degrees;
+    case ProgramCommandRight:
+      themeObject = MyGame::Instance->Theme->CommandBarButtonTurnRight;
       break; 
     case ProgramCommandJump:
       themeObject = MyGame::Instance->Theme->CommandBarButtonJump;
       break; 
-    case ProgramCommandSwitchLightSwitch:
-      themeObject = MyGame::Instance->Theme->CommandBarButtonSwitchLightSwitch;
+    case ProgramCommandSwitch:
+      themeObject = MyGame::Instance->Theme->CommandBarButtonSwitch;
       break; 
     case ProgramCommandFunction1:
       themeObject = MyGame::Instance->Theme->CommandBarButtonFunction1;
@@ -48,7 +48,7 @@ void CommandBarButton::CommandSet(ProgramCommand programCommand)
   this->CurrentThemeObject = new ThemeObject(themeObject);
 }
 
-ProgramCommand CommandBarButton::CommandGet()
+ProgramCommandData CommandBarButton::CommandGet()
 {
   return this->_command;
 }
@@ -68,13 +68,14 @@ void CommandBarButton::MouseOffsetCalculate()
 void CommandBarButton::Update()
 {
   static int x = 0;
-
-  if ( this->_command == ProgramCommandNone )
+  Vector2D v;
+  if ( this->_command.Command == ProgramCommandNone )
   { return; }
 
   if ( MyGame::Instance->Input->Mouse->GetCapture() == this )
   {
-    this->PositionAndSize(&this->PositionFromMouseOffset(),this->Size.Width,this->Size.Height);          
+    v = this->PositionFromMouseOffset();
+    this->PositionAndSize(&v,this->Size.Width,this->Size.Height);          
     if ( MyGame::Instance->Input->Mouse->LeftButton == MouseButtonDown  )
     {
       ;
@@ -105,7 +106,7 @@ void CommandBarButton::Update()
         }
         this->Bar->DragButtonSource = this;
         if ( this->Bar->CanReceiveCommands )
-        { this->CommandSet(ProgramCommandNone); }
+        { this->CommandSet(ProgramCommandData(ProgramCommandNone)); }
         this->Bar->DragButton->Position = this->Position;
         this->Bar->DragButton->MouseOffsetCalculate();
           
@@ -113,6 +114,7 @@ void CommandBarButton::Update()
         this->Bar->DragButton->PositionAndSize(&this->Position,this->Size.Width,this->Size.Height);          
       }
     }    
+        
   }
   Buttn::Update();
 }

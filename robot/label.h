@@ -14,7 +14,9 @@ public:
   string Text;
   TextAlign TextAlignment;
   Color* ForeColorGet();
+  void ForeColorSet(Color c);
   GameFont* FontGet();
+  
 private: 
   Color* _foreColor;
   GameFont* _font;

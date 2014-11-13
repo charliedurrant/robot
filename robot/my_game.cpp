@@ -24,8 +24,10 @@ void MyGame::Init()
   State* state;
   string path;
   string applicationPath;
+  
   try
   {
+     Game::Init();
      applicationPath = Functions::ApplicationPath();
      this->Settngs = new Settings();
 
@@ -45,8 +47,7 @@ void MyGame::Init()
   }
   catch (Exception* ex)
   {     
-     this->States->Push(new ErrorState("Failed to create the game",ex));
-     //throw Exception("Failed to create the game",ex);
+     throw new Exception("Failed to init the game", ex); 
   }
 }
 
@@ -70,7 +71,22 @@ Rotation MyGame::Rotate90Degrees(Rotation currentRotation, bool clockwise)
   }
 }
 
+bool MyGame::ErrorStatePush(const string& message, Exception* ex)
+{
+  ErrorState* errorState;
+  if ((this->States == nullptr) || (this->SystemFont == nullptr) )
+  {
+    Functions::ErrorMessageConsole(message, ex);
+  }
+  else
+  {
+    errorState = new ErrorState(message, ex);
+    this->States->Push(errorState);
+    return true;
+  }
+  return false;
 
+}
 PlayState* MyGame::PlyState()
 {
   return (PlayState*)this->States->Current();

@@ -13,11 +13,11 @@ public:
   ThemeObject* BoardBoardRotationArrowAntiClockwise;
   ThemeObject* Robot;
   ThemeObject* Tile2;
-  ThemeObject* CommandBarButtonMoveForward;
-  ThemeObject* CommandBarButtonTurnRight90Degrees;
-  ThemeObject* CommandBarButtonTurnLeft90Degrees;
+  ThemeObject* CommandBarButtonForward;
+  ThemeObject* CommandBarButtonTurnRight;
+  ThemeObject* CommandBarButtonTurnLeft;
   ThemeObject* CommandBarButtonNone;
-  ThemeObject* CommandBarButtonSwitchLightSwitch;
+  ThemeObject* CommandBarButtonSwitch;
   ThemeObject* CommandBarButtonFunction1;
   ThemeObject* CommandBarButtonFunction2;
   ThemeObject* CommandBarButtonJump;

@@ -6,6 +6,8 @@ using namespace std;
 
 Color::Color(void)
 {
+  _color.r = _color.g = _color.b = 0;
+  _color.a = 255;
 }
 
 Color::Color(string hexValue)
@@ -16,6 +18,11 @@ Color::Color(string hexValue)
   _color.g = (decimalValue & 0x00ff00) >> 8;;
   _color.b = (decimalValue & 0x0000ff);
   _color.a = 0;
+}
+
+Color::Color(const Color& ref)
+{
+  //this->_color = ref.Col();
 }
 
 Color::~Color(void)

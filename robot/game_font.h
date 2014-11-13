@@ -23,4 +23,5 @@ class GameFont
     int PointSize;
     TTF_Font* Font;    
     string Family;
+
 };

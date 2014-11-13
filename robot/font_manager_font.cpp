@@ -5,6 +5,10 @@
 FontManagerFont::FontManagerFont(string family, string pathAndFile)
 {
   this->Family = family;
+  if (!Functions::FileExists(pathAndFile))
+  {
+    throw new Exception(str(fmt::Format("The font file '{0}' does not exist, it is not possible to create a FontManagerFont") << pathAndFile));
+  }
   this->PathAndFile = pathAndFile;
 }
 

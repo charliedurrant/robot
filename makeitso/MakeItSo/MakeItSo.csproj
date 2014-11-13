@@ -36,7 +36,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\outputDebug\</OutputPath>
+    <OutputPath>..\..\tools\makeitso\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DebugType>full</DebugType>
@@ -46,7 +46,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <OutputPath>..\output\</OutputPath>
+    <OutputPath>..\..\tools\makeitso\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -84,6 +84,10 @@
     <ProjectReference Include="..\MakeItSoLib\MakeItSoLib.csproj">
       <Project>{EF45162C-2901-49FE-A4DF-67223B44E61C}</Project>
       <Name>MakeItSoLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SolutionParser_VS2012\SolutionParser_VS2012.csproj">
+      <Project>{9a2a7a58-56d3-4abf-8250-08a89b71a8e1}</Project>
+      <Name>SolutionParser_VS2012</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

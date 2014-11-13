@@ -23,6 +23,29 @@ void Functions::Init(char* applicationExePath)
   Functions::_applicationExePath = Functions::Trim(path); 
 }
 
+string Functions::ErrorMessageString(const string& message, Exception* ex)
+{
+  string text;
+  
+  text = message;
+
+  if (ex != nullptr)
+  {
+    text = string("An error has occured in the application:") + NEWLINE + NEWLINE + message + NEWLINE + NEWLINE + ex->ToString();
+  }
+
+  return text;
+}
+
+void Functions::ErrorMessageConsole(const string& message, Exception* ex)
+{
+  string text;
+  //SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, (string("An exception occured in the application: ") + ex->Message).c_str());
+  text = Functions::ErrorMessageString(message, ex);
+  SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, text.c_str());
+}
+
+
 float Functions::SinDegrees(float angleInDegrees)
 {
   float param;

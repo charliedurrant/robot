@@ -9,6 +9,8 @@ class Color
 public:
   Color(void);
   Color(string hexValue);
+  //copy constructor
+  Color(const Color& ref);
 
   ~Color(void);
   Uint8 Red();

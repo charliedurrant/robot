@@ -103,7 +103,7 @@ void GameObject::Update()
     _children->Update();
   }
 
-  if ((Game::GameInstance->Input->Mouse->LeftButton == MouseButtonClicked) && this->ContainsMouse() )
+  if (this->LeftMousebuttonClicked())
   { 
     captured = Game::GameInstance->Input->Mouse->GetCapture();
     if ( (captured != nullptr && captured == this) || captured == nullptr )
@@ -117,6 +117,17 @@ void GameObject::Update()
   }
 }
 
+
+bool GameObject::LeftMousebuttonClicked()
+{
+  return (Game::GameInstance->Input->Mouse->LeftButton == MouseButtonClicked) && this->ContainsMouse();
+}
+
+bool GameObject::LeftMousebuttonDown()
+{
+  return (Game::GameInstance->Input->Mouse->LeftButton == MouseButtonDown) && this->ContainsMouse();
+}
+
 void GameObject::UpdateThemeObject(GameObject* gameObject,ThemeObject* themeObject)
 {
   size_t i, length;
@@ -124,14 +135,14 @@ void GameObject::UpdateThemeObject(GameObject* gameObject,ThemeObject* themeObje
   
   length = themeObject->ObjectImages.size();
   //this is where we change the frames / alpha etc and decide if it renders??
-  if ( gameObject  && gameObject->ContainsMouse() )
+  if ( gameObject && gameObject->ContainsMouse() )
   {
     for( i = 0; i < length; i++ )
     {
       themeObjectImage = themeObject->ObjectImages[i]; 
       themeObjectImage->Render = themeObjectImage->MouseOver;
       if ( Game::GameInstance->Input->Mouse->LeftButton )
-      { themeObjectImage->Render = themeObjectImage->MouseDown; }
+      { themeObjectImage->Render = themeObjectImage->MouseDown ; }
     }
   }
   else
@@ -265,7 +276,7 @@ void GameObject::RenderDebugInfo()
   this->RenderDebugInfo(this->Rentangle().ToString());  
 }
 
-void GameObject::RenderDebugInfo(string& text)
+void GameObject::RenderDebugInfo(const string& text)
 {
   RECT_FRAMEWORK r;
 

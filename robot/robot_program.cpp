@@ -45,7 +45,7 @@ void RobotProgram::Clear()
 {
   this->_stack.clear();
 }
-void RobotProgram::LoadCommandsToStack(vector<ProgramCommand>* _commands)
+void RobotProgram::LoadCommandsToStack(vector<ProgramCommandData>* _commands)
 {
   size_t i;
 
@@ -55,9 +55,9 @@ void RobotProgram::LoadCommandsToStack(vector<ProgramCommand>* _commands)
   }
 }
 
-vector<ProgramCommand>* RobotProgram::FunctionCommands(ProgramCommand command)
+vector<ProgramCommandData>* RobotProgram::FunctionCommands(ProgramCommandData command)
 {
-  switch( command )
+  switch( command.Command )
   {
     case ProgramCommandFunction1:
       return  &this->_function1;
@@ -68,20 +68,21 @@ vector<ProgramCommand>* RobotProgram::FunctionCommands(ProgramCommand command)
   }
 }
 
-bool RobotProgram::CommandIsFunction(ProgramCommand command)
+bool RobotProgram::CommandIsFunction(ProgramCommandData command)
 {
-  return command < ProgramCommandCountOfFunctions;  
+  return command.Command < ProgramCommandCountOfFunctions;  
 }
 
-ProgramCommand RobotProgram::NextCommand()
+ProgramCommandData RobotProgram::NextCommand()
 {
-  ProgramCommand command = ProgramCommandEnd;
-  vector<ProgramCommand>* functionCommands;
+  ProgramCommandData command;
+  vector<ProgramCommandData>* functionCommands;
   
   if ( this->_stack.size() == 0 )
-  { command = ProgramCommandEnd; }
+  { command.Command =  ProgramCommandEnd; }
   else
   {
+    command.Command = ProgramCommandEnd;
     while ( this->_stack.size() > 0 && this->CommandIsFunction(command = this->_stack.back()) )
     {
       this->_stack.pop_back();
@@ -89,7 +90,7 @@ ProgramCommand RobotProgram::NextCommand()
       functionCommands = this->FunctionCommands(command);
       if ( functionCommands->size() > 0 )
       {
-        if ( functionCommands->front() != command ) //never ending check
+        if ( functionCommands->front().Command != command.Command ) //never ending check
         {
           this->LoadCommandsToStack(functionCommands);
         }
@@ -101,18 +102,18 @@ ProgramCommand RobotProgram::NextCommand()
     }
     else
     {
-      command = ProgramCommandEnd;
+      command.Command = ProgramCommandEnd;
     }
   }       
   return command;  
 }
 
 //TODO: naff code, need to have a bunch of classess so we can easily convert, ProgramCommandData(string functionName, ProgramCommand command)
-string RobotProgram::CommandToFunctionString(ProgramCommand command)
+string RobotProgram::CommandToFunctionString(ProgramCommandData command)
 {
   string line;
 
-  switch( command )
+  switch( command.Command )
   {
     case ProgramCommandFunction1: //TODO const for the commands and have an in out function, command to text, text to command with bool param to decide in or out
       line = "function1()";
@@ -120,20 +121,20 @@ string RobotProgram::CommandToFunctionString(ProgramCommand command)
     case ProgramCommandFunction2:
       line = "function2()";
       break;
-    case ProgramCommandMoveForward:
-      line = "move_forward()";
+    case ProgramCommandForward:
+      line = "forward()";
       break;
-    case ProgramCommandTurnLeft90Degrees:
-      line = "turn_left_90_degrees()";
+    case ProgramCommandLeft:
+      line = "left()";
       break;
-    case ProgramCommandTurnRight90Degrees:
-      line = "turn_right_90_degrees()";
+    case ProgramCommandRight:
+      line = "right()";
       break;
     case ProgramCommandJump:
       line = "jump()";
       break;
-    case ProgramCommandSwitchLightSwitch:
-      line = "switch_light_switch()";
+    case ProgramCommandSwitch:
+      line = "switch()";
       break;
     default:
       line = "";
@@ -142,21 +143,23 @@ string RobotProgram::CommandToFunctionString(ProgramCommand command)
   return line;
 }
 
-//very simple pythin parser, we just look for def main,function1,function2: and then load the commands into each vector
-void RobotProgram::Parse(string program)
+//very simple python parser, we just look for def main,function1,function2: and then load the commands into each vector
+void RobotProgram::Parse(const string& program)
 {
   size_t p0;
+  int lineNumber = 0;
   std::stringstream strengStreamProgram(program);
   std::string line;
-  vector<ProgramCommand>* function;
+  vector<ProgramCommandData>* function;
   ProgramCommand command;
   _main.clear();
   _function1.clear();
   _function2.clear();
-  
+  ProgramCommandData programCommandData;
   function = & _main;
   while(std::getline(strengStreamProgram,line,'\n'))
   {
+    lineNumber++;
     line = Functions::Trim(line);
     if ( line.length() == 0 )
     { continue; }
@@ -178,24 +181,34 @@ void RobotProgram::Parse(string program)
     { function = &_function2;  }
     else
     {      
-       if ( line == "move_forward()")
-       { command = ProgramCommandMoveForward; }
-       else if ( line == "turn_right_90_degrees()" )
-       { command = ProgramCommandTurnRight90Degrees; }
-       else if ( line == "turn_left_90_degrees()" )
-       { command = ProgramCommandTurnLeft90Degrees; }
+       if ( line == "forward()")
+       { command = ProgramCommandForward; }
+       else if ( line == "right()" )
+       { command = ProgramCommandRight; }
+       else if ( line == "left()" )
+       { command = ProgramCommandLeft; }
        else if ( line == "jump()" )
        { command = ProgramCommandJump; }
-       else if ( line == "switch_light_switch()" )
-       { command = ProgramCommandSwitchLightSwitch; }
+       else if ( line == "switch()" )
+       { command = ProgramCommandSwitch; }
        else if ( line == "function1()" )
        { command = ProgramCommandFunction1; }
        else if ( line == "function2()" )
        { command = ProgramCommandFunction2; }
        else
        { continue; }
-       function->push_back(command); 
+       programCommandData.Command = command;
+       programCommandData.LineNumber = lineNumber;
+       function->push_back(programCommandData);
     }
   }
+
+  
+}
+
+void RobotProgram::Compile()
+{
+  this->Clear();
   this->LoadCommandsToStack(&_main);
 }
+

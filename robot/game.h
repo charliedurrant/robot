@@ -16,14 +16,15 @@ class Game
     void OpenGLTest();
     #endif
     //open gl test 
+    void Loop();
   public:
     Game(void);
     ~Game(void);
     void Run();
     Window *WindowMain;  
     InputHandler* Input;  
-    virtual void Update();
-    virtual void Render();
+    void Update();
+    void Render();
     virtual void Init();
     void Quit();
     bool Quitted();
@@ -41,12 +42,12 @@ class Game
     int TicksLastUpdate;
     int TicksDeltaUpdate;
     float SecondsDeltaUpdate;
+    virtual bool ErrorStatePush(const string& message, Exception* ex);
   protected:
     bool _quit;  
     bool _sdlInited;
     unsigned int _nextTime;      
   private:
-    void Construct();
     void CalculateCurrentFramesPerSecond();
 };
 

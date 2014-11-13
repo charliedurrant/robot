@@ -78,8 +78,10 @@ void HeadUpDisplay::Update()
 void HeadUpDisplay::Render()
 {
   string s;
+  RECT_FRAMEWORK r;
   s = this->_rendererInfo + string("\n") + this->_text;
-  MyGame::Instance->WindowMain->RenderText(s, MyGame::Instance->Theme->FontGeneral, MyGame::Instance->SystemFontColor, &(this->Rentangle()));
+  r = this->Rentangle();
+  MyGame::Instance->WindowMain->RenderText(s, MyGame::Instance->Theme->FontGeneral, MyGame::Instance->SystemFontColor, &r);
 }
 
 void HeadUpDisplay::RenderDebugInfo()

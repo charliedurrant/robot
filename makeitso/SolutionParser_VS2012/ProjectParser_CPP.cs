@@ -97,7 +97,7 @@ namespace SolutionParser_VS2012
 
             ProjectConfigurationInfo_CPP configurationInfo = new ProjectConfigurationInfo_CPP();
             configurationInfo.ParentProjectInfo = m_projectInfo;
-            configurationInfo.Name = configName + "_" + platformName;
+            configurationInfo.Name = configName; // + "_" + platformName;
 
             // The project type. 
             // Note: we are assuming that all the configurations for the project build the
@@ -106,7 +106,29 @@ namespace SolutionParser_VS2012
 
             // We get the intermediates and output folder, and the Target Name.
             configurationInfo.IntermediateFolder = parseConfiguration_Folder(vcConfiguration, () => (vcConfiguration.IntermediateDirectory));
+
+
+            if (configurationInfo.IntermediateFolder.IndexOf("\\Debug\\") != -1 )
+            {
+              configurationInfo.IntermediateFolder = "Debug";
+            }
+            else if (configurationInfo.IntermediateFolder.IndexOf("\\Release\\") != -1)
+            {
+              configurationInfo.IntermediateFolder = "Release";
+            }
+
             configurationInfo.OutputFolder = parseConfiguration_Folder(vcConfiguration, () => (vcConfiguration.OutputDirectory));
+
+            if (configurationInfo.OutputFolder.IndexOf("\\Debug\\") != -1)
+            {
+              configurationInfo.OutputFolder = "..\\Debug";
+            }
+            else if (configurationInfo.OutputFolder.IndexOf("\\Release\\") != -1)
+            {
+              configurationInfo.OutputFolder = "..\\Release";
+            }
+
+
             configurationInfo.TargetName = parseConfiguration_TargetName(vcConfiguration);
 
             // We get compiler settings, such as the include path and 

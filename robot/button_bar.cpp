@@ -157,3 +157,8 @@ void ButtonBar::Resize(int width, int height)
   }
 }
 
+
+Buttn* ButtonBar::Button(int index)
+{
+  return (Buttn*)this->Children()->Item((size_t)index);
+}

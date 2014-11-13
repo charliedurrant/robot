@@ -39,7 +39,9 @@ enum Rotation
 #include "head_up_display.h"
 
 #include "board.h"
+
 #include "label.h"
+#include "program_text.h"
 
 #include "button.h"
 #include "button_bar.h"
@@ -50,9 +52,12 @@ enum Rotation
 #include "board_rotation_arrow.h"
 
 #include "error_state.h"
+
 #include "menu_item.h"
 #include "menu_state.h"
+
 #include "menu_play_state.h"
+#include "program_function_command_bar.h"
 #include "play_state.h"
 
 #include "my_game.h"

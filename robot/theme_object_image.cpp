@@ -90,6 +90,8 @@ ThemeObjectImage::ThemeObjectImage (BaseGameTheme* theme, TiXmlElement* xmlEleme
     this->MouseOut = Functions::XMLAttributeBool(xmlElement,"mouse_out",false);
   }
 
+ 
+
   this->AutomaticallyCalculateFrame = Functions::XMLAttributeBool(xmlElement,"automatically_calculate_frame",true);
   
   this->Flip = FlipTypeNone;
